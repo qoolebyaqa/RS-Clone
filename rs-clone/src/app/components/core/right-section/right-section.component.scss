@@ -1,0 +1,31 @@
+.right-section {
+  max-width: 400px;
+}
+.top-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 5px;
+  .calendar,
+  .agenda,
+  .mentions {
+    display: flex;
+    align-items: center;
+    width: 28%;
+    border-right: 1px solid rgb(225, 215, 215);
+  }
+  p {
+    text-align: center;
+  }
+}
+.calendar:hover,
+.agenda:hover,
+.mentions:hover {
+  cursor: pointer;
+  background-color: rgb(252, 252, 248);
+}
+.active-btn {
+  color: rgb(157, 157, 233);
+}
+.passive-btn {
+  color: black;
+}

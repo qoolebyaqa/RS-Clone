@@ -1,0 +1,24 @@
+.calendar__wrapper {
+  max-width: 400px;
+}
+.calendar__outlayer {
+  display: flex;
+  justify-content: space-between;
+}
+.calendar__hide-container {
+  display: flex;
+  padding-right: 20px;
+}
+.calendar__date-info-row {
+  display: flex;
+  justify-content: space-around;
+  button {
+    border: none;
+    background-color: white;
+  }
+}
+.calendar__field {
+  height: 80vh;
+  background-color: rgb(243, 243, 243);
+}
+

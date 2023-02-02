@@ -1,0 +1,28 @@
+.agenda__wrapper {
+  max-width: 400px;
+}
+.agenda__outlayer {
+  display: flex;
+  justify-content: space-between;
+}
+.agenda__hide-container {
+  display: flex;
+  padding-right: 20px;
+}
+.agenda__date-info-row {
+  display: flex;
+  justify-content: space-around;
+  button {
+    border: none;
+    background-color: white;
+  }
+}
+.agenda__field {
+  height: 80vh;
+  background-color: rgb(243, 243, 243);
+  display: flex;
+  align-items: center;
+}
+.agenda__note {
+  text-align: center;
+}
