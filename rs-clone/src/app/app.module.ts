@@ -10,6 +10,7 @@ import { RightSectionComponent } from './components/core/right-section/right-sec
 import { CalendarComponent } from './components/core/right-section/calendar/calendar.component';
 import { AgendaComponent } from './components/core/right-section/agenda/agenda.component';
 import { MentionesComponent } from './components/core/right-section/mentiones/mentiones.component';
+import { TaskPopUpComponent } from './components/core/right-section/task-pop-up/task-pop-up.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { MentionesComponent } from './components/core/right-section/mentiones/me
     CalendarComponent,
     AgendaComponent,
     MentionesComponent,
+    TaskPopUpComponent,
   ],
   imports: [
     BrowserModule,

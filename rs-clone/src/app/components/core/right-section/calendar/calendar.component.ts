@@ -27,6 +27,7 @@ export class CalendarComponent {
     let dateToPaste: Date = new Date();
     dateToPaste.setTime(dateInInput.getTime() + 86400000);
     dateInput.value = dateToPaste.toDateString();
+    console.log((new Date(dateInput.value)).toLocaleDateString());
   }
 
   previousDay () {

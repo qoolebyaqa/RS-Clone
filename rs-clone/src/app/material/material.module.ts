@@ -10,6 +10,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatInputModule } from '@angular/material/input'
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 const MaterialComponents = [
   MatMenuModule,
@@ -23,6 +24,7 @@ const MaterialComponents = [
   MatFormFieldModule,
   MatExpansionModule,
   MatNativeDateModule,
+  DragDropModule
 ];
 
 @NgModule({

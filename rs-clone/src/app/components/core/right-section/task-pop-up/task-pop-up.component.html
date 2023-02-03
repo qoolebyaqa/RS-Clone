@@ -1,0 +1,41 @@
+<div class="popup__wrapper">
+  <form class="popup__form" id="task-form" >
+    <div class="popup__controls">
+      <div class="controls__status"></div>
+      <input type="text" class="controls__nametask" placeholder="Task name or type, use '/' for commands">
+      <button class="controls__minimizer"><mat-icon>archive</mat-icon></button>
+      <button class="controls__closer"><mat-icon>close</mat-icon></button>
+    </div>
+    <div class="popup__settings">
+      <p class="settings__pre-text">In</p>
+      <input class="settings__search" type="search">
+      <p class="settings__pre-text">For</p>
+      <div class="settings__members-list"><mat-icon>group_add</mat-icon></div>
+    </div>
+    <textarea name="text" form="task-form" cols="30" rows="10" placeholder="Description or type, use '/' for commands"></textarea>
+    <div class="popup__adders">
+      <div class="adders__subtask">
+        <span><mat-icon>add_circle_outline</mat-icon>Add subtask</span>
+      </div>
+      <div class="adders__checklist">
+        <span><mat-icon>add_circle_outline</mat-icon>Add checklist</span>
+      </div>
+    </div>
+    <div class="popup__filehost">
+      <div class="filehost__atachments">
+        <p class="filehost__pretext">Attachments</p>
+        <mat-form-field appearance="fill">
+          <mat-select [disabled]="disableSelect.value">
+            <mat-option value="Upload">Upload</mat-option>
+            <mat-option value="From Youtube">From Youtube</mat-option>
+            <mat-option value="Location">Location</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div class="filehost__dragdrop">
+
+          <span class="filehost__dd-instruct">Drag and drop files here</span>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
