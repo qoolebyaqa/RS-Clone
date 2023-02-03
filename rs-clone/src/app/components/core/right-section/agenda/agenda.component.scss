@@ -1,6 +1,4 @@
-.agenda__wrapper {
-  max-width: 400px;
-}
+
 .agenda__outlayer {
   display: flex;
   justify-content: space-between;
@@ -12,9 +10,20 @@
 .agenda__date-info-row {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   button {
     border: none;
     background-color: white;
+    height: 50%;
+    border-radius: 150%;
+  }
+
+  .agenda__right-btn:hover,
+  .agenda__gotoday:hover,
+  .agenda__left-btn:hover,
+  .agenda__task-settings:hover {
+    cursor: pointer;
+    background-color: rgb(243, 243, 243);
   }
 }
 .agenda__field {

@@ -12,10 +12,18 @@
       <div class="agenda__date-container">
         <div class="agenda__date-info-row">
           <div class="agenda__selected-date">
-            <input type="date">
+            <mat-form-field appearance="fill">
+              <input matInput [matDatepicker]="picker" value = {{now}} placeholder= {{now}}>
+              <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
           </div>
-          <button class="agenda__left-btn"><</button>
-          <button class="agenda__left-btn">></button>
+          <button class="agenda__left-btn"
+          (click)="this.previousDay()"
+          ><</button>
+          <button class="agenda__left-btn"
+          (click)="this.nextDay()"
+          >></button>
           <button class="agenda__gotoday">Today</button>
           <button class="agenda__task-settings">...</button>
         </div>

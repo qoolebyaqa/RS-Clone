@@ -18,7 +18,7 @@ import { MentionesComponent } from './components/core/right-section/mentiones/me
     RightSectionComponent,
     CalendarComponent,
     AgendaComponent,
-    MentionesComponent
+    MentionesComponent,
   ],
   imports: [
     BrowserModule,
