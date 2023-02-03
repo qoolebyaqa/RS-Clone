@@ -1,1 +1,91 @@
-<p>home works!</p>
+<div class="home__page">
+    <div class="home__page-container">
+        <div class="header">
+            <div class="header__container">
+                <div class="header__title">Home</div>
+            </div>
+        </div>
+        <div class="main__content">
+            <div class="tasks__content">
+                <div class="line__container">
+                    <div class="title">
+                        LineUp
+                    </div>
+                    <button class="add-task">+ Add your most important task here.</button>
+                </div>
+                <div class="trending__container">
+                    <div class="title">
+                        Tranding
+                    </div>
+                    <div class="trending__task">
+                        You have no trending tasks.
+                    </div>
+                </div>
+                <div class="title">My work</div>
+                <div class="content__block">
+                    <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
+                        <mat-tab label="To Do">
+                            <div class="today">
+                                <mat-accordion>
+                                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>
+                                                Today
+                                            </mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <div class="empty-comments__block">
+                                            <img src="../../../../assets/sanbath_chill.c222e99cb795da04825a964e52e5648b.png" alt="chill-man">
+                                            <p class="comments__title">Woohoo, you're all done!</p>
+                                            <div class="comments__text">Tasks and Reminders that are scheduled for Today will appear here.</div>
+                                        </div>
+                                    </mat-expansion-panel>
+                                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>
+                                                Overdue
+                                            </mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <p class="empty-overdue__block">No overdue tasks or reminders scheduled.</p>
+                                    </mat-expansion-panel>
+                                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>
+                                                Next
+                                            </mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <p>No upcoming tasks or reminders scheduled.</p>
+                                    </mat-expansion-panel>
+                                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>
+                                                Unscheduled
+                                            </mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <p>No unscheduled tasks assigned to you.</p>
+                                    </mat-expansion-panel>
+                                </mat-accordion>
+                            </div>
+                        </mat-tab>
+                        <mat-tab label="Comments">
+                            <div class="empty-comments__block">
+                                <img src="../../../../assets/sanbath_chill.c222e99cb795da04825a964e52e5648b.png" alt="chill-man">
+                                <p class="comments__title">Woohoo, you're all done!</p>
+                                <div class="comments__text">You have no assigned comments</div>
+                            </div>
+                        </mat-tab>
+                        <mat-tab label="Done">
+                            <div class="mat-title">Done</div>
+                        </mat-tab>
+                        <mat-tab label="Delegated">
+                            <div class="mat-text">Forgetting? Forget about it! Delegate a reminder to make sure it gets done.
+                                Assign a reminder to someone and keep track of it here. You can also see reminders you delegate in anyone's profile.</div>
+                            <button class="mat-button"><a href="https://help.clickup.com/hc/en-us/articles/6325931822359-Delegate-reminders">Learn more about delegating</a></button>
+                        </mat-tab>
+
+                    </mat-tab-group>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
