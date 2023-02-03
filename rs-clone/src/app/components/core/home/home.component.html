@@ -1,1 +1,81 @@
-<p>home works!</p>
+<div class="home__page">
+    <div class="home__page-container">
+        <div class="header">
+            <div class="header__container">
+                <div class="header__title">Home</div>
+            </div>
+            <div class="header__list">
+                <ul>
+                    <li class="header__calendar">Calendar</li>
+                    <li class="header__agenta">Agenta</li>
+                    <li class="header__mentions">Mentions</li>
+                </ul>
+            </div>
+        </div>
+        <div class="main__content">
+            <div class="tasks__content">
+                <div class="line__container">
+                    <div class="title">
+                        LineUp
+                    </div>
+                    <button class="add-task">+ Add your most important task here.</button>
+                </div>
+                <div class="trending__container">
+                    <div class="title">
+                        Tranding
+                    </div>
+                    <div class="trending__task">
+                        You have no trending tasks.
+                    </div>
+                </div>
+                <div class="title">My work</div>
+                <div class="content__block">
+                    <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
+                        <mat-tab label="To Do">
+                            <div class="today">
+                                <mat-accordion>
+                                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>
+                                                Today
+                                            </mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <p>I'm visible because I am open</p>
+                                    </mat-expansion-panel>
+                                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>
+                                                Overdue
+                                            </mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <p>I'm visible because I am open</p>
+                                    </mat-expansion-panel>
+                                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>
+                                                Next
+                                            </mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <p>I'm visible because I am open</p>
+                                    </mat-expansion-panel>
+                                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>
+                                                Unscheduled
+                                            </mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <p>I'm visible because I am open</p>
+                                    </mat-expansion-panel>
+                                </mat-accordion>
+                            </div>
+                        </mat-tab>
+                        <mat-tab label="Comments">Content 2</mat-tab>
+                        <mat-tab label="Done">Content 3</mat-tab>
+                        <mat-tab label="Delegated">Content 3</mat-tab>
+                    </mat-tab-group>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
