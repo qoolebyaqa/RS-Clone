@@ -13,6 +13,7 @@ import { MentionesComponent } from './components/core/right-section/mentiones/me
 import { TaskPopUpComponent } from './components/core/right-section/task-pop-up/task-pop-up.component';
 import { BottomSheetComponent } from './bottom-sheet/bottom-sheet.component';
 import { ReminderSheetComponent } from './reminder-sheet/reminder-sheet.component';
+import { NotificationsComponent } from './components/core/notifications/notifications.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ReminderSheetComponent } from './reminder-sheet/reminder-sheet.componen
     TaskPopUpComponent,
     BottomSheetComponent,
     ReminderSheetComponent,
+    NotificationsComponent,
   ],
   imports: [
     BrowserModule,
