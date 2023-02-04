@@ -1,0 +1,29 @@
+<div class="right-section">
+  <div class="top-wrapper">
+    <div class="calendar"
+    (click)="calendar = !calendar; agenda = false; mentions = false">
+      <mat-icon>date_range</mat-icon>
+      <p class="calendar-text">Calendar</p>
+    </div>
+    <div class="agenda"
+    (click)="agenda = !agenda; calendar = false; mentions = false"
+    >
+      <mat-icon>list</mat-icon>
+      <p class="agenda-text">Agenda</p>
+    </div>
+    <div class="mentions"
+    (click)="mentions = !mentions; calendar = false; agenda = false"
+    >
+      <mat-icon>track_changes</mat-icon>
+      <p class="mentions-text">Mentions-<span class="mentions-counter">0</span></p>
+    </div>
+  </div>
+  <app-calendar *ngIf="calendar"></app-calendar>
+  <app-agenda *ngIf="agenda"></app-agenda>
+  <app-mentiones *ngIf="mentions"></app-mentiones>
+  <button class="popup__open"
+  (click)="addTask = !addTask"
+  >+ Task</button>
+</div>
+
+<app-task-pop-up *ngIf="addTask"></app-task-pop-up>

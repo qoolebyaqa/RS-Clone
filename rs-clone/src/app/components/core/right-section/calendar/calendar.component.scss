@@ -1,0 +1,33 @@
+
+.calendar__outlayer {
+  display: flex;
+  justify-content: space-between;
+}
+.calendar__hide-container {
+  display: flex;
+  padding-right: 20px;
+}
+.calendar__date-info-row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  button {
+    border: none;
+    background-color: white;
+    height: 50%;
+    border-radius: 150%;
+  }
+
+  .calendar__left-btn:hover,
+  .calendar__right-btn:hover,
+  .calendar__gotoday:hover,
+  .calendar__task-settings:hover {
+    cursor: pointer;
+    background-color: rgb(243, 243, 243);
+  }
+
+}
+.calendar__field {
+  height: 80vh;
+  background-color: rgb(243, 243, 243);
+}

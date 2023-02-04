@@ -1,0 +1,35 @@
+<div class="agenda">
+  <div class="agenda__wrapper">
+    <div class="agenda__outlayer">
+      <h2 class="agenda__title">Agenda</h2>
+      <div class="agenda__hide-container">
+        <svg class="agenda__close" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20px">
+          <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
+        </svg>
+      </div>
+    </div>
+    <div class="agenda__body">
+      <div class="agenda__date-container">
+        <div class="agenda__date-info-row">
+          <div class="agenda__selected-date">
+            <mat-form-field appearance="fill">
+              <input matInput [matDatepicker]="picker" value = {{now}} placeholder= {{now}}>
+              <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <button class="agenda__left-btn"
+          (click)="this.previousDay()"
+          ><</button>
+          <button class="agenda__left-btn"
+          (click)="this.nextDay()"
+          >></button>
+          <button class="agenda__gotoday">Today</button>
+          <button class="agenda__task-settings">...</button>
+        </div>
+      </div>
+    </div>
+    <div class="agenda__field"><p class="agenda__note">Tasks & Reminders due on the selected date will appear here.</p></div>
+  </div>
+</div>
+

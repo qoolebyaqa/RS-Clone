@@ -1,0 +1,7 @@
+.home__page {
+  display: flex;
+  justify-content: space-between;
+}
+.home__page-container {
+  flex-grow: 3;
+}

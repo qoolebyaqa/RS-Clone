@@ -1,0 +1,49 @@
+.right-section {
+  width: 420px;
+}
+.top-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 5px;
+  .calendar,
+  .agenda,
+  .mentions {
+    display: flex;
+    align-items: center;
+    width: 28%;
+    border-right: 1px solid rgb(225, 215, 215);
+  }
+  p {
+    text-align: center;
+  }
+}
+.calendar:hover,
+.agenda:hover,
+.mentions:hover {
+  cursor: pointer;
+  background-color: rgb(252, 252, 248);
+}
+.active-btn {
+  color: rgb(157, 157, 233);
+}
+.passive-btn {
+  color: black;
+}
+.popup__open {
+  position: absolute;
+  z-index: 2;
+  bottom: 50px;
+  right: 50px;
+  background-color: blueviolet;
+  font-size: 100%;
+  font-weight: 700;
+  border: none;
+  border-radius: 25px;
+  width: 100px;
+  height: 60px;
+  transition: all 0.4s ease-in-out;
+}
+.popup__open:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
