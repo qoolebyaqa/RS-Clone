@@ -29,7 +29,12 @@
         </div>
       </div>
     </div>
-    <div class="calendar__field"></div>
+    <div class="calendar__field">
+      <p class="calendar__timeArr" *ngFor="let item of Timepicker()">{{item}}
+        <button class="halfday">1st half</button>
+        <button class="halfday">2nd half</button>
+      </p>
+    </div>
   </div>
 </div>
 

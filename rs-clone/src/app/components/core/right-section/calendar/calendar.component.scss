@@ -31,3 +31,15 @@
   height: 80vh;
   background-color: rgb(243, 243, 243);
 }
+.calendar__timeArr {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+}
+.halfday {
+  border: none;
+  font-size: 16px;
+}
+.halfday:hover {
+  cursor: pointer;
+}
