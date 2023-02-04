@@ -6,11 +6,15 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { HomeComponent } from './components/core/home/home.component';
+import { BottomSheetComponent } from './bottom-sheet/bottom-sheet.component';
+import { ReminderSheetComponent } from './reminder-sheet/reminder-sheet.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    BottomSheetComponent,
+    ReminderSheetComponent,
   ],
   imports: [
     BrowserModule,

@@ -30,7 +30,9 @@
                                     <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
                                         <mat-expansion-panel-header>
                                             <mat-panel-title>
-                                                Today
+                                                <p>Today</p>
+                                                <button mat-button (click)="openBottomSheet()">+ Task</button>
+                                                <button mat-button (click)="openReminderSheet()">+ Reminder</button>
                                             </mat-panel-title>
                                         </mat-expansion-panel-header>
                                         <div class="empty-comments__block">
