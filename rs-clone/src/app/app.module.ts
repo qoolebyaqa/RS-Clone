@@ -11,6 +11,8 @@ import { CalendarComponent } from './components/core/right-section/calendar/cale
 import { AgendaComponent } from './components/core/right-section/agenda/agenda.component';
 import { MentionesComponent } from './components/core/right-section/mentiones/mentiones.component';
 import { TaskPopUpComponent } from './components/core/right-section/task-pop-up/task-pop-up.component';
+import { BottomSheetComponent } from './bottom-sheet/bottom-sheet.component';
+import { ReminderSheetComponent } from './reminder-sheet/reminder-sheet.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { TaskPopUpComponent } from './components/core/right-section/task-pop-up/
     AgendaComponent,
     MentionesComponent,
     TaskPopUpComponent,
+    BottomSheetComponent,
+    ReminderSheetComponent,
   ],
   imports: [
     BrowserModule,
