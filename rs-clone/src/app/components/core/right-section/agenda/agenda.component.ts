@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-agenda',
@@ -6,7 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./agenda.component.scss']
 })
 export class AgendaComponent {
+  title = 'agenda'
+  @Output()
+  falser = new EventEmitter();
+
   now = (new Date).toDateString();
+
+  hidder(e: Event) {
+    e.preventDefault();
+    this.falser.emit(this.title);
+  }
 
   nextDay () {
     const dateInput = document.querySelector('.mat-datepicker-input') as HTMLInputElement;
