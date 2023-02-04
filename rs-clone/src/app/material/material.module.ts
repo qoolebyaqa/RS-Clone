@@ -6,6 +6,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 const MaterialComponents = [
   MatMenuModule,
   MatToolbarModule,
@@ -13,7 +14,8 @@ const MaterialComponents = [
   MatSelectModule,
   MatTabsModule,
   MatTreeModule,
-  MatExpansionModule
+  MatExpansionModule,
+  MatBottomSheetModule,
 ];
 
 @NgModule({
