@@ -7,10 +7,10 @@ import { Component } from '@angular/core';
 })
 export class RightSectionComponent {
 
-  calendar = false;
-  agenda = false;
-  mentions = false;
-  addTask = false;
+  public calendar = false;
+  public agenda = false;
+  public mentions = false;
+  public addTask = false;
 
   toogler(e: Event) {
     console.log('gg');
