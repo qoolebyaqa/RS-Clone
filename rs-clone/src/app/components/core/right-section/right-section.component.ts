@@ -10,6 +10,7 @@ export class RightSectionComponent {
   calendar = false;
   agenda = false;
   mentions = false;
+  addTask = false;
 
   toogler(e: Event) {
     console.log('gg');

@@ -21,6 +21,9 @@
   <app-calendar *ngIf="calendar"></app-calendar>
   <app-agenda *ngIf="agenda"></app-agenda>
   <app-mentiones *ngIf="mentions"></app-mentiones>
+  <button class="popup__open"
+  (click)="addTask = !addTask"
+  >+ Task</button>
 </div>
 
-<app-task-pop-up></app-task-pop-up>
+<app-task-pop-up *ngIf="addTask"></app-task-pop-up>

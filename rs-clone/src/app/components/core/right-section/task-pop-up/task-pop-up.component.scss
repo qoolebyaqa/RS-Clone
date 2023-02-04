@@ -1,0 +1,64 @@
+.popup__wrapper {
+  position: absolute;
+  z-index: 1;
+  background-color: rgb(252, 252, 248);
+  right: 20px;
+  bottom: 20px;
+  width: 30%;
+}
+.popup__form {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  height: 70vh;
+}
+.popup__adders,
+.popup__filehost {
+  display: flex;
+  justify-content: space-between;
+}
+.controls__nametask {
+  width: 80%;
+}
+.popup__controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+.popup__settings {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.settings__search {
+  border-radius: 25px;
+  height: 80%;
+  margin: 0 10px;
+  padding: 0 10px;
+}
+.settings__members-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25px;
+  width: 40px;
+  height: 40px;
+  border: 1px dotted grey;
+  margin-left: 10px;
+}
+.filehost__atachments {
+  display: flex;
+  margin-top: 100px;
+  .filehost__pretext {
+    margin-right: 10px;
+  }
+  mat-form-field {
+    width: 160px;
+    height: 60px;
+  }
+}
+.controls__minimizer,
+.controls__closer,
+.controls__nametask {
+  border: none;
+}
