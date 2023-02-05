@@ -18,12 +18,12 @@
       <p class="mentions-text">Mentions-<span class="mentions-counter">0</span></p>
     </div>
   </div>
-  <app-calendar *ngIf="calendar"></app-calendar>
-  <app-agenda *ngIf="agenda"></app-agenda>
+  <app-calendar (falser)="closeCalendar($event)" *ngIf="calendar"></app-calendar>
+  <app-agenda (falser)="closeAgenda($event)" *ngIf="agenda"></app-agenda>
   <app-mentiones *ngIf="mentions"></app-mentiones>
   <button class="popup__open"
   (click)="addTask = !addTask"
   >+ Task</button>
 </div>
 
-<app-task-pop-up *ngIf="addTask"></app-task-pop-up>
+<app-task-pop-up (falser)="closeTask($event)" *ngIf="addTask"></app-task-pop-up>

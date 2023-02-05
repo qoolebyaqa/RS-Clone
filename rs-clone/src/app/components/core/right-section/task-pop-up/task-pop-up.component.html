@@ -4,7 +4,9 @@
       <div class="controls__status"></div>
       <input type="text" class="controls__nametask" placeholder="Task name or type, use '/' for commands">
       <button class="controls__minimizer"><mat-icon>archive</mat-icon></button>
-      <button class="controls__closer"><mat-icon>close</mat-icon></button>
+      <button class="controls__closer"
+      (click)="this.hidder($event)"
+      ><mat-icon>close</mat-icon></button>
     </div>
     <div class="popup__settings">
       <p class="settings__pre-text">In</p>
