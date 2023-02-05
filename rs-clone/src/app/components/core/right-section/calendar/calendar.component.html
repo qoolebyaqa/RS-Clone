@@ -14,6 +14,7 @@
           <div class="calendar__selected-date">
             <mat-form-field appearance="fill">
               <input matInput [matDatepicker]="picker" value = {{now}} placeholder= {{now}}>
+              <mat-hint>MM/DD/YYYY</mat-hint>
               <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
