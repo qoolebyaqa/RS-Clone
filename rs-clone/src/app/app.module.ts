@@ -14,6 +14,7 @@ import { TaskPopUpComponent } from './components/core/right-section/task-pop-up/
 import { BottomSheetComponent } from './bottom-sheet/bottom-sheet.component';
 import { ReminderSheetComponent } from './reminder-sheet/reminder-sheet.component';
 import { NewserviceService } from './newservice.service';
+import { NotificationsComponent } from './components/core/notifications/notifications.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { NewserviceService } from './newservice.service';
     TaskPopUpComponent,
     BottomSheetComponent,
     ReminderSheetComponent,
+    NotificationsComponent,
   ],
   imports: [
     BrowserModule,
