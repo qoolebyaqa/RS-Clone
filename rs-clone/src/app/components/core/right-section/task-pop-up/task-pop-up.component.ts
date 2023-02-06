@@ -1,5 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { NewserviceService } from 'src/app/newservice.service';
 
 @Component({
   selector: 'app-task-pop-up',
@@ -7,21 +8,26 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./task-pop-up.component.scss'],
 })
 export class TaskPopUpComponent implements OnInit {
-
+  tasks: [] = [];
   title = 'addTask'
   @Output()
   falser = new EventEmitter();
 
-  constructor () {
-  }
+  constructor (private serv: NewserviceService) { }
 
-  ngOnInit(): void {
-
-  }
 
   hidder(e: Event) {
     e.preventDefault();
     this.falser.emit(this.title);
+  }
+
+  ngOnInit() :void{
+  }
+
+  getDataFromAPI () {
+    this.serv.getData().subscribe((resp) => {
+      console.log(resp)
+    }, (err) => console.log(err));
   }
   disableSelect = new FormControl(false);
 }
