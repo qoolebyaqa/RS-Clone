@@ -15,6 +15,7 @@ import { BottomSheetComponent } from './bottom-sheet/bottom-sheet.component';
 import { ReminderSheetComponent } from './reminder-sheet/reminder-sheet.component';
 import { NewserviceService } from './newservice.service';
 import { NotificationsComponent } from './components/core/notifications/notifications.component';
+import { HeaderComponent } from './components/core/header/header.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { NotificationsComponent } from './components/core/notifications/notifica
     BottomSheetComponent,
     ReminderSheetComponent,
     NotificationsComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
