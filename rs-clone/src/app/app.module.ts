@@ -16,6 +16,13 @@ import { ReminderSheetComponent } from './reminder-sheet/reminder-sheet.componen
 import { NewserviceService } from './newservice.service';
 import { NotificationsComponent } from './components/core/notifications/notifications.component';
 import { HeaderComponent } from './components/core/header/header.component';
+import { QuotesComponent } from './components/core/quotes/quotes.component';
+import { ButtonNewComponent } from './components/core/quotes/button-new/button-new.component';
+import { QuoteContentComponent } from './components/core/quotes/quote-content/quote-content.component';
+import { QuotesRusComponent } from './components/core/quotes-rus/quotes-rus.component';
+import { QuotesRusContentComponent } from './components/core/quotes-rus/quotes-rus-content/quotes-rus-content.component';
+
+
 
 @NgModule({
   declarations: [
@@ -30,15 +37,20 @@ import { HeaderComponent } from './components/core/header/header.component';
     ReminderSheetComponent,
     NotificationsComponent,
     HeaderComponent,
+    QuotesComponent,
+    ButtonNewComponent,
+    QuoteContentComponent,
+    QuotesRusComponent,
+    QuotesRusContentComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [NewserviceService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
