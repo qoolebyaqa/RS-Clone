@@ -1,0 +1,8 @@
+<div>
+    <div *ngIf="loading; else content">
+        <h1 id="loading">loading...</h1>
+    </div>
+    <ng-template #content>
+        <app-quotes-rus-content [author]="quote.author" [quote]="quote.quote" [getNewQuote]="getNewQuote"></app-quotes-rus-content>
+    </ng-template>
+</div>

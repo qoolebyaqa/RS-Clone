@@ -14,6 +14,11 @@ import { TaskPopUpComponent } from './components/core/right-section/task-pop-up/
 import { BottomSheetComponent } from './bottom-sheet/bottom-sheet.component';
 import { ReminderSheetComponent } from './reminder-sheet/reminder-sheet.component';
 import { NotificationsComponent } from './components/core/notifications/notifications.component';
+import { QuotesComponent } from './components/core/quotes/quotes.component';
+import { ButtonNewComponent } from './components/core/quotes/button-new/button-new.component';
+import { QuoteContentComponent } from './components/core/quotes/quote-content/quote-content.component';
+import { QuotesRusComponent } from './components/core/quotes-rus/quotes-rus.component';
+import { QuotesRusContentComponent } from './components/core/quotes-rus/quotes-rus-content/quotes-rus-content.component';
 
 @NgModule({
   declarations: [
@@ -27,15 +32,20 @@ import { NotificationsComponent } from './components/core/notifications/notifica
     BottomSheetComponent,
     ReminderSheetComponent,
     NotificationsComponent,
+    QuotesComponent,
+    ButtonNewComponent,
+    QuoteContentComponent,
+    QuotesRusComponent,
+    QuotesRusContentComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
