@@ -62,3 +62,13 @@
 .controls__nametask {
   border: none;
 }
+.controls__minimizer:hover,
+.controls__closer:hover,
+.controls__nametask:hover {
+  cursor: pointer;
+  background-color: rgb(252, 252, 248);
+}
+
+.close {
+  display: none;
+}

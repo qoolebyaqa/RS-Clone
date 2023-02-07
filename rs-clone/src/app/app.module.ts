@@ -13,6 +13,7 @@ import { MentionesComponent } from './components/core/right-section/mentiones/me
 import { TaskPopUpComponent } from './components/core/right-section/task-pop-up/task-pop-up.component';
 import { BottomSheetComponent } from './bottom-sheet/bottom-sheet.component';
 import { ReminderSheetComponent } from './reminder-sheet/reminder-sheet.component';
+import { NewserviceService } from './newservice.service';
 import { NotificationsComponent } from './components/core/notifications/notifications.component';
 import { QuotesComponent } from './components/core/quotes/quotes.component';
 import { ButtonNewComponent } from './components/core/quotes/button-new/button-new.component';
@@ -45,7 +46,7 @@ import { QuotesRusContentComponent } from './components/core/quotes-rus/quotes-r
     MaterialModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [],
-  bootstrap: [AppComponent],
+  providers: [NewserviceService],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
