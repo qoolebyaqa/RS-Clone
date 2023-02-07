@@ -21,6 +21,13 @@ import { ButtonNewComponent } from './components/core/quotes/button-new/button-n
 import { QuoteContentComponent } from './components/core/quotes/quote-content/quote-content.component';
 import { QuotesRusComponent } from './components/core/quotes-rus/quotes-rus.component';
 import { QuotesRusContentComponent } from './components/core/quotes-rus/quotes-rus-content/quotes-rus-content.component';
+import { NavComponent } from './components/nav/nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 
 
 
@@ -42,13 +49,20 @@ import { QuotesRusContentComponent } from './components/core/quotes-rus/quotes-r
     QuoteContentComponent,
     QuotesRusComponent,
     QuotesRusContentComponent,
+    NavComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [NewserviceService],
