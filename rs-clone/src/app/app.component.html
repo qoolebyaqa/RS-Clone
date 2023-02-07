@@ -1,2 +1,22 @@
 <app-header></app-header>
 <app-home></app-home>
+<div *ngFor="let task of tasks" class="test">
+  <div>{{ task.workspace }}</div>
+  <div>{{ task.time }}</div>
+  <div>{{ task.name }}</div>
+  <div>{{ task.assignto }}</div>
+  <div>{{ task.checklist }}</div>
+  <div>{{ task.overdue }}</div>
+  <div>{{ task.discription }}</div>
+  <div>{{ task.attachments }}</div>
+</div>
+<!-- <ul>
+  <li>{{ taskSet?.name }}</li>
+  <li>{{ taskSet?.workspace }}</li>
+  <li>{{ taskSet?.time }}</li>
+  <li>{{ taskSet?.assignto }}</li>
+  <li>{{ taskSet?.checklist }}</li>
+  <li>{{ taskSet?.overdue }}</li>
+  <li>{{ taskSet?.discription }}</li>
+  <li>{{ taskSet?.attachments }}</li>
+</ul> -->
