@@ -29,6 +29,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { SpaceComponent } from './components/core/space/space.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -64,7 +65,8 @@ import { SpaceComponent } from './components/core/space/space.component';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    FormsModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [NewserviceService],

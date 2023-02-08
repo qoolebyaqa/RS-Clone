@@ -1,8 +1,8 @@
 <div class="popup__wrapper">
-  <form class="popup__form" id="task-form" >
+  <form #taskForm="ngForm" class="popup__form" id="task-form" (ngSubmit)="postTask(taskForm.value)">
     <div class="popup__controls">
       <div class="controls__status"></div>
-      <input type="text" class="controls__nametask" placeholder="Task name or type, use '/' for commands">
+      <input ngModel type="text" name="name" class="controls__nametask" placeholder="Task name or type, use '/' for commands">
       <button class="controls__minimizer"><mat-icon>archive</mat-icon></button>
       <button class="controls__closer"
       (click)="this.hidder($event)"
@@ -10,17 +10,30 @@
     </div>
     <div class="popup__settings">
       <p class="settings__pre-text">In</p>
-      <input class="settings__search" type="search">
+      <input ngModel class="settings__search" type="search" name="workspace">
       <p class="settings__pre-text">For</p>
-      <div class="settings__members-list"><mat-icon>group_add</mat-icon></div>
-    </div>
-    <textarea name="text" form="task-form" cols="30" rows="10" placeholder="Description or type, use '/' for commands"></textarea>
-    <div class="popup__adders">
-      <div class="adders__subtask">
-        <span><mat-icon>add_circle_outline</mat-icon>Add subtask</span>
+      <div class="settings__members-list">
+        <p class="space__selector-container">
+          <select ngModel class="space__selector" size="1" name="assignto">
+            <option selected>Вы</option>
+            <option value="Space1">Somebody from space1</option>
+            <option value="Space2">Somebody from space2</option>
+            <option value="Space3">Somebody from space3</option>
+            <option value="Space4">Somebody from space4</option>
+          </select>
+        </p>
       </div>
+    </div>
+    <textarea ngModel name="discription" form="task-form" cols="30" rows="10" placeholder="Description or type, use '/' for commands"></textarea>
+    <div class="popup__adders">
       <div class="adders__checklist">
-        <span><mat-icon>add_circle_outline</mat-icon>Add checklist</span>
+        <select ngModel class="space__selector" size="1" name="checklist">
+          <option selected>Вы</option>
+          <option value="Checklist1">Somebody from space1</option>
+          <option value="Checklist2">Somebody from space2</option>
+          <option value="Checklist3">Somebody from space3</option>
+          <option value="Checklist4">Somebody from space4</option>
+        </select>
       </div>
     </div>
     <div class="popup__filehost">

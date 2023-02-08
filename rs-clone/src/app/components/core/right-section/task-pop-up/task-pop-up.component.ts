@@ -1,5 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { ITask } from 'src/app/interfaces/interfaces';
 import { NewserviceService } from 'src/app/newservice.service';
 
 @Component({
@@ -24,10 +25,9 @@ export class TaskPopUpComponent implements OnInit {
   ngOnInit() :void{
   }
 
-  getDataFromAPI () {
-    this.serv.getData().subscribe((resp) => {
-      console.log(resp)
-    }, (err) => console.log(err));
+  postTask(data: ITask) {
+    this.serv.setData(data).subscribe((result) =>{ console.log(result) })
   }
+
   disableSelect = new FormControl(false);
 }
