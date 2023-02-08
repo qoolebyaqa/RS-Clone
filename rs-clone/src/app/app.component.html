@@ -1,5 +1,9 @@
 <app-header></app-header>
-<app-home></app-home>
+<div class="app-container">
+  <app-nav></app-nav>
+  <router-outlet></router-outlet>
+</div>
+<!-- <app-home></app-home>
 <div *ngFor="let task of tasks" class="test">
   <div>{{ task.workspace }}</div>
   <div>{{ task.time }}</div>
@@ -9,7 +13,7 @@
   <div>{{ task.overdue }}</div>
   <div>{{ task.discription }}</div>
   <div>{{ task.attachments }}</div>
-</div>
+</div> -->
 <!-- <ul>
   <li>{{ taskSet?.name }}</li>
   <li>{{ taskSet?.workspace }}</li>
