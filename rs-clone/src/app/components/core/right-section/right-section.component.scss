@@ -34,7 +34,9 @@
   z-index: 2;
   bottom: 50px;
   right: 50px;
-  background-color: blueviolet;
+  background-color: #2564cf;
+  color: white;
+  text-transform: uppercase;
   font-size: 100%;
   font-weight: 700;
   border: none;
@@ -45,5 +47,6 @@
 }
 .popup__open:hover {
   transform: scale(1.1);
+  background-color: #2156b0;
   cursor: pointer;
 }
