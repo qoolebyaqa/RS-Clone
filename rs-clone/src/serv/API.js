@@ -5,7 +5,8 @@ const path = require('path');
 const mongoose = require('mongoose');
 const db = 'mongodb+srv://qoolebyaqa:pyumhann@board-learn.jhd6ch1.mongodb.net/?retryWrites=true&w=majority';
 const bodyParser = require('body-parser');
-const Task = require('./models/db');
+const Task = require('./models/task');
+const User = require('./models/user');
 
 const createPath = (page) => path.resolve(__dirname, 'app', `${page}.html`);
 
@@ -27,9 +28,28 @@ app.get('/getData', (req, res) => {
 });
 
 app.post('/getData', (req, res) => {
-  const { workspace, name, discription, time, overdue, assignto, checklist, attachments } = req.body;
-  const newTask = new Task({workspace, name, discription, time, overdue, assignto, checklist, attachments});
+  const { workspace, name, discription, time, overdue, assignto, checklist, attachments, done } = req.body;
+  const newTask = new Task({workspace, name, discription, time, overdue, assignto, checklist, attachments, done });
   newTask
+    .save()
+    .then((result) => res.send(result))
+    .catch((err) => { console.log(err)});
+})
+
+app.get('/getUsers', (req, res) => {
+  User
+    .find()
+    .sort({ createdAt: -1 })
+    .then((users) => res.json(users))
+    .catch((error) => {
+      console.log(error);
+    });
+});
+
+app.post('/getUsers', (req, res) => {
+  const { login, password } = req.body;
+  const newUser = new User({login, password});
+  newUser
     .save()
     .then((result) => res.send(result))
     .catch((err) => { console.log(err)});

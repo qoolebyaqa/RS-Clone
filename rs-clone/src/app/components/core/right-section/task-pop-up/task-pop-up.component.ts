@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { ITask } from 'src/app/interfaces/interfaces';
+import { ITask, IUser, UserPost } from 'src/app/interfaces/interfaces';
+import { taskPost } from 'src/app/interfaces/interfaces';
 import { NewserviceService } from 'src/app/newservice.service';
 
 @Component({
@@ -25,8 +26,18 @@ export class TaskPopUpComponent implements OnInit {
   ngOnInit() :void{
   }
 
-  postTask(data: ITask) {
-    this.serv.setData(data).subscribe((result) =>{ console.log(result) })
+  postTask(obj: ITask) {
+    const newPost = new taskPost();
+    newPost.name = obj.name;
+    newPost.workspace = obj.workspace
+    newPost.discription = obj.discription;
+    newPost.time = obj.time;
+    newPost.checklist = obj.checklist;
+    newPost.assignto = obj.assignto;
+    newPost.attachments = obj.attachments;
+    newPost.overdue = false;
+    newPost.done = false;
+    this.serv.setData(newPost).subscribe(data => { console.log(data) });
   }
 
   disableSelect = new FormControl(false);

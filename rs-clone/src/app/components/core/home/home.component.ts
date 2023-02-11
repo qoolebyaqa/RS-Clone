@@ -1,21 +1,21 @@
-import { Component } from '@angular/core';
-import { MatBottomSheet } from '@angular/material/bottom-sheet';
-import { BottomSheetComponent } from 'src/app/bottom-sheet/bottom-sheet.component';
-import { ReminderSheetComponent } from 'src/app/reminder-sheet/reminder-sheet.component';
+import { Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ITask, IUser } from 'src/app/interfaces/interfaces';
+import { NewserviceService } from 'src/app/newservice.service';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit{
   panelOpenState = false;
-  constructor(private _bottomSheet: MatBottomSheet) {}
 
-  openBottomSheet(): void {
-    this._bottomSheet.open(BottomSheetComponent);
-  }
-  openReminderSheet(): void {
-    this._bottomSheet.open(ReminderSheetComponent);
-  }
 
+  constructor(public serv: NewserviceService) {
+
+  }
+  ngOnInit() {
+
+  }
 }
