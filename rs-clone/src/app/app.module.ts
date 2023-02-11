@@ -29,6 +29,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { SpaceComponent } from './components/core/space/space.component';
+import { FooterComponent } from './components/core/footer/footer.component';
 
 
 
@@ -52,6 +53,7 @@ import { SpaceComponent } from './components/core/space/space.component';
     QuotesRusContentComponent,
     NavComponent,
     SpaceComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
