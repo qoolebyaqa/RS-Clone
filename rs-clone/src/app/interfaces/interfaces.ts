@@ -1,4 +1,30 @@
 export interface ITask  {
+  "title": string,
+  "details": string,
+  "isDone": boolean,
+  "color": string,
+}
+export class taskPost {
+  "title": string;
+  "details": string;
+  "isDone": boolean;
+  "color": string;
+}
+export interface IUser {
+  "email": string,
+  "name": string,
+  "password": string
+}
+
+export class UserPost {
+  "email": string;
+  "name": string;
+  "password": string;
+}
+
+
+
+/* export interface ITask  {
   "workspace": string,
   "name": string,
   "discription": string,
@@ -28,5 +54,5 @@ export interface IUser {
 export class UserPost {
   "login": string;
   "password": string;
-}
+} */
 

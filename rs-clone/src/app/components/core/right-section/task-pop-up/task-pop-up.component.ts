@@ -27,7 +27,7 @@ export class TaskPopUpComponent implements OnInit {
     this.serv.getData().subscribe(data => {this.tasks = data; this.serv.tasks=data; this.tasks? this.serv.emitTasks(this.tasks):''});
   }
 
-  async postTask(obj: ITask) {
+  /* async postTask(obj: ITask) {
     const newPost = new taskPost();
     newPost.name = obj.name;
     newPost.workspace = obj.workspace
@@ -41,7 +41,7 @@ export class TaskPopUpComponent implements OnInit {
     this.serv.setData(newPost).subscribe( async (data) => { console.log(data); this.serv.tasks?.push(data)});
     console.log(this.serv.tasks);
     this.hidder();
-  }
+  } */
 
   disableSelect = new FormControl(false);
 }

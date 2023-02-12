@@ -1,5 +1,5 @@
 <div class="popup__wrapper">
-  <form #taskForm="ngForm" class="popup__form" id="task-form" (ngSubmit)="postTask(taskForm.value)">
+  <form #taskForm="ngForm" class="popup__form" id="task-form">
     <div class="popup__controls">
       <div class="controls__status"></div>
       <input ngModel type="text" name="name" class="controls__nametask" placeholder="Task name or type of task" autocomplete="off">
@@ -16,7 +16,7 @@
       <div class="settings__members-list">
         <p class="space__selector-container">
           <select ngModel class="space__selector" size="1" name="assignto">
-            <option *ngFor="let item of serv.users">{{ item.login }}</option>
+            <option *ngFor="let item of serv.users">{{ item }}</option>
           </select>
         </p>
       </div>
@@ -25,7 +25,7 @@
     <div class="popup__adders">
       <div class="adders__checklist">
         <select ngModel class="space__selector" size="1" name="checklist">
-          <option *ngFor="let item of serv.users">{{ item.login }}</option>
+          <option *ngFor="let item of serv.users">{{ item }}</option>
         </select>
       </div>
     </div>

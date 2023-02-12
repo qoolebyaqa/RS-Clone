@@ -31,7 +31,7 @@ import { MatListModule } from '@angular/material/list';
 import { SpaceComponent } from './components/core/space/space.component';
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './components/core/footer/footer.component';
-import { RegistrationFormComponent } from './components/registration-form/registration-form.component';
+import { LoginComponent } from './components/core/login/login.component';
 
 
 
@@ -56,7 +56,7 @@ import { RegistrationFormComponent } from './components/registration-form/regist
     NavComponent,
     SpaceComponent,
     FooterComponent,
-    RegistrationFormComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

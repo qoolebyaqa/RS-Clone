@@ -1,0 +1,19 @@
+
+<form #loginForm="ngForm" class="login__form" (submit)="serv.logUser(loginForm.value)">
+  <img src="../assets/5.png " alt="teddy" class="img">
+  <p class="form__question">Do not have an account?</p>
+  <div class="form__reg">Register</div>
+  <div class="enter__form">
+    <input ngModel type="text" placeholder="email" class="login" name="email">
+    <input ngModel type="password" placeholder="password" class="pass" name="password">
+    <button class="login__submit">Start work</button>
+  </div>
+</form>
+<!-- <form #regForm="ngForm" class="login__form">
+  <div class="enter__form">
+    <input ngModel type="text" placeholder="email" class="login" name="email">
+    <input ngModel type="text" placeholder="login" class="login" name="name">
+    <input ngModel type="password" placeholder="password" class="pass" name="password">
+    <button class="login__submit">Register</button>
+  </div>
+</form> -->

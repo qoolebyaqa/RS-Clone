@@ -8,8 +8,7 @@
                         <mat-tab label="To Do">
                             <div class="today">
                                 <mat-accordion>
-                                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
-                                    (click)="todayTask()">
+                                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
                                         <mat-expansion-panel-header>
                                             <mat-panel-title>
                                                 <p>Today</p>
@@ -25,13 +24,12 @@
                                         <div class="empty-comments__block" *ngIf="hasTask">
                                           <img src="../../../../assets/work.jpg" alt="work-man">
                                           <p class="comments__title" *ngIf="theirTasks.length > 0">You should to check the following tasks for today</p>
-                                          <div class="comments__text" *ngFor="let task of theirTasks">{{ task.name }}</div>
+                                          <div class="comments__text" *ngFor="let task of theirTasks">{{ task }}</div>
                                           <p class="comments__title" *ngIf="mineTasks.length > 0">You should to do the following tasks for today</p>
-                                          <div class="comments__text" *ngFor="let task of mineTasks">{{ task.name }}</div>
+                                          <div class="comments__text" *ngFor="let task of mineTasks">{{ task }}</div>
                                       </div>
                                     </mat-expansion-panel>
-                                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
-                                    (click)="overdueCheck()">
+                                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
                                         <mat-expansion-panel-header>
                                             <mat-panel-title>
                                                 Overdue
@@ -41,7 +39,7 @@
                                         <p class="empty-overdue__block" *ngIf="hasOverdue">You have the following tasks with overdue
                                           <br><img src="../../../../assets/hurry.jpeg" alt="work-man" class="overdue__pic">
                                         </p>
-                                        <div classs="empty-overdue__block" *ngFor="let task of overdueTasks">{{ task.name }}</div>
+                                        <div classs="empty-overdue__block" *ngFor="let task of overdueTasks">{{ task }}</div>
                                     </mat-expansion-panel>
                                     <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
                                         <mat-expansion-panel-header>
