@@ -16,5 +16,4 @@ export class RegistrationFormComponent {
     return this.email.hasError('email') ? 'Not a valid email' : '';
   }
   hide = true;
-  
 }
