@@ -18,10 +18,8 @@ export class AppComponent implements OnInit {
   entredUser?: string;
 
   async ngOnInit(){
-    this.serv.getData().subscribe(data => { this.serv.tasks = data;
-    this.tasks = data });
-    this.serv.getUsers().subscribe(data => { this.serv.users = data;
-    this.users = data; console.log(this.users) });
+    this.serv.getData().subscribe(data => {this.tasks = data; this.serv.tasks=data; this.tasks? this.serv.emitTasks(this.tasks):''});
+    this.serv.getUsers().subscribe(data => { this.users = data; this.serv.users=data; this.users? this.serv.emitUsers(this.users):''});
   }
 
   entUser (obj: IUser) {
@@ -30,8 +28,8 @@ export class AppComponent implements OnInit {
       && user.password === obj.password) {
         this.login = false;
         this.entredUser = user.login;
-        this.serv.entredUser = user.login;
-        this.serv.emit(this.entredUser);
+        this.serv.emitUser(this.entredUser);
+        this.serv.activeUser = user.login;
         return;
       }
     }

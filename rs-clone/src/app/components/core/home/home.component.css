@@ -5,3 +5,6 @@
 .home__page-container {
   flex-grow: 3;
 }
+.overdue__pic {
+  width: 20%;
+}

@@ -15,18 +15,19 @@ export class TaskPopUpComponent implements OnInit {
   @Output()
   falser = new EventEmitter();
 
-  constructor (private serv: NewserviceService) { }
+  constructor (public serv: NewserviceService) { }
 
 
-  hidder(e: Event) {
-    e.preventDefault();
+  hidder(e?: Event) {
+    e?.preventDefault();
     this.falser.emit(this.title);
   }
 
-  ngOnInit() :void{
+  async ngOnInit() {
+    this.serv.getData().subscribe(data => {this.tasks = data; this.serv.tasks=data; this.tasks? this.serv.emitTasks(this.tasks):''});
   }
 
-  postTask(obj: ITask) {
+  async postTask(obj: ITask) {
     const newPost = new taskPost();
     newPost.name = obj.name;
     newPost.workspace = obj.workspace
@@ -37,7 +38,10 @@ export class TaskPopUpComponent implements OnInit {
     newPost.attachments = obj.attachments;
     newPost.overdue = false;
     newPost.done = false;
-    this.serv.setData(newPost).subscribe(data => { console.log(data) });
+    this.serv.setData(newPost).subscribe( async (data) => { console.log(data) });
+    await this.ngOnInit();
+    console.log(this.serv.tasks);
+    this.hidder();
   }
 
   disableSelect = new FormControl(false);

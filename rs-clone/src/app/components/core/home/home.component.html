@@ -1,14 +1,15 @@
 <div class="home__page">
     <div class="home__page-container">
         <div class="main__content">
-          {{serv.data$ | async}}
+          <!-- {{serv.userObs$ | async}} -->
             <div class="tasks__content">
                 <div class="content__block">
                     <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
                         <mat-tab label="To Do">
                             <div class="today">
                                 <mat-accordion>
-                                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
+                                    (click)="todayTask()">
                                         <mat-expansion-panel-header>
                                             <mat-panel-title>
                                                 <p>Today</p>
@@ -16,19 +17,31 @@
                                                 <button mat-button (click)="0">+ Reminder</button>
                                             </mat-panel-title>
                                         </mat-expansion-panel-header>
-                                        <div class="empty-comments__block">
+                                        <div class="empty-comments__block" *ngIf="!hasTask;">
                                             <img src="../../../../assets/sanbath_chill.c222e99cb795da04825a964e52e5648b.png" alt="chill-man">
                                             <p class="comments__title">Woohoo, you're all done!</p>
                                             <div class="comments__text">Tasks and Reminders that are scheduled for Today will appear here.</div>
                                         </div>
+                                        <div class="empty-comments__block" *ngIf="hasTask">
+                                          <img src="../../../../assets/work.jpg" alt="work-man">
+                                          <p class="comments__title" *ngIf="theirTasks.length > 0">You should to check the following tasks for today</p>
+                                          <div class="comments__text" *ngFor="let task of theirTasks">{{ task.name }}</div>
+                                          <p class="comments__title" *ngIf="mineTasks.length > 0">You should to do the following tasks for today</p>
+                                          <div class="comments__text" *ngFor="let task of mineTasks">{{ task.name }}</div>
+                                      </div>
                                     </mat-expansion-panel>
-                                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
+                                    (click)="overdueCheck()">
                                         <mat-expansion-panel-header>
                                             <mat-panel-title>
                                                 Overdue
                                             </mat-panel-title>
                                         </mat-expansion-panel-header>
-                                        <p class="empty-overdue__block">No overdue tasks or reminders scheduled.</p>
+                                        <p class="empty-overdue__block" *ngIf="!hasOverdue">No overdue tasks or reminders scheduled.</p>
+                                        <p class="empty-overdue__block" *ngIf="hasOverdue">You have the following tasks with overdue
+                                          <br><img src="../../../../assets/hurry.jpeg" alt="work-man" class="overdue__pic">
+                                        </p>
+                                        <div classs="empty-overdue__block" *ngFor="let task of overdueTasks">{{ task.name }}</div>
                                     </mat-expansion-panel>
                                     <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
                                         <mat-expansion-panel-header>

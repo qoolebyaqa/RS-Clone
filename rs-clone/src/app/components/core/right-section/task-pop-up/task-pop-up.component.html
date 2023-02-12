@@ -2,7 +2,7 @@
   <form #taskForm="ngForm" class="popup__form" id="task-form" (ngSubmit)="postTask(taskForm.value)">
     <div class="popup__controls">
       <div class="controls__status"></div>
-      <input ngModel type="text" name="name" class="controls__nametask" placeholder="Task name or type, use '/' for commands">
+      <input ngModel type="text" name="name" class="controls__nametask" placeholder="Task name or type of task" autocomplete="off">
       <button class="controls__minimizer"><mat-icon>archive</mat-icon></button>
       <button class="controls__closer"
       (click)="this.hidder($event)"
@@ -16,11 +16,7 @@
       <div class="settings__members-list">
         <p class="space__selector-container">
           <select ngModel class="space__selector" size="1" name="assignto">
-            <option selected>Вы</option>
-            <option value="Space1">Somebody from space1</option>
-            <option value="Space2">Somebody from space2</option>
-            <option value="Space3">Somebody from space3</option>
-            <option value="Space4">Somebody from space4</option>
+            <option *ngFor="let item of serv.users">{{ item.login }}</option>
           </select>
         </p>
       </div>
@@ -29,11 +25,7 @@
     <div class="popup__adders">
       <div class="adders__checklist">
         <select ngModel class="space__selector" size="1" name="checklist">
-          <option selected>Вы</option>
-          <option value="Checklist1">Somebody from space1</option>
-          <option value="Checklist2">Somebody from space2</option>
-          <option value="Checklist3">Somebody from space3</option>
-          <option value="Checklist4">Somebody from space4</option>
+          <option *ngFor="let item of serv.users">{{ item.login }}</option>
         </select>
       </div>
     </div>

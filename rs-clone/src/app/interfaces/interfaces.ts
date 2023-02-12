@@ -30,10 +30,3 @@ export class UserPost {
   "password": string;
 }
 
-export class EventData {
-  name: string;
-  constructor(name: string) {
-      this.name = name;
-  }
-}
-
