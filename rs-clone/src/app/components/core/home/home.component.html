@@ -1,81 +1,79 @@
 <div class="home__page">
     <div class="home__page-container">
         <div class="main__content">
-          <!-- {{serv.userObs$ | async}} -->
+            <!-- {{serv.userObs$ | async}} -->
             <div class="tasks__content">
                 <div class="content__block">
                     <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
-                        <mat-tab label="To Do">
+                        <mat-tab label="То Ду">
                             <div class="today">
                                 <mat-accordion>
-                                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
-                                    (click)="todayTask()">
+                                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" (click)="todayTask()">
                                         <mat-expansion-panel-header>
                                             <mat-panel-title>
-                                                <p>Today</p>
-                                                <button mat-button (click)="0" class="element--hover">+ Task</button>
-                                                <button mat-button (click)="0" class="element--hover">+ Reminder</button>
+                                                <p>Тудэй</p>
+                                                <button mat-button (click)="0" class="element--hover">+ Таск</button>
+                                                <button mat-button (click)="0" class="element--hover">+ Напомнить</button>
                                             </mat-panel-title>
                                         </mat-expansion-panel-header>
                                         <div class="empty-comments__block" *ngIf="!hasTask;">
                                             <img src="../../../../assets/sanbath_chill.c222e99cb795da04825a964e52e5648b.png" alt="chill-man">
-                                            <p class="comments__title">Woohoo, you're all done!</p>
-                                            <div class="comments__text">Tasks and Reminders that are scheduled for Today will appear here.</div>
+                                            <p class="comments__title">Офигеть ты красавчик/ица все успел/ла</p>
+                                            <div class="comments__text">Tне особо важная часть. Но, таски и напоминания хранятся тут.</div>
                                         </div>
                                         <div class="empty-comments__block" *ngIf="hasTask">
-                                          <img src="../../../../assets/work.jpg" alt="work-man">
-                                          <p class="comments__title" *ngIf="theirTasks.length > 0">You should to check the following tasks for today</p>
-                                          <div class="comments__text" *ngFor="let task of theirTasks">{{ task.name }}</div>
-                                          <p class="comments__title" *ngIf="mineTasks.length > 0">You should to do the following tasks for today</p>
-                                          <div class="comments__text" *ngFor="let task of mineTasks">{{ task.name }}</div>
-                                      </div>
+                                            <img src="../../../../assets/work.jpg" alt="work-man">
+                                            <p class="comments__title" *ngIf="theirTasks.length > 0">Чекни если сделал</p>
+                                            <div class="comments__text" *ngFor="let task of theirTasks">{{ task.name }}</div>
+                                            <p class="comments__title" *ngIf="mineTasks.length > 0">Сделай уже наконец сегодня!</p>
+                                            <div class="comments__text" *ngFor="let task of mineTasks">{{ task.name }}</div>
+                                        </div>
                                     </mat-expansion-panel>
-                                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
-                                    (click)="overdueCheck()">
+                                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" (click)="overdueCheck()">
                                         <mat-expansion-panel-header>
                                             <mat-panel-title>
-                                                Overdue
+                                                Просроченные
                                             </mat-panel-title>
                                         </mat-expansion-panel-header>
-                                        <p class="empty-overdue__block" *ngIf="!hasOverdue">No overdue tasks or reminders scheduled.</p>
-                                        <p class="empty-overdue__block" *ngIf="hasOverdue">You have the following tasks with overdue
-                                          <br><img src="../../../../assets/hurry.jpeg" alt="work-man" class="overdue__pic">
+                                        <p class="empty-overdue__block" *ngIf="!hasOverdue">Нет запланированных просроченных задач или напоминаний.</p>
+                                        <p class="empty-overdue__block" *ngIf="hasOverdue">У вас есть следующие задачи с просроченными сроками
+                                            <br><img src="../../../../assets/hurry.jpeg" alt="work-man" class="overdue__pic">
                                         </p>
                                         <div classs="empty-overdue__block" *ngFor="let task of overdueTasks">{{ task.name }}</div>
                                     </mat-expansion-panel>
                                     <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
                                         <mat-expansion-panel-header>
                                             <mat-panel-title>
-                                                Next
+                                                Некст
                                             </mat-panel-title>
                                         </mat-expansion-panel-header>
-                                        <p>No upcoming tasks or reminders scheduled.</p>
+                                        <p>Нет запланированных предстоящих задач или напоминаний.</p>
                                     </mat-expansion-panel>
                                     <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
                                         <mat-expansion-panel-header>
                                             <mat-panel-title>
-                                                Unscheduled
+                                                Незапланированные
                                             </mat-panel-title>
                                         </mat-expansion-panel-header>
-                                        <p>No unscheduled tasks assigned to you.</p>
+                                        <p>Никаких незапланированных задач, поставленных перед вами.</p>
                                     </mat-expansion-panel>
                                 </mat-accordion>
                             </div>
                         </mat-tab>
-                        <mat-tab label="Comments">
+                        <mat-tab label="Комменты">
                             <div class="empty-comments__block">
                                 <img src="../../../../assets/sanbath_chill.c222e99cb795da04825a964e52e5648b.png" alt="chill-man">
-                                <p class="comments__title">Woohoo, you're all done!</p>
-                                <div class="comments__text">You have no assigned comments</div>
+                                <p class="comments__title">Офигеть, ты сделал все!</p>
+                                <div class="comments__text">У вас нет комментариев</div>
                             </div>
                         </mat-tab>
-                        <mat-tab label="Done">
-                            <div class="mat-title">Done</div>
+                        <mat-tab label="Завершенные">
+                            <div class="mat-title">Завершенные</div>
                         </mat-tab>
-                        <mat-tab label="Delegated">
-                            <div class="mat-text">Forgetting? Forget about it! Delegate a reminder to make sure it gets done.
-                                Assign a reminder to someone and keep track of it here. You can also see reminders you delegate in anyone's profile.</div>
-                            <button class="mat-button"><a href="https://help.clickup.com/hc/en-us/articles/6325931822359-Delegate-reminders">Learn more about delegating</a></button>
+                        <mat-tab label="Делегировать">
+                            <div class="mat-text">Забыл/ла? Забудьте об этом! Делегируйте напоминание, чтобы убедиться, что все будет сделано.
+                                Назначьте напоминание кому-либо и следите за ним здесь. Вы также можете видеть делегированные вами напоминания в профиле любого человека.</div>
+                            <button class="mat-button"><a href="https://help.clickup.com/hc/en-us/articles/6325931822359-Delegate-reminders">Жми если не понял/ла</a></button>
                         </mat-tab>
                     </mat-tab-group>
                 </div>
