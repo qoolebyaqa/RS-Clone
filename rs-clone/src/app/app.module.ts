@@ -29,6 +29,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { SpaceComponent } from './components/core/space/space.component';
+import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './components/core/footer/footer.component';
 import { RegistrationFormComponent } from './components/registration-form/registration-form.component';
 
@@ -68,7 +69,8 @@ import { RegistrationFormComponent } from './components/registration-form/regist
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    FormsModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [NewserviceService],

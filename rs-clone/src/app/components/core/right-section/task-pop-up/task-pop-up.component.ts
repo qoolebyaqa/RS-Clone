@@ -1,5 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { ITask, IUser, UserPost } from 'src/app/interfaces/interfaces';
+import { taskPost } from 'src/app/interfaces/interfaces';
 import { NewserviceService } from 'src/app/newservice.service';
 
 @Component({
@@ -13,21 +15,33 @@ export class TaskPopUpComponent implements OnInit {
   @Output()
   falser = new EventEmitter();
 
-  constructor (private serv: NewserviceService) { }
+  constructor (public serv: NewserviceService) { }
 
 
-  hidder(e: Event) {
-    e.preventDefault();
+  hidder(e?: Event) {
+    e?.preventDefault();
     this.falser.emit(this.title);
   }
 
-  ngOnInit() :void{
+  async ngOnInit() {
+    this.serv.getData().subscribe(data => {this.tasks = data; this.serv.tasks=data; this.tasks? this.serv.emitTasks(this.tasks):''});
   }
 
-  getDataFromAPI () {
-    this.serv.getData().subscribe((resp) => {
-      console.log(resp)
-    }, (err) => console.log(err));
+  async postTask(obj: ITask) {
+    const newPost = new taskPost();
+    newPost.name = obj.name;
+    newPost.workspace = obj.workspace
+    newPost.discription = obj.discription;
+    newPost.time = obj.time;
+    newPost.checklist = obj.checklist;
+    newPost.assignto = obj.assignto;
+    newPost.attachments = obj.attachments;
+    newPost.overdue = false;
+    newPost.done = false;
+    this.serv.setData(newPost).subscribe( async (data) => { console.log(data); this.serv.tasks?.push(data)});
+    console.log(this.serv.tasks);
+    this.hidder();
   }
+
   disableSelect = new FormControl(false);
 }

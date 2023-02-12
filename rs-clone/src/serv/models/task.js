@@ -10,9 +10,11 @@ const taskSchema = new Schema({
   "overdue": Boolean,
   "assignto": String,
   "checklist": String,
-  "attachments": String
+  "attachments": String,
+  "done": Boolean
 }, { timestamps: true });
 
 const Task = mongoose.model('Task', taskSchema);
-
 module.exports = Task;
+
+

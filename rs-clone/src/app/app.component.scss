@@ -7,3 +7,38 @@
   height: 90%;
   width: 100%;
 }
+.login__form {
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 101;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(#939493, 0.9);
+}
+.enter__form {
+  display: flex;
+  gap: 30px;
+  margin-top: 15px;
+}
+.login, .pass, .login__submit {
+  height: 50px;
+}
+.form__reg,
+.login__submit {
+  border: 1px solid blue;
+  border-radius: 25px;
+  height: 50px;
+  width: 90px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.form__reg:hover,
+.login__submit:hover {
+  cursor: pointer;
+  background-color: blue;
+}

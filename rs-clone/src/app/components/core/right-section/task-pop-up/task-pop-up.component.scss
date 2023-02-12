@@ -1,10 +1,11 @@
 .popup__wrapper {
   position: absolute;
   z-index: 1;
-  background-color: rgb(252, 252, 248);
+  background-color: rgb(204, 219, 232);
   right: 20px;
   bottom: 20px;
   width: 30%;
+  border: 1px solid black ;
 }
 .popup__form {
   display: flex;
@@ -29,6 +30,18 @@
   display: flex;
   align-items: center;
   margin-bottom: 30px;
+  margin-top: 20px;
+}
+input[type="datetime-local"] {
+  background-color: #2564cf;
+  padding: 3px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+::-webkit-calendar-picker-indicator {
+  background-color: #2057b7;
+  padding: 5px;
 }
 .settings__search {
   border-radius: 25px;
@@ -39,11 +52,9 @@
 .settings__members-list {
   display: flex;
   align-items: center;
-  justify-content: center;
   border-radius: 25px;
   width: 40px;
   height: 40px;
-  border: 1px dotted grey;
   margin-left: 10px;
 }
 .filehost__atachments {
@@ -71,4 +82,11 @@
 
 .close {
   display: none;
+}
+
+.space__selector {
+  width: 100px;
+  height: 40px;
+  border-radius: 25px;
+  border: 1px solid grey;
 }

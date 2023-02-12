@@ -1,21 +1,47 @@
-import { Component } from '@angular/core';
-import { MatBottomSheet } from '@angular/material/bottom-sheet';
-import { BottomSheetComponent } from 'src/app/bottom-sheet/bottom-sheet.component';
-import { ReminderSheetComponent } from 'src/app/reminder-sheet/reminder-sheet.component';
+import { Component, OnInit } from '@angular/core';
+import { NewserviceService } from 'src/app/newservice.service';
+import { ITask } from 'src/app/interfaces/interfaces';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit{
   panelOpenState = false;
-  constructor(private _bottomSheet: MatBottomSheet) {}
+  hasTask = false;
+  hasOverdue = false;
+  mineTasks: ITask[] = [];
+  theirTasks: ITask[] = [];
+  overdueTasks: ITask[] = [];
 
-  openBottomSheet(): void {
-    this._bottomSheet.open(BottomSheetComponent);
-  }
-  openReminderSheet(): void {
-    this._bottomSheet.open(ReminderSheetComponent);
+  constructor(public serv: NewserviceService) {  }
+  ngOnInit() {  }
+
+  todayTask () {
+    this.mineTasks = [];
+    this.theirTasks = [];
+    this.serv.tasks?.forEach((value) => {
+      if(value.assignto.toUpperCase() === this.serv.activeUser?.toUpperCase() && new Date(value.time).getDate() === new Date().getDate() && !value.done) {
+        this.mineTasks.push(value);
+      }
+      if(value.checklist.toUpperCase() === this.serv.activeUser?.toUpperCase() && new Date(value.time).getDate() === new Date().getDate() && !value.done) {
+        this.theirTasks.push(value);
+      }
+    });
+    this.mineTasks.length > 0 || this.theirTasks.length > 0 ? this.hasTask = true : this.hasTask = false;
   }
 
+  overdueCheck () {
+    this.overdueTasks = [];
+    this.serv.tasks?.forEach((value) => {
+      if(value.assignto.toUpperCase() === this.serv.activeUser?.toUpperCase() &&
+      new Date(value.time).getDate() <= new Date().getDate() &&
+      new Date(value.time).getTime() < new Date().getTime() &&
+      !value.done) {
+        this.overdueTasks.push(value);
+      }
+    });
+    this.overdueTasks.length > 0 ? this.hasOverdue = true : this.hasOverdue = false;
+  }
 }

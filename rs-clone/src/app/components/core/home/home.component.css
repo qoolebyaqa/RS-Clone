@@ -6,6 +6,9 @@
 .tasks__content {
   display: flex;
 }
+.overdue__pic {
+  width: 20%;
+}
 
 .element--hover {
   cursor: pointer;
