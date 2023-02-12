@@ -4,7 +4,7 @@
   <router-outlet></router-outlet>
 </div>
 <form #loginForm="ngForm" class="login__form" *ngIf="login" (ngSubmit)="entUser(loginForm.value)">
-  <img src="../assets/5.png " alt="teddy" class="img">
+  <img src="../assets/registration.png" alt="teddy" class="img">
   <p class="form__question">Do not have an account?</p>
   <div class="form__reg" (click)="login =! login; reg =! reg">Register</div>
   <div class="enter__form">

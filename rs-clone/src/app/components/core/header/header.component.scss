@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC&family=Caveat:wght@600&display=swap");
 header {
   padding: 5px;
   background-image: url(../../../../assets/background.jpg);
@@ -9,7 +9,10 @@ header {
 .logo {
   cursor: pointer;
   font-size: 22px;
-  font-family: "Dancing Script", cursive;
+  font-family: "Amatic SC", cursive;
+}
+.header__user {
+  font-family: "Amatic SC", cursive;
 }
 .header-container {
   display: flex;
@@ -22,6 +25,7 @@ header {
   width: 300px;
   padding: 5px 10px;
   border: none;
+  font-family: "Amatic SC", cursive;
 }
 .header__settings,
 .header__news {
