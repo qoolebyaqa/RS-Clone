@@ -1,39 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
+
 header {
-    padding: 5px;
-    background-color: #2564cf;
-    height: 50px;
-    color: white;
+  padding: 5px;
+  background-color: #2564cf;
+  height: 50px;
+  color: white;
 }
 .logo {
-    cursor: pointer;
-    font-size: 22px;
+  cursor: pointer;
+  font-size: 22px;
+  font-family: "Dancing Script", cursive;
 }
 .header-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-left: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 200px;
+  
 }
 
 .search-input {
-    width: 300px;
-    padding: 5px 10px;
-    border: none;
+  width: 300px;
+  padding: 5px 10px;
+  border: none;
 }
-.header__settings, .header__news {
-    margin-right: 10px;
-    cursor: pointer;
+.header__settings,
+.header__news {
+  margin-right: 10px;
+  cursor: pointer;
 }
 .header__tools {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .user__avatar {
-    cursor: pointer;
-    padding: 5px;
-    font-size: 16px;
-    font-style: 300px;
-    border: 1px solid white;
-    border-radius: 50%;
+  cursor: pointer;
+  padding: 5px;
+  font-size: 16px;
+  font-style: 300px;
+  border: 1px solid white;
+  border-radius: 50%;
 }

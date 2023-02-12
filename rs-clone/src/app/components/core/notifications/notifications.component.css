@@ -1,0 +1,9 @@
+.notifications {
+    max-width: 100%;
+    background-image: url(../../../../assets/photo_2023-01-30_10-20-15.jpg);
+    height: 100%;
+}
+
+mat-tab-group {
+    width: 100%;
+}

@@ -2,9 +2,38 @@
   display: flex;
   justify-content: space-between;
 }
-.home__page-container {
-  flex-grow: 3;
+
+.tasks__content {
+  display: flex;
 }
 .overdue__pic {
   width: 20%;
 }
+
+.element--hover {
+  cursor: pointer;
+  transition: box-shadow 600ms cubic-bezier(.33, .11, .02, .99),
+    transform 600ms cubic-bezier(.33, .11, .02, .99);
+  margin-left: 15px;
+}
+
+.element--hover:hover {
+  box-shadow: 0 4px 4px rgba(0, 0, 0, .1),
+    0 1px 6px rgba(0, 0, 0, .05),
+    0 8px 8px rgba(0, 0, 0, .1),
+    0 16px 16px rgba(0, 0, 0, .1),
+    8px 32px 32px rgba(0, 0, 0, .15),
+    8px 64px 64px rgba(0, 0, 0, .15);
+
+  transform: scale(1.05) translateY(-0.5rem);
+}
+
+.element--hover:active {
+  box-shadow: 0 4px 4px rgba(0, 0, 0, .1),
+    0 1px 6px rgba(0, 0, 0, .05),
+    0 8px 8px rgba(0, 0, 0, .1),
+    0 16px 16px rgba(0, 0, 0, .1),
+    8px 16px 16px rgba(0, 0, 0, .15),
+    8px 32px 32px rgba(0, 0, 0, .15);
+}
+
