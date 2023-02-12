@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
+
 .test {
   display: flex;
   justify-content: space-around;
@@ -7,6 +9,19 @@
   height: 90%;
   width: 100%;
 }
+
+.img {
+  position: absolute;
+  width: 320px;
+  height: 400px;
+  left: 10%;
+}
+
+.form__question {
+  font-size: 30px;
+  font-family: "Dancing Script", cursive;
+}
+
 .login__form {
   position: absolute;
   top: 0;
@@ -17,14 +32,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(#939493, 0.9);
+  background-color: white;
 }
 .enter__form {
   display: flex;
   gap: 30px;
   margin-top: 15px;
 }
-.login, .pass, .login__submit {
+.login,
+.pass,
+.login__submit {
   height: 50px;
 }
 .form__reg,
