@@ -29,6 +29,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { SpaceComponent } from './components/core/space/space.component';
+import { FooterComponent } from './components/core/footer/footer.component';
+import { RegistrationFormComponent } from './components/registration-form/registration-form.component';
 
 
 
@@ -52,6 +54,8 @@ import { SpaceComponent } from './components/core/space/space.component';
     QuotesRusContentComponent,
     NavComponent,
     SpaceComponent,
+    FooterComponent,
+    RegistrationFormComponent,
   ],
   imports: [
     BrowserModule,
