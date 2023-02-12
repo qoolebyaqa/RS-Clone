@@ -38,8 +38,7 @@ export class TaskPopUpComponent implements OnInit {
     newPost.attachments = obj.attachments;
     newPost.overdue = false;
     newPost.done = false;
-    this.serv.setData(newPost).subscribe( async (data) => { console.log(data) });
-    await this.ngOnInit();
+    this.serv.setData(newPost).subscribe( async (data) => { console.log(data); this.serv.tasks?.push(data)});
     console.log(this.serv.tasks);
     this.hidder();
   }
