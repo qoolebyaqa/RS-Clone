@@ -1,17 +1,18 @@
 <header>
-    <div class="header-container">
-        <h1 class="logo">RS-Clone</h1>
-        <h2 class="header__user">Hello,  {{ serv.username }}!</h2>
-        <input class="search-input" type="text" placeholder="Search task">
-        <div class="header__tools">
+  <div class="header-container">
+      <h1 class="logo">тут Лого</h1>
+      <h2 class="header__user">Хеллоу, {{ serv.username }}</h2>
+      <input class="search-input" type="text" placeholder="Наврятли что-то найдешь">
+      <div class="header__tools">
 
-            <a class="header__settings">
-                <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="settings"></mat-icon>
-            </a>
-            <a class="header__news">
-                <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="campaign"></mat-icon>
-            </a>
-            <div class="user__avatar">MS</div>
-        </div>
-    </div>
+          <a class="header__settings">
+              <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="settings"></mat-icon>
+          </a>
+          <a class="header__news">
+              <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="campaign"></mat-icon>
+          </a>
+          <a class="user__avatar" routerLink="profile-page">MS</a>
+      </div>
+  </div>
 </header>
+

@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
   onLogSubmit (obj: IlogUser) {
     this.serv.logUser(obj).subscribe((data) => {
       localStorage.setItem('auth-tok', data.token);
+      localStorage.setItem('name', data.name);
       this.serv.setToken(data.token);
       this.serv.username = data.name;
       this.router.navigate(['/']);

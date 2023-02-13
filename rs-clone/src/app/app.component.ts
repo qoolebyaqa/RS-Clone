@@ -20,8 +20,10 @@ export class AppComponent implements OnInit {
  */
   ngOnInit(){
     const maybeToken = localStorage.getItem('auth-tok');
+    const userActive = localStorage.getItem('name');
     if (maybeToken !== null) {
       this.serv.setToken(maybeToken);
+      this.serv.username = userActive as string;
     }
   }
 

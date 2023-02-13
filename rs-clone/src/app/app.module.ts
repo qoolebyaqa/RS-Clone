@@ -31,6 +31,7 @@ import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './components/core/footer/footer.component';
 import { LoginComponent } from './components/core/login/login.component';
 import { TokenInt } from './classes/interfaces/token.inceptor';
+import { ProfilePageComponent } from './components/core/profile-page/profile-page.component';
 
 
 
@@ -54,6 +55,7 @@ import { TokenInt } from './classes/interfaces/token.inceptor';
     SpaceComponent,
     FooterComponent,
     LoginComponent,
+    ProfilePageComponent,
   ],
   imports: [
     BrowserModule,
