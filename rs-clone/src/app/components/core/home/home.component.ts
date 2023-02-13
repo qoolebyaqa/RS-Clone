@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NewserviceService } from 'src/app/newservice.service';
-import { ITask } from 'src/app/interfaces/interfaces';
+import { ITask } from 'src/app/classes/interfaces/interfaces';
 
 @Component({
   selector: 'app-home',

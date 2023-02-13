@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { NewserviceService } from 'src/app/newservice.service';
 
 @Component({
   selector: 'app-header',
@@ -8,4 +9,8 @@ import { Component, Input } from '@angular/core';
 export class HeaderComponent {
 
   @Input() ActiveUser?: string;
+
+  constructor(public serv: NewserviceService) {
+
+  }
 }

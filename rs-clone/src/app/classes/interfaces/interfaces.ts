@@ -10,15 +10,25 @@ export class taskPost {
   "isDone": boolean;
   "color": string;
 }
-export interface IUser {
+export interface IlogUser {
+  "email": string,
+  "name": string;
+  "password": string
+}
+export interface IregUser {
   "email": string,
   "name": string,
   "password": string
 }
 
-export class UserPost {
+
+export class regUser {
   "email": string;
   "name": string;
+  "password": string;
+}
+export class logUser {
+  "email": string;
   "password": string;
 }
 
