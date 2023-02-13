@@ -1,7 +1,9 @@
 <app-header [ActiveUser]="entredUser"></app-header>
 <div class="app-container">
   <app-nav></app-nav>
-  <router-outlet></router-outlet>
+  <div style="width: 100%">
+    <router-outlet></router-outlet>
+  </div>
 </div>
 <form #loginForm="ngForm" class="login__form" *ngIf="login" (ngSubmit)="entUser(loginForm.value)">
   <img src="../assets/registration.png" alt="teddy" class="img">
