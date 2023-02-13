@@ -32,6 +32,7 @@ import { SpaceComponent } from './components/core/space/space.component';
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './components/core/footer/footer.component';
 import { RegistrationFormComponent } from './components/registration-form/registration-form.component';
+import { ProfilePageComponent } from './components/core/profile-page/profile-page.component';
 
 
 
@@ -57,6 +58,7 @@ import { RegistrationFormComponent } from './components/registration-form/regist
     SpaceComponent,
     FooterComponent,
     RegistrationFormComponent,
+    ProfilePageComponent,
   ],
   imports: [
     BrowserModule,

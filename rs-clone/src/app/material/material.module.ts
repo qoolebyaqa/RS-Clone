@@ -13,6 +13,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 const MaterialComponents = [
   MatMenuModule,
   MatToolbarModule,
@@ -30,6 +31,7 @@ const MaterialComponents = [
   MatBottomSheetModule,
   FormsModule,
   ReactiveFormsModule,
+  MatProgressBarModule
 ];
 
 @NgModule({
