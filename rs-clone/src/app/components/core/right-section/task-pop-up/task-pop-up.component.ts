@@ -1,7 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { ITask, IUser, UserPost } from 'src/app/interfaces/interfaces';
-import { taskPost } from 'src/app/interfaces/interfaces';
+import { ITask} from 'src/app/classes/interfaces/interfaces';
+import { taskPost } from 'src/app/classes/interfaces/interfaces';
 import { NewserviceService } from 'src/app/newservice.service';
 
 @Component({
@@ -24,10 +24,10 @@ export class TaskPopUpComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.serv.getData().subscribe(data => {this.tasks = data; this.serv.tasks=data; this.tasks? this.serv.emitTasks(this.tasks):''});
+    /* this.serv.getData().subscribe(data => {this.tasks = data; this.serv.tasks=data; this.tasks? this.serv.emitTasks(this.tasks):''}); */
   }
 
-  async postTask(obj: ITask) {
+  /* async postTask(obj: ITask) {
     const newPost = new taskPost();
     newPost.name = obj.name;
     newPost.workspace = obj.workspace
@@ -41,7 +41,7 @@ export class TaskPopUpComponent implements OnInit {
     this.serv.setData(newPost).subscribe( async (data) => { console.log(data); this.serv.tasks?.push(data)});
     console.log(this.serv.tasks);
     this.hidder();
-  }
+  } */
 
   disableSelect = new FormControl(false);
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NewserviceService } from 'src/app/newservice.service';
-import { ITask } from 'src/app/interfaces/interfaces';
+import { ITask } from 'src/app/classes/interfaces/interfaces';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit{
   constructor(public serv: NewserviceService) {  }
   ngOnInit() {  }
 
-  todayTask () {
+ /*  todayTask () {
     this.mineTasks = [];
     this.theirTasks = [];
     this.serv.tasks?.forEach((value) => {
@@ -43,5 +43,5 @@ export class HomeComponent implements OnInit{
       }
     });
     this.overdueTasks.length > 0 ? this.hasOverdue = true : this.hasOverdue = false;
-  }
+  } */
 }

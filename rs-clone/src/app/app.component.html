@@ -1,26 +1,8 @@
-<app-header [ActiveUser]="entredUser"></app-header>
+<app-header></app-header>
 <div class="app-container">
   <app-nav></app-nav>
   <div style="width: 100%">
     <router-outlet></router-outlet>
   </div>
 </div>
-<form #loginForm="ngForm" class="login__form" *ngIf="login" (ngSubmit)="entUser(loginForm.value)">
-  <img src="../assets/registration.png" alt="teddy" class="img">
-  <p class="form__question">Do not have an account?</p>
-  <div class="form__reg" (click)="login =! login; reg =! reg">Register</div>
-  <div class="enter__form">
-    <input ngModel type="text" placeholder="login" class="login" name="login">
-    <input ngModel type="password" placeholder="password" class="pass" name="password">
-    <button class="login__submit">Start work</button>
-  </div>
-</form>
-<form #regForm="ngForm" class="login__form" *ngIf="reg" (ngSubmit)="regUser(regForm.value)">
-  <div class="enter__form">
-    <input ngModel type="text" placeholder="login" class="login" name="login">
-    <input ngModel type="password" placeholder="password" class="pass" name="password">
-    <button class="login__submit">Register</button>
-  </div>
-</form>
-<!-- <app-registration-form></app-registration-form> -->
 <app-footer></app-footer>
