@@ -11,6 +11,7 @@ import { HomeComponent } from './components/core/home/home.component';
 export class AppComponent implements OnInit {
   constructor (private serv: NewserviceService) {}
   title = 'rs-clone';
+  tasks: ITask[] = [];
 
   /* tasks?: ITask[];
   users?: IUser[];
@@ -21,6 +22,15 @@ export class AppComponent implements OnInit {
   ngOnInit(){
     const maybeToken = localStorage.getItem('auth-tok');
     const userActive = localStorage.getItem('name');
+    this.serv.getData().subscribe((data) => {
+      console.log(data);
+      this.serv.tasks = data;
+    })
+    this.serv.getUsers().subscribe((data) => {
+      console.log(data);
+      this.serv.users = data;
+    })
+
     if (maybeToken !== null) {
       this.serv.setToken(maybeToken);
       this.serv.username = userActive as string;

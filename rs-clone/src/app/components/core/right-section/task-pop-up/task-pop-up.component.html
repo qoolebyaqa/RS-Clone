@@ -1,49 +1,28 @@
 <div class="popup__wrapper">
-  <form #taskForm="ngForm" class="popup__form" id="task-form">
+  <form #taskForm="ngForm" class="popup__form" id="task-form" (submit)="postTask(taskForm.value)">
     <div class="popup__controls">
       <div class="controls__status"></div>
-      <input ngModel type="text" name="name" class="controls__nametask" placeholder="Task name or type of task" autocomplete="off">
+      <input ngModel type="text" name="title" class="controls__nametask" placeholder="Название задачи" autocomplete="off">
       <button class="controls__minimizer"><mat-icon>archive</mat-icon></button>
       <button class="controls__closer"
       (click)="this.hidder($event)"
       ><mat-icon>close</mat-icon></button>
     </div>
+    <p class="controls__color"> Цвет твоего настроения <input ngModel type="color" name="color"></p>
     <input ngModel type="datetime-local" name="time" min="02-11-2023">
     <div class="popup__settings">
-      <p class="settings__pre-text">In</p>
-      <input ngModel class="settings__search" type="search" name="workspace">
-      <p class="settings__pre-text">For</p>
+      <p class="settings__pre-text">Напрячь чела</p>
       <div class="settings__members-list">
         <p class="space__selector-container">
           <select ngModel class="space__selector" size="1" name="assignto">
-            <!-- <option *ngFor="let item of serv.users">{{ item }}</option> -->
+            <option *ngFor="let item of serv.users">{{ item.name }}</option>
           </select>
         </p>
       </div>
     </div>
-    <textarea ngModel name="discription" form="task-form" cols="30" rows="10" placeholder="Description or type, use '/' for commands"></textarea>
-    <div class="popup__adders">
-      <div class="adders__checklist">
-        <select ngModel class="space__selector" size="1" name="checklist">
-          <!-- <option *ngFor="let item of serv.users">{{ item }}</option> -->
-        </select>
-      </div>
-    </div>
-    <div class="popup__filehost">
-      <div class="filehost__atachments">
-        <p class="filehost__pretext">Attachments</p>
-        <mat-form-field appearance="fill">
-          <mat-select [disabled]="disableSelect.value">
-            <mat-option value="Upload">Upload</mat-option>
-            <mat-option value="From Youtube">From Youtube</mat-option>
-            <mat-option value="Location">Location</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-    </div>
-    <div class="filehost__dragdrop">
-      <span class="filehost__dd-instruct">Drag and drop files here</span>
-    </div>
-    <button class="task__submit">Create the task</button>
+    <textarea ngModel name="details" form="task-form" cols="30" rows="10" placeholder="Сформулируй конкретно шо хочешь"></textarea>
+    <button class="task__submit">Погнали!</button>
   </form>
 </div>
+
+

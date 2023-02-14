@@ -1,14 +1,22 @@
 export interface ITask  {
   "title": string,
   "details": string,
-  "isDone": boolean,
+  "isDone": string,
   "color": string,
+  "time": string,
+  "overdue": boolean,
+  "from": string,
+  "assignTo": string
 }
 export class taskPost {
   "title": string;
   "details": string;
-  "isDone": boolean;
+  "isDone": string;
   "color": string;
+  "time": string;
+  "overdue": boolean;
+  "from": string;
+  "assignTo": string
 }
 export interface IlogUser {
   "email": string,
@@ -55,14 +63,15 @@ export class taskPost {
   "checklist": string;
   "attachments": string;
   "done": boolean;
-}
+}*/
 export interface IUser {
-  "login": string,
-  "password": string
+  "email": string,
+  "name": string,
+  "password": string,
 }
 
 export class UserPost {
   "login": string;
   "password": string;
-} */
+}
 

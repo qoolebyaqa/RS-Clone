@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { IlogUser, IregUser, ITask } from './classes/interfaces/interfaces';
+import { IlogUser, IregUser, ITask, IUser } from './classes/interfaces/interfaces';
 import { BehaviorSubject, filter, Observable, Subject, Subscription } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
@@ -9,6 +9,8 @@ import { tap } from 'rxjs/operators';
 })
 export class NewserviceService {
   username: string = '';
+  tasks: ITask[] = [];
+  users: IUser[] = [];
   /* private tasks$: BehaviorSubject<any> = new BehaviorSubject([]);
   tasksObs$: Observable<ITask[]> = this.tasks$.asObservable();
   private users$: BehaviorSubject<any> = new BehaviorSubject([]);
@@ -39,7 +41,7 @@ export class NewserviceService {
 
   logOut () {
     this.setToken(null);
-    localStorage.removeItem('auth-token');
+    localStorage.removeItem('auth-tok');
   }
 
   public logUser(user: IlogUser): Observable<{email: string, name: string, token: string}> {
@@ -64,8 +66,12 @@ export class NewserviceService {
     return this.http.get('api/workouts');
   }
 
-  public setData(task: ITask): Observable<any> { //BODY FOR POST REQ: { title: string, details: string, isDone: boolean, color: string (example: "#000000") }
+  public setData(task: ITask): Observable<any> {
     return this.http.post('api/workouts', task);
+  }
+
+  public getUsers(): Observable<any> {
+    return this.http.get('api/user/users');
   }
 
 
