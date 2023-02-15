@@ -4,14 +4,14 @@
       <h2 class="header__user">Хеллоу, {{ serv.username }}</h2>
       <input class="search-input" type="text" placeholder="Наврятли что-то найдешь">
       <div class="header__tools">
-
-          <a class="header__settings">
+          <!-- <a class="header__settings">
               <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="settings"></mat-icon>
           </a>
           <a class="header__news">
               <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="campaign"></mat-icon>
-          </a>
+          </a> -->
           <a class="user__avatar" routerLink="profile-page">MS</a>
+          <a type="button" (click)="logOut()" class="login-button" routerLink="login">Выйти</a>
       </div>
   </div>
 </header>
