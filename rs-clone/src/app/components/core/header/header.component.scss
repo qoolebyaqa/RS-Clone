@@ -48,4 +48,13 @@ a {
   font-style: 300px;
   border: 1px solid white;
   border-radius: 50%;
+  margin-right: 10px;
+}
+
+.login-button {
+  transition: all .3s;
+}
+.login-button:hover {
+  cursor: pointer;
+  color: lightblue;
 }
