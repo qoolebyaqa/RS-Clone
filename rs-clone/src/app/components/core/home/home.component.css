@@ -44,29 +44,19 @@
     8px 16px 16px rgba(0, 0, 0, .15),
     8px 32px 32px rgba(0, 0, 0, .15);
 }
-
-.chill-man {
-  width: 250px;
-  height: 250px;
+.edit,
+.done {
+  border: none;
+  margin-right: 5px;
+}
+.edit:hover,
+.done:hover {
+  cursor: pointer;
 }
 
-.empty-comments__block {
-  display: flex;
-  flex-direction: column;
-  padding-top: 10px;
-  align-items: center;
-  font-family: "Amatic SC", cursive;
-  font-size: 20px;
-}
-
-.mat-text {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  padding: 10px;
-  align-items: center;
-  font-family: "Amatic SC", cursive;
-  font-size: 20px;
+.overdue__title {
+  margin: 0;
+  padding: 0;
 }
 
 .mat-button {
