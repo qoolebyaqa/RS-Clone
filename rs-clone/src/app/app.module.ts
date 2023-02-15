@@ -32,6 +32,7 @@ import { FooterComponent } from './components/core/footer/footer.component';
 import { LoginComponent } from './components/core/login/login.component';
 import { TokenInt } from './classes/interfaces/token.inceptor';
 import { ProfilePageComponent } from './components/core/profile-page/profile-page.component';
+import { UpdFormComponent } from './components/core/upd-form/upd-form.component';
 
 
 
@@ -56,6 +57,7 @@ import { ProfilePageComponent } from './components/core/profile-page/profile-pag
     FooterComponent,
     LoginComponent,
     ProfilePageComponent,
+    UpdFormComponent,
   ],
   imports: [
     BrowserModule,

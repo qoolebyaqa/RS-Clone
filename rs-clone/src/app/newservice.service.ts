@@ -10,6 +10,7 @@ export class NewserviceService {
   username: string = '';
   tasks: ITask[] = [];
   users: IUser[] = [];
+  taskUPD?: ITask;
 
   private tasks$: BehaviorSubject<any> = new BehaviorSubject([]);
   tasksObs$: Observable<ITask[]> = this.tasks$.asObservable();

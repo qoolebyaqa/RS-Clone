@@ -75,7 +75,7 @@
                                         <div classs="empty-overdue__block" *ngFor="let task of mineTasks" [ngStyle]="{'display': 'flex', 'justify-content': 'space-between'}">
                                           <p class="title" [style.color]= task.color id="{{ task._id }}"> {{ task.title }} </p>
                                           <div class="buttons__editdone">
-                                            <button class="edit">Меняй!</button>
+                                            <button class="edit" (click)="updVisibleForm = true">Меняй!</button>
                                             <button class="done">Наконец-то!</button>
                                           </div>
                                         </div>
@@ -106,3 +106,4 @@
         </div>
     </div>
 </div>
+<app-upd-form *ngIf="updVisibleForm"></app-upd-form>

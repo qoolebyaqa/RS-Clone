@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NewserviceService } from 'src/app/newservice.service';
-import { ITask } from 'src/app/classes/interfaces/interfaces';
+import { ITask, taskPost } from 'src/app/classes/interfaces/interfaces';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit{
   mineTasks: ITask[] = [];
   theirTasks: ITask[] = [];
   overdueTasks: ITask[] = [];
+  updVisibleForm = false;
 
   constructor(public serv: NewserviceService) {  }
   ngOnInit() {  }
@@ -47,4 +48,18 @@ export class HomeComponent implements OnInit{
     });
     this.overdueTasks.length > 0 ? this.hasOverdue = true : this.hasOverdue = false;
   }
+
+    async createFormUp (e: Event) {
+      const target = e.target as HTMLButtonElement;
+      const id = target.parentElement?.parentElement?.children[0].id;
+      this.serv.tasks.map((value: ITask) => {
+        if (value._id = id as string) {
+          this.serv.taskUPD = value;
+          return;
+        }
+      })
+
+      /* const curState = await this.serv.
+      if (id) this.serv.updateData(id) */
+    }
 }
