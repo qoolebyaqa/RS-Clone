@@ -37,4 +37,17 @@
     8px 16px 16px rgba(0, 0, 0, .15),
     8px 32px 32px rgba(0, 0, 0, .15);
 }
+.edit,
+.done {
+  border: none;
+  margin-right: 5px;
+}
+.edit:hover,
+.done:hover {
+  cursor: pointer;
+}
 
+.overdue__title {
+  margin: 0;
+  padding: 0;
+}

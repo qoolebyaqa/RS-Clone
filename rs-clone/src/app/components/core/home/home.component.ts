@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit{
  todayTask () {
     this.mineTodayTasks = [];
     this.serv.tasks?.forEach((value) => {
-      if(new Date(value.time).getDate() === new Date().getDate() /* && !value.done */) {
+      if(new Date(value.time).getDate() === new Date().getDate() && !value.isDone) {
         this.mineTodayTasks.push(value);
       }
     });
@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit{
   AllTask () {
     this.mineTasks = [];
     this.serv.tasks?.forEach((value) => {
-        this.mineTasks.push(value);
+      if (!value.isDone) this.mineTasks.push(value);
     });
     this.mineTasks.length > 0 ? this.hasAnyTask = true : this.hasAnyTask = false;
   }
@@ -41,8 +41,8 @@ export class HomeComponent implements OnInit{
    overdueCheck () {
     this.overdueTasks = [];
     this.serv.tasks?.forEach((value) => {
-      if (new Date(value.time).getDate() > new Date().getDate()) {
-        this.mineTasks.push(value);
+      if (new Date(value.time).getDate() < new Date().getDate() && !value.isDone) {
+        this.overdueTasks.push(value);
       }
     });
     this.overdueTasks.length > 0 ? this.hasOverdue = true : this.hasOverdue = false;

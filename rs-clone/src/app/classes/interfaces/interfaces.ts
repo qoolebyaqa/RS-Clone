@@ -1,22 +1,26 @@
 export interface ITask  {
+  "_id": string,
   "title": string,
   "details": string,
   "isDone": string,
   "color": string,
+  "user_id": string,
   "time": string,
   "overdue": boolean,
   "from": string,
   "assignTo": string
 }
 export class taskPost {
+  "_id": string;
   "title": string;
   "details": string;
   "isDone": string;
   "color": string;
+  "user_id": string;
   "time": string;
   "overdue": boolean;
   "from": string;
-  "assignTo": string
+  "assignTo": string;
 }
 export interface IlogUser {
   "email": string,

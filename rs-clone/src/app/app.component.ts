@@ -13,22 +13,14 @@ export class AppComponent implements OnInit {
   title = 'rs-clone';
   tasks: ITask[] = [];
 
-  /* tasks?: ITask[];
-  users?: IUser[];
-  login = true;
-  reg = false;
-  entredUser?: string;
- */
   ngOnInit(){
     const maybeToken = localStorage.getItem('auth-tok');
     const userActive = localStorage.getItem('name');
     this.serv.getData().subscribe((data) => {
-      console.log(data);
       this.serv.tasks = data;
       this.serv.emitTasks(data);
     })
     this.serv.getUsers().subscribe((data) => {
-      console.log(data);
       this.serv.users = data;
       this.serv.emitUsers(data);
     })
