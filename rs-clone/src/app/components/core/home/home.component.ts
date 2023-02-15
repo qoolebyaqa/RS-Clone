@@ -10,7 +10,9 @@ import { ITask } from 'src/app/classes/interfaces/interfaces';
 export class HomeComponent implements OnInit{
   panelOpenState = false;
   hasTask = false;
+  hasAnyTask = false;
   hasOverdue = false;
+  mineTodayTasks: ITask[] = [];
   mineTasks: ITask[] = [];
   theirTasks: ITask[] = [];
   overdueTasks: ITask[] = [];
@@ -18,30 +20,31 @@ export class HomeComponent implements OnInit{
   constructor(public serv: NewserviceService) {  }
   ngOnInit() {  }
 
- /*  todayTask () {
-    this.mineTasks = [];
-    this.theirTasks = [];
+ todayTask () {
+    this.mineTodayTasks = [];
     this.serv.tasks?.forEach((value) => {
-      if(value.assignto.toUpperCase() === this.serv.activeUser?.toUpperCase() && new Date(value.time).getDate() === new Date().getDate() && !value.done) {
-        this.mineTasks.push(value);
-      }
-      if(value.checklist.toUpperCase() === this.serv.activeUser?.toUpperCase() && new Date(value.time).getDate() === new Date().getDate() && !value.done) {
-        this.theirTasks.push(value);
+      if(new Date(value.time).getDate() === new Date().getDate() && !value.isDone) {
+        this.mineTodayTasks.push(value);
       }
     });
-    this.mineTasks.length > 0 || this.theirTasks.length > 0 ? this.hasTask = true : this.hasTask = false;
+    this.mineTodayTasks.length > 0 ? this.hasTask = true : this.hasTask = false;
   }
 
-  overdueCheck () {
+  AllTask () {
+    this.mineTasks = [];
+    this.serv.tasks?.forEach((value) => {
+      if (!value.isDone) this.mineTasks.push(value);
+    });
+    this.mineTasks.length > 0 ? this.hasAnyTask = true : this.hasAnyTask = false;
+  }
+
+   overdueCheck () {
     this.overdueTasks = [];
     this.serv.tasks?.forEach((value) => {
-      if(value.assignto.toUpperCase() === this.serv.activeUser?.toUpperCase() &&
-      new Date(value.time).getDate() <= new Date().getDate() &&
-      new Date(value.time).getTime() < new Date().getTime() &&
-      !value.done) {
+      if (new Date(value.time).getDate() < new Date().getDate() && !value.isDone) {
         this.overdueTasks.push(value);
       }
     });
     this.overdueTasks.length > 0 ? this.hasOverdue = true : this.hasOverdue = false;
-  } */
+  }
 }

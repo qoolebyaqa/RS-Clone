@@ -11,16 +11,20 @@ import { HomeComponent } from './components/core/home/home.component';
 export class AppComponent implements OnInit {
   constructor (private serv: NewserviceService) {}
   title = 'rs-clone';
+  tasks: ITask[] = [];
 
-  /* tasks?: ITask[];
-  users?: IUser[];
-  login = true;
-  reg = false;
-  entredUser?: string;
- */
   ngOnInit(){
     const maybeToken = localStorage.getItem('auth-tok');
     const userActive = localStorage.getItem('name');
+    this.serv.getData().subscribe((data) => {
+      this.serv.tasks = data;
+      this.serv.emitTasks(data);
+    })
+    this.serv.getUsers().subscribe((data) => {
+      this.serv.users = data;
+      this.serv.emitUsers(data);
+    })
+
     if (maybeToken !== null) {
       this.serv.setToken(maybeToken);
       this.serv.username = userActive as string;

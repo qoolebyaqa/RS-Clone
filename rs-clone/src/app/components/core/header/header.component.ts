@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NewserviceService } from 'src/app/newservice.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { NewserviceService } from 'src/app/newservice.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit{
 
   @Input() ActiveUser?: string;
   @Input() logOut() {
@@ -15,5 +15,14 @@ export class HeaderComponent {
 
   constructor(public serv: NewserviceService) {
 
+  }
+  ngOnInit(): void {
+  }
+
+  getAvatar() {
+    if (localStorage.getItem('avatarURL') !== null) {
+      return localStorage['avatarURL'];
+    }
+    return '';
   }
 }

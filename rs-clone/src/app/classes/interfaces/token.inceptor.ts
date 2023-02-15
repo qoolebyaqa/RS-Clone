@@ -10,13 +10,11 @@ export class TokenInt implements HttpInterceptor {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    if (this.serv.isAuth()) {
-      req = req.clone({ setHeaders:
-          {
-            Authorization: this.serv.getToken() as string,
-          }
-        }
-      );
+    if (localStorage.getItem('auth-tok')) {
+      req = req.clone({
+        setHeaders: {
+            Authorization: `Bearer ${localStorage.getItem('auth-tok')}`}
+      });
     }
     return next.handle(req);
   }
