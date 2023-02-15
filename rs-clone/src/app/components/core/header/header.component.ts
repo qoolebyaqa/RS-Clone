@@ -9,6 +9,9 @@ import { NewserviceService } from 'src/app/newservice.service';
 export class HeaderComponent implements OnInit{
 
   @Input() ActiveUser?: string;
+  @Input() logOut() {
+    localStorage.clear();
+  }
 
   constructor(public serv: NewserviceService) {
 
