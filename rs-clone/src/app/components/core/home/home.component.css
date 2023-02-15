@@ -1,6 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC&family=Caveat:wght@600&display=swap");
+
 .home__page {
   display: flex;
   justify-content: space-between;
+
+}
+
+.content__block {
+  padding-top: 15px;
 }
 
 .tasks__content {
@@ -41,4 +48,33 @@
 .chill-man {
   width: 250px;
   height: 250px;
+}
+
+.empty-comments__block {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  align-items: center;
+  font-family: "Amatic SC", cursive;
+  font-size: 20px;
+}
+
+.mat-text {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 10px;
+  align-items: center;
+  font-family: "Amatic SC", cursive;
+  font-size: 20px;
+}
+
+.mat-button {
+  background-color: lightblue;
+  border-color: blue;
+  padding: 10px;
+  font-family: "Amatic SC", cursive;
+  font-size: 20px;
+  border-radius: 10px;
+  margin-left: 40%;
 }
