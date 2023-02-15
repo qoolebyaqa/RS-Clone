@@ -52,7 +52,9 @@ a {
 }
 
 .login-button {
-  transition: all .3s;
+  transition: all 0.3s;
+  font-family: "Amatic SC", cursive;
+  font-size: 22px;
 }
 .login-button:hover {
   cursor: pointer;

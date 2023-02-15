@@ -5,7 +5,7 @@
             <div class="tasks__content">
                 <div class="content__block">
                     <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
-                        <mat-tab label="То Ду">
+                        <mat-tab label="То Ду" class="title">
                             <div class="today">
                                 <mat-accordion>
                                     <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
@@ -37,7 +37,7 @@
                                     <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
                                     (click)="overdueCheck()">
                                         <mat-expansion-panel-header>
-                                            <mat-panel-title>
+                                            <mat-panel-title class="title-task">
                                                 Просроченные
                                             </mat-panel-title>
                                         </mat-expansion-panel-header>
@@ -55,7 +55,7 @@
                                     </mat-expansion-panel>
                                     <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
                                         <mat-expansion-panel-header>
-                                            <mat-panel-title>
+                                            <mat-panel-title class="title-task">
                                                 Некст
                                             </mat-panel-title>
                                         </mat-expansion-panel-header>
@@ -83,17 +83,17 @@
                                 </mat-accordion>
                             </div>
                         </mat-tab>
-                        <mat-tab label="Комменты">
+                        <mat-tab label="Комменты" class="title">
                             <div class="empty-comments__block">
                                 <img src="../../../../assets/sanbath_chill.c222e99cb795da04825a964e52e5648b.png" alt="chill-man">
                                 <p class="comments__title">Офигеть, ты сделал все!</p>
                                 <div class="comments__text">У вас нет комментариев</div>
                             </div>
                         </mat-tab>
-                        <mat-tab label="Завершенные">
+                        <mat-tab label="Завершенные" class="title">
                             <div class="mat-title">Завершенные</div>
                         </mat-tab>
-                        <mat-tab label="Делегировать">
+                        <mat-tab label="Делегировать" class="title">
                             <div class="mat-text">Забыл/ла? Забудьте об этом! Делегируйте напоминание, чтобы убедиться, что все будет сделано.
                                 Назначьте напоминание кому-либо и следите за ним здесь. Вы также можете видеть делегированные вами напоминания в профиле любого человека.</div>
                             <button class="mat-button"><a href="https://help.clickup.com/hc/en-us/articles/6325931822359-Delegate-reminders">Жми если не понял/ла</a></button>
