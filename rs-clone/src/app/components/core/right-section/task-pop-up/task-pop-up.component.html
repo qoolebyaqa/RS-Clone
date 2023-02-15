@@ -1,5 +1,5 @@
 <div class="popup__wrapper">
-  <form #taskForm="ngForm" class="popup__form" id="task-form" (submit)="postTask(taskForm.value)">
+  <form #taskForm="ngForm" class="popup__form" id="task-form" (ngSubmit)="postTask(taskForm.value)">
     <div class="popup__controls">
       <div class="controls__status"></div>
       <input ngModel type="text" name="title" class="controls__nametask" placeholder="Название задачи" autocomplete="off">
@@ -9,7 +9,7 @@
       ><mat-icon>close</mat-icon></button>
     </div>
     <p class="controls__color"> Цвет твоего настроения <input ngModel type="color" name="color"></p>
-    <input ngModel type="datetime-local" name="time" min="02-11-2023">
+    <input ngModel type="datetime-local" name="time">
     <div class="popup__settings">
       <p class="settings__pre-text">Напрячь чела</p>
       <div class="settings__members-list">

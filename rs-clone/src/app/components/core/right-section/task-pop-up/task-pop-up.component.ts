@@ -37,8 +37,8 @@ export class TaskPopUpComponent implements OnInit {
     newPost.from = this.serv.username;
     new Date(obj.time) < new Date() ?  newPost.overdue = true : newPost.overdue = false;
     newPost.isDone = 'false';
+    console.log(newPost)
     this.serv.setData(newPost).subscribe( (data) => { console.log(data); this.serv.tasks?.push(data)});
-    console.log(this.serv.tasks);
     this.hidder();
   }
 

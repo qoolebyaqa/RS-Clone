@@ -29,7 +29,8 @@
                                             <div class="comments__text" *ngFor="let task of mineTasks">{{ task }}</div>
                                         </div>
                                     </mat-expansion-panel>
-                                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
+                                    (click)="overdueCheck()">
                                         <mat-expansion-panel-header>
                                             <mat-panel-title>
                                                 Просроченные
@@ -53,12 +54,12 @@
                                     (click)="AllTask()">
                                         <mat-expansion-panel-header>
                                             <mat-panel-title>
-                                                Задачи, которые можно делать заранее
+                                                Делай когда хочешь :)
                                             </mat-panel-title>
                                         </mat-expansion-panel-header>
                                         <p class="empty-overdue__block" *ngIf="!hasAnyTask">Нет задач!</p>
                                         <p class="empty-overdue__block" *ngIf="hasAnyTask">У вас есть следующие задачи:
-                                            <br><img src="../../../../assets/hurry.jpeg" alt="work-man" class="overdue__pic">
+                                            <br><img src="../../../../assets/Lazy-face.png" alt="work-man" class="overdue__pic">
                                         </p>
                                         <div classs="empty-overdue__block" *ngFor="let task of mineTasks">{{ task.title }}</div>
                                     </mat-expansion-panel>
