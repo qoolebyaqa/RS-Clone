@@ -23,6 +23,6 @@ export class HeaderComponent implements OnInit{
     if (localStorage.getItem('avatarURL') !== null) {
       return localStorage['avatarURL'];
     }
-    return '';
+    return 'https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png';
   }
 }
