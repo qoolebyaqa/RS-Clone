@@ -29,7 +29,8 @@
                                               <p class="overdue__title" [style.color]= task.color id="{{ task._id }}"> {{ task.title }} </p>
                                               <div class="buttons__editdone">
                                                 <button class="edit">Меняй!</button>
-                                                <button class="done">Наконец-то!</button>
+                                                <button class="done" (click)="deleteTask($event)">Не твоё? Удали!</button>
+                                                <button class="done" (click)="doneTask($event)">Наконец-то!</button>
                                               </div>
                                             </div>
                                         </div>
@@ -49,7 +50,8 @@
                                           <p class="overdue__title" [style.color]= task.color id="{{ task._id }}"> {{ task.title }} </p>
                                           <div class="buttons__editdone">
                                             <button class="edit">Меняй!</button>
-                                            <button class="done">Наконец-то!</button>
+                                            <button class="done" (click)="deleteTask($event)">Не твоё? Удали!</button>
+                                            <button class="done" (click)="doneTask($event)">Наконец-то!</button>
                                           </div>
                                         </div>
                                     </mat-expansion-panel>
@@ -76,7 +78,8 @@
                                           <p class="title" [style.color]= task.color id="{{ task._id }}"> {{ task.title }} </p>
                                           <div class="buttons__editdone">
                                             <button class="edit" (click)="updVisibleForm = true">Меняй!</button>
-                                            <button class="done">Наконец-то!</button>
+                                            <button class="done" (click)="deleteTask($event)">Не твоё? Удали!</button>
+                                            <button class="done" (click)="doneTask($event)">Наконец-то!</button>
                                           </div>
                                         </div>
                                     </mat-expansion-panel>
@@ -91,7 +94,11 @@
                             </div>
                         </mat-tab>
                         <mat-tab label="Завершенные">
-                            <div class="mat-title">Завершенные</div>
+                            <div class="mat-title" *ngIf="finishedTasks.length > 0">Завершенные</div>
+                            <div class="finished__tasks" *ngFor="let item of finishedTasks">
+                              <p class="finished__title">{{ item.title }}</p>
+                              <p class="finished__time"> {{ item.time }}</p>
+                            </div>
                         </mat-tab>
                         <mat-tab label="Делегировать">
                             <div class="mat-text">Забыл/ла? Забудьте об этом! Делегируйте напоминание, чтобы убедиться, что все будет сделано.

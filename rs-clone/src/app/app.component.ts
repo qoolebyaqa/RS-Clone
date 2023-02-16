@@ -14,22 +14,20 @@ export class AppComponent implements OnInit {
   tasks: ITask[] = [];
 
   ngOnInit(){
-    const maybeToken = localStorage.getItem('auth-tok');
-    const userActive = localStorage.getItem('name');
-    this.serv.getData().subscribe((data) => {
-      this.serv.tasks = data;
-      this.serv.emitTasks(data);
-    })
-    this.serv.getUsers().subscribe((data) => {
-      this.serv.users = data;
-      this.serv.emitUsers(data);
-    })
+      const maybeToken = localStorage.getItem('auth-tok');
+      const userActive = localStorage.getItem('name');
+      this.serv.getData().subscribe((data) => {
+        this.serv.tasks = data;
+        this.serv.emitTasks(data);
+      })
+      this.serv.getUsers().subscribe((data) => {
+        this.serv.users = data;
+        this.serv.emitUsers(data);
+      })
 
-    if (maybeToken !== null) {
-      this.serv.setToken(maybeToken);
-      this.serv.username = userActive as string;
-    }
+      if (maybeToken !== null) {
+        this.serv.setToken(maybeToken);
+        this.serv.username = userActive as string;
+      }
   }
-
-
 }

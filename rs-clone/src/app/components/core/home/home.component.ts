@@ -16,10 +16,19 @@ export class HomeComponent implements OnInit{
   mineTasks: ITask[] = [];
   theirTasks: ITask[] = [];
   overdueTasks: ITask[] = [];
+  finishedTasks: ITask[] = [];
   updVisibleForm = false;
 
   constructor(public serv: NewserviceService) {  }
-  ngOnInit() {  }
+  ngOnInit() {
+      this.finishedTasks = [];
+      this.serv.getData().subscribe((data) => {
+        this.serv.tasks = data;
+        this.serv.tasks?.forEach((value) => {
+          if (value.isDone) this.finishedTasks.push(value);
+          });
+      })
+   }
 
  todayTask () {
     this.mineTodayTasks = [];
@@ -39,7 +48,7 @@ export class HomeComponent implements OnInit{
     this.mineTasks.length > 0 ? this.hasAnyTask = true : this.hasAnyTask = false;
   }
 
-   overdueCheck () {
+  overdueCheck () {
     this.overdueTasks = [];
     this.serv.tasks?.forEach((value) => {
       if (new Date(value.time).getDate() < new Date().getDate() && !value.isDone) {
@@ -49,17 +58,39 @@ export class HomeComponent implements OnInit{
     this.overdueTasks.length > 0 ? this.hasOverdue = true : this.hasOverdue = false;
   }
 
-    async createFormUp (e: Event) {
-      const target = e.target as HTMLButtonElement;
-      const id = target.parentElement?.parentElement?.children[0].id;
-      this.serv.tasks.map((value: ITask) => {
-        if (value._id = id as string) {
-          this.serv.taskUPD = value;
-          return;
-        }
-      })
+  async createFormUp (e: Event) {
+    const target = e.target as HTMLButtonElement;
+    const id = target.parentElement?.parentElement?.children[0].id;
+    this.serv.tasks.map((value: ITask) => {
+      if (value._id = id as string) {
+        this.serv.taskUPD = value;
+        return;
+      }
+    })
+  }
+  async deleteTask (e: Event) {
+    const target = e.target as HTMLButtonElement;
+    const id = target.parentElement!.parentElement!.children[0].id;
 
-      /* const curState = await this.serv.
-      if (id) this.serv.updateData(id) */
-    }
+    this.serv.deleteData(id).subscribe((data) => {
+      console.log(data);
+    });
+    this.serv.getData().subscribe((data) => {
+      this.serv.tasks = data;
+    })
+    target.parentElement!.parentElement!.remove();
+  }
+  async doneTask (e: Event) {
+    const target = e.target as HTMLButtonElement;
+    const id = target.parentElement!.parentElement!.children[0].id;
+    const updTask: {"isDone": boolean, "time": string} = {"isDone": true, "time": '' };
+    updTask.time = new Date().toLocaleString()
+    this.serv.updateData(id, updTask).subscribe((data) => {});
+    this.serv.getData().subscribe((data) => {
+      this.serv.tasks = data;
+    })
+    target.parentElement!.parentElement!.remove();
+  }
+
+
 }

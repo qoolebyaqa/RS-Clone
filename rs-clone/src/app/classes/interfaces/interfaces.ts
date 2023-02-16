@@ -8,7 +8,8 @@ export interface ITask  {
   "time": string,
   "overdue": boolean,
   "from": string,
-  "assignTo": string
+  "assignTo": string,
+  "updatedAt"?: string,
 }
 export class taskPost {
   "_id": string;
@@ -21,6 +22,7 @@ export class taskPost {
   "overdue": boolean;
   "from": string;
   "assignTo": string;
+  "updatedAt"?: string;
 }
 export interface IlogUser {
   "email": string,
