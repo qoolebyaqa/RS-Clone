@@ -17,6 +17,8 @@ a {
 }
 .header__user {
   font-family: "Amatic SC", cursive;
+  display: flex;
+  align-items: center;
 }
 .header-container {
   display: flex;

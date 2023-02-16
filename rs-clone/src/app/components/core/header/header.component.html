@@ -1,7 +1,7 @@
 <header>
   <div class="header-container">
       <h1 class="logo">тут Лого</h1>
-      <h2 class="header__user">Хеллоу, {{ serv.username }}<img *ngIf="getAvatar() !== ''" src="{{ getAvatar() }}" [ngStyle]="{'width': '30px', 'height': '30px', 'margin-left': '5px'}"></h2>
+      <h2 class="header__user">Хеллоу, {{ serv.username }}<img *ngIf="getAvatar() !== ''" src="{{ getAvatar() }}" [ngStyle]="{'width': '30px', 'height': '30px', 'margin-left': '5px', 'border-radius': '16px'}"></h2>
       <input class="search-input" type="text" placeholder="Наврятли что-то найдешь">
       <div class="header__tools">
           <!-- <a class="header__settings">
@@ -10,7 +10,7 @@
           <a class="header__news">
               <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="campaign"></mat-icon>
           </a> -->
-          <a class="user__avatar" routerLink="profile-page">MS</a>
+          <a class="user__avatar" routerLink="profile-page">{{ serv.username.slice(0, 2).toUpperCase() }}</a>
           <a type="button" (click)="logOut()" class="login-button" routerLink="login">Выйти</a>
       </div>
   </div>
