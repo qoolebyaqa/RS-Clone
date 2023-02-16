@@ -12,9 +12,9 @@ export class HeaderComponent implements OnInit{
   @Input() logOut() {
     localStorage.clear();
   }
+  @Input() firstLetter = '';
 
   constructor(public serv: NewserviceService) {
-
   }
   ngOnInit(): void {
   }
