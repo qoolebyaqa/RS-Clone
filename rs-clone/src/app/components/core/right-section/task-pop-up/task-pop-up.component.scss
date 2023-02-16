@@ -1,11 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC&family=Caveat:wght@600&display=swap");
+
 .popup__wrapper {
   position: absolute;
   z-index: 1;
-  background-color: rgb(204, 219, 232);
+  background-color: lightblue;
   right: 20px;
   bottom: 20px;
   width: 30%;
-  border: 1px solid black ;
+  border: 1px solid rgb(18, 15, 240);
+  border-radius: 10px;
 }
 .popup__form {
   display: flex;
@@ -17,6 +20,7 @@
 .popup__filehost {
   display: flex;
   justify-content: space-between;
+  padding-top: 10px;
 }
 .controls__nametask {
   width: 80%;
@@ -89,4 +93,13 @@ input[type="datetime-local"] {
   height: 40px;
   border-radius: 25px;
   border: 1px solid grey;
+}
+
+.task__submit {
+  background-color: #2057b7;
+  margin-top: 5px;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  color: white;
 }

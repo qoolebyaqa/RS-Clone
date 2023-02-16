@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC&family=Caveat:wght@600&display=swap");
+
 .right-section {
   width: 520px;
 }
@@ -9,9 +11,11 @@
   .agenda,
   .mentions {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     width: 28%;
     border-right: 1px solid rgb(225, 215, 215);
+    font-family: "Caveat", cursive;
+    font-size: 20px;
   }
   p {
     text-align: center;

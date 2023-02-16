@@ -1,10 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Amatic+SC&family=Caveat:wght@600&display=swap");
 header {
-  padding: 5px;
-  background-image: url(../../../../assets/background.jpg);
-  height: 50px;
+  padding: 10px;
+  // background-image: url(../../../../assets/background.jpg);
+  background: rgb(120, 160, 180);
   color: white;
+  display: flex;
+  align-items: center;
+  height: 40px;
 }
 a {
   color: white;
@@ -17,8 +20,11 @@ a {
 }
 .header__user {
   font-family: "Amatic SC", cursive;
+  display: flex;
+  align-items: center;
 }
 .header-container {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -52,7 +58,9 @@ a {
 }
 
 .login-button {
-  transition: all .3s;
+  transition: all 0.3s;
+  font-family: "Amatic SC", cursive;
+  font-size: 22px;
 }
 .login-button:hover {
   cursor: pointer;

@@ -1,4 +1,3 @@
-
 .calendar__outlayer {
   display: flex;
   justify-content: space-between;
@@ -25,10 +24,8 @@
     cursor: pointer;
     background-color: rgb(243, 243, 243);
   }
-
 }
 .calendar__field {
-  height: 80vh;
   background-color: rgb(243, 243, 243);
 }
 .calendar__timeArr {
