@@ -32,12 +32,13 @@ export class TaskPopUpComponent implements OnInit {
     newPost.title = obj.title;
     newPost.details = obj.details;
     newPost.isDone = 'false';
-    newPost.color = obj.color;
+    if (!obj.color) {
+      newPost.color = '#000000';
+    } else { newPost.color = obj.color }
     newPost.time = obj.time;
     new Date(obj.time) < new Date() ?  newPost.overdue = true : newPost.overdue = false;
     newPost.assignTo = obj.assignTo;
     newPost.from = this.serv.username;
-    console.log(newPost)
     this.serv.setData(newPost).subscribe( (data) => { console.log(data); this.serv.tasks?.push(data)});
     this.hidder();
   }

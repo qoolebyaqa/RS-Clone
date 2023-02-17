@@ -10,6 +10,7 @@ export class NewserviceService {
   username: string = '';
   tasks: ITask[] = [];
   users: IUser[] = [];
+  taskUPD?: ITask;
 
   private tasks$: BehaviorSubject<any> = new BehaviorSubject([]);
   tasksObs$: Observable<ITask[]> = this.tasks$.asObservable();
@@ -47,11 +48,11 @@ export class NewserviceService {
     }
 
   public deleteData(id: string): Observable<any> {
-    return this.http.delete<any>(`api/workouts/:+${id}`);
+    return this.http.delete<any>(`api/workouts/${id}`);
   }
 
-  public updateData(id: string): Observable<any> {
-    return this.http.delete<any>(`api/workouts/:+${id}`);
+  public updateData(id: string, task: {}): Observable<any> {
+    return this.http.patch<any>(`api/workouts/${id}`, task);
   }
 
 

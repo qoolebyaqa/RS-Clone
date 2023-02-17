@@ -32,6 +32,7 @@ import { FooterComponent } from './components/core/footer/footer.component';
 import { LoginComponent } from './components/core/login/login.component';
 import { TokenInt } from './classes/interfaces/token.inceptor';
 import { ProfilePageComponent } from './components/core/profile-page/profile-page.component';
+import { UpdFormComponent } from './components/core/upd-form/upd-form.component';
 import { DragDropComponent } from './components/core/notifications/drag-drop/drag-drop.component';
 
 
@@ -57,6 +58,7 @@ import { DragDropComponent } from './components/core/notifications/drag-drop/dra
     FooterComponent,
     LoginComponent,
     ProfilePageComponent,
+    UpdFormComponent,
     DragDropComponent,
   ],
   imports: [
