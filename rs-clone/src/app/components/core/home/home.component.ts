@@ -18,6 +18,8 @@ export class HomeComponent implements OnInit{
   overdueTasks: ITask[] = [];
   finishedTasks: ITask[] = [];
   updVisibleForm = false;
+  taskObj?: ITask;
+
 
   constructor(public serv: NewserviceService) {  }
   ngOnInit() {
@@ -58,15 +60,17 @@ export class HomeComponent implements OnInit{
     this.overdueTasks.length > 0 ? this.hasOverdue = true : this.hasOverdue = false;
   }
 
-  async createFormUp (e: Event) {
+  createFormUp (e: Event) {
+    e.stopPropagation()
     const target = e.target as HTMLButtonElement;
     const id = target.parentElement?.parentElement?.children[0].id;
     this.serv.tasks.map((value: ITask) => {
-      if (value._id = id as string) {
+      if (value._id === id as string) {
         this.serv.taskUPD = value;
-        return;
+        this.taskObj = value;
       }
     })
+    this.updVisibleForm = true;
   }
   async deleteTask (e: Event) {
     const target = e.target as HTMLButtonElement;
@@ -92,5 +96,16 @@ export class HomeComponent implements OnInit{
     target.parentElement!.parentElement!.remove();
   }
 
+  addTask(e: Event) {
+    e.stopPropagation();
+  }
+
+  addReminder(e: Event) {
+    e.stopPropagation();
+  }
+
+  closeForm () {
+    this.updVisibleForm = false;
+  }
 
 }

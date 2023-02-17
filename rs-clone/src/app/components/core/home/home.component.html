@@ -12,8 +12,8 @@
                                         <mat-expansion-panel-header>
                                             <mat-panel-title>
                                                 <p>Тудэй</p>
-                                                <button mat-button (click)="0" class="element--hover">+ Таск</button>
-                                                <button mat-button (click)="0" class="element--hover">+ Напомнить</button>
+                                                <button mat-button (click)="addTask($event)" class="element--hover">+ Таск</button>
+                                                <button mat-button (click)="addReminder($event)" class="element--hover">+ Напомнить</button>
                                             </mat-panel-title>
                                         </mat-expansion-panel-header>
                                         <div class="empty-comments__block" *ngIf="!hasTask">
@@ -27,7 +27,7 @@
                                             <div class="comments__text" *ngFor="let task of mineTodayTasks" [ngStyle]="{'display': 'flex', 'justify-content': 'space-between'}">
                                               <p class="overdue__title" [style.color]= task.color id="{{ task._id }}"> {{ task.title }} </p>
                                               <div class="buttons__editdone">
-                                                <button class="edit">Меняй!</button>
+                                                <button class="edit" (click)="createFormUp($event)">Меняй!</button>
                                                 <button class="done" (click)="deleteTask($event)">Удаляй!</button>
                                                 <button class="done" (click)="doneTask($event)">Готово!</button>
                                               </div>
@@ -48,7 +48,7 @@
                                         <div classs="empty-overdue__block" *ngFor="let task of overdueTasks" [ngStyle]="{'display': 'flex', 'justify-content': 'space-between'}">
                                           <p class="overdue__title" [style.color]= task.color id="{{ task._id }}"> {{ task.title }} </p>
                                           <div class="buttons__editdone">
-                                            <button class="edit">Меняй!</button>
+                                            <button class="edit" (click)="createFormUp($event)">Меняй!</button>
                                             <button class="done" (click)="deleteTask($event)">Удаляй!</button>
                                             <button class="done" (click)="doneTask($event)">Готово!</button>
                                           </div>
@@ -76,7 +76,7 @@
                                         <div classs="empty-overdue__block" *ngFor="let task of mineTasks" [ngStyle]="{'display': 'flex', 'justify-content': 'space-between'}">
                                           <p class="title" [style.color]= task.color id="{{ task._id }}"> {{ task.title }} </p>
                                           <div class="buttons__editdone">
-                                            <button class="edit" (click)="updVisibleForm = true">Меняй!</button>
+                                            <button class="edit" (click)="createFormUp($event)">Меняй!</button>
                                             <button class="done" (click)="deleteTask($event)">Удаляй!</button>
                                             <button class="done" (click)="doneTask($event)">Готово!</button>
                                           </div>
@@ -112,4 +112,7 @@
         </div>
     </div>
 </div>
-<app-upd-form *ngIf="updVisibleForm"></app-upd-form>
+<div *ngIf="updVisibleForm">
+
+<app-upd-form [UpdatingTask]="taskObj" (closer)="closeForm()" ></app-upd-form>
+</div>
