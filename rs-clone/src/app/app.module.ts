@@ -33,8 +33,19 @@ import { LoginComponent } from './components/core/login/login.component';
 import { TokenInt } from './classes/interfaces/token.inceptor';
 import { ProfilePageComponent } from './components/core/profile-page/profile-page.component';
 import { DragDropComponent } from './components/core/notifications/drag-drop/drag-drop.component';
+import { BoardItemComponent } from './components/core/notifications/drag-drop/board-item/board-item.component';
+import { ColorPanelComponent } from './components/core/notifications/drag-drop/color-panel/color-panel.component';
+import { CommentItemComponent } from './components/core/notifications/drag-drop/comment-item/comment-item.component';
+import { DialogComponent } from './components/core/notifications/drag-drop/component/dialog/dialog.component';
+import { DialogBodyComponent } from './components/core/notifications/drag-drop/component/dialog-body/dialog-body.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
 
-
+import { CommonModule } from '@angular/common';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -58,6 +69,11 @@ import { DragDropComponent } from './components/core/notifications/drag-drop/dra
     LoginComponent,
     ProfilePageComponent,
     DragDropComponent,
+    BoardItemComponent,
+    ColorPanelComponent,
+    CommentItemComponent,
+    DialogComponent,
+    DialogBodyComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,15 +87,24 @@ import { DragDropComponent } from './components/core/notifications/drag-drop/dra
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    FormsModule
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    CommonModule,
+    DragDropModule,
+    MatExpansionModule,
+    MatDialogModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [NewserviceService,
-  {
-   provide: HTTP_INTERCEPTORS,
-   multi: true,
-   useClass: TokenInt,
-  }],
+  providers: [
+    NewserviceService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      multi: true,
+      useClass: TokenInt,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
