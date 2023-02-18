@@ -35,8 +35,19 @@ import { ProfilePageComponent } from './components/core/profile-page/profile-pag
 import { UpdFormComponent } from './components/core/upd-form/upd-form.component';
 import { DragDropComponent } from './components/core/notifications/drag-drop/drag-drop.component';
 import { InfoBlockComponent } from './components/core/info-block/info-block.component';
-
-
+import { BoardItemComponent } from './components/core/notifications/drag-drop/board-item/board-item.component';
+import { ColorPanelComponent } from './components/core/notifications/drag-drop/color-panel/color-panel.component';
+import { CommentItemComponent } from './components/core/notifications/drag-drop/comment-item/comment-item.component';
+import { DialogComponent } from './components/core/notifications/drag-drop/component/dialog/dialog.component';
+import { DialogBodyComponent } from './components/core/notifications/drag-drop/component/dialog-body/dialog-body.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatDialogModule } from '@angular/material/dialog';
+import { HeaderBlockComponent } from './components/core/notifications/drag-drop/header-block/header-block.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +73,12 @@ import { InfoBlockComponent } from './components/core/info-block/info-block.comp
     UpdFormComponent,
     DragDropComponent,
     InfoBlockComponent,
+    BoardItemComponent,
+    ColorPanelComponent,
+    CommentItemComponent,
+    DialogComponent,
+    DialogBodyComponent,
+    HeaderBlockComponent,
   ],
   imports: [
     BrowserModule,
@@ -75,15 +92,24 @@ import { InfoBlockComponent } from './components/core/info-block/info-block.comp
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    FormsModule
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    CommonModule,
+    DragDropModule,
+    MatExpansionModule,
+    MatDialogModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [NewserviceService,
-  {
-   provide: HTTP_INTERCEPTORS,
-   multi: true,
-   useClass: TokenInt,
-  }],
+  providers: [
+    NewserviceService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      multi: true,
+      useClass: TokenInt,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

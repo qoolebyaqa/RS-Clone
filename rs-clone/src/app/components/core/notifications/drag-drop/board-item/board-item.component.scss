@@ -1,0 +1,53 @@
+.block {
+  width: 350px;
+}
+
+.icon {
+  font-size: 18px;
+}
+.text-item {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  align-items: center;
+  gap: 150px;
+}
+
+.button__cont {
+  display: flex;
+}
+
+.mat-icon-button {
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: color ease 0.2s;
+}
+
+.mat-icon-button:hover {
+  color: rgb(255, 255, 255);
+}
+
+.mat-icon-button .mat-button-wrapper > * {
+  vertical-align: none !important;
+}
+
+mat-form-field.mat-form-field {
+  background-color: rgb(212, 212, 212);
+  padding: 10px 10px 0 10px;
+}
+
+::ng-deep .mat-form-field.mat-focused {
+  .mat-form-field-required-marker {
+    color: #000000;
+  }
+  .mat-input-element {
+    color: #000000;
+  }
+}
+
+.icon-confirm {
+  font-size: 20px !important;
+}
