@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { ITask } from 'src/app/classes/interfaces/interfaces';
 import { NewserviceService } from 'src/app/newservice.service';
@@ -8,50 +8,37 @@ import { NewserviceService } from 'src/app/newservice.service';
   templateUrl: './agenda.component.html',
   styleUrls: ['./agenda.component.scss']
 })
-export class AgendaComponent {
+export class AgendaComponent implements OnInit {
   title = 'agenda'
   @Output() falser = new EventEmitter();
   scheduled: ITask[] = [];
 
-  now = (new Date).toDateString();
+  now = new Date();
 
   constructor(public serv: NewserviceService) {}
+
+  ngOnInit(): void {
+    this.serv.tasks.forEach((value) => {
+      const selectedDate = (new Date());
+      const taskdate = (new Date(value.time));
+      if (selectedDate) {
+        if (selectedDate.getFullYear() === taskdate.getFullYear() &&
+        selectedDate.getMonth() === taskdate.getMonth() &&
+        selectedDate.getDay() === taskdate.getDay()) {
+          this.scheduled?.push(value);
+        }
+      }
+    })
+
+  }
 
   hidder(e: Event) {
     e.preventDefault();
     this.falser.emit(this.title);
   }
 
-  nextDay () {
-    const dateInput = document.querySelector('.mat-datepicker-input') as HTMLInputElement;
-    let dateInInput;
-    if (!dateInput.value) {
-      dateInInput = new Date(dateInput.attributes[3].value);
-    } else {
-      dateInInput = new Date(dateInput.value)
-    }
-
-    let dateToPaste: Date = new Date();
-    dateToPaste.setTime(dateInInput.getTime() + 86400000);
-    dateInput.value = dateToPaste.toDateString();
-  }
-
-  previousDay () {
-    const dateInput = document.querySelector('.mat-datepicker-input') as HTMLInputElement;
-    let dateInInput;
-    if (!dateInput.value) {
-      dateInInput = new Date(dateInput.attributes[3].value);
-    } else {
-      dateInInput = new Date(dateInput.value)
-    }
-
-    let dateToPaste: Date = new Date();
-    dateToPaste.setTime(dateInInput.getTime() - 86400000);
-    dateInput.value = dateToPaste.toDateString();
-  }
-
   scheduledTasks(type: string, e: MatDatepickerInputEvent<Date>) {
-    const selectedDate = e.value;;
+    const selectedDate = e.value;
     this.scheduled = [];
 
     this.serv.tasks.forEach((value) => {

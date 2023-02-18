@@ -24,9 +24,7 @@ export class TaskPopUpComponent implements OnInit {
     this.falser.emit(this.title);
   }
 
-  ngOnInit() {
-    /* this.serv.getData().subscribe(data => {this.tasks = data; this.serv.tasks=data; this.tasks? this.serv.emitTasks(this.tasks):''}); */
-  }
+  ngOnInit() {  }
 
   async postTask(obj: ITask) {
     const newPost = new taskPost();

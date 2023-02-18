@@ -78,11 +78,18 @@ export class HomeComponent implements OnInit{
   }
 
   createInfoBlock (e: Event) {
-    e.stopPropagation();
     const target = e.target as HTMLElement;
     if (target.matches('.work__block')) {
-      console.log(target.children[0].id)
       const id = target.children[0].id;
+      this.serv.tasks.map((value: ITask) => {
+        if (value._id === id as string) {
+          this.serv.taskUPD = value;
+          this.taskObj = value;
+        }
+      })
+      this.infVisible = true;
+    } else if (target.matches('.title')) {
+      const id = target.id;
       this.serv.tasks.map((value: ITask) => {
         if (value._id === id as string) {
           this.serv.taskUPD = value;
@@ -97,9 +104,7 @@ export class HomeComponent implements OnInit{
     const target = e.target as HTMLButtonElement;
     const id = target.parentElement!.parentElement!.children[0].id;
 
-    this.serv.deleteData(id).subscribe((data) => {
-      console.log(data);
-    });
+    this.serv.deleteData(id).subscribe((data) => {});
     this.serv.getData().subscribe((data) => {
       this.serv.tasks = data;
     })
@@ -126,7 +131,7 @@ export class HomeComponent implements OnInit{
     e.stopPropagation();
   }
 
-  closeForm () {this.updVisibleForm = false;  }
+  closeForm () {this.updVisibleForm = false;}
 
   closeTask() {this.addTodayTask = false;}
   closeInfo() {this.infVisible = false;}

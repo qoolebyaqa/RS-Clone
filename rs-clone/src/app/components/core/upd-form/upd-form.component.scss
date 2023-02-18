@@ -37,6 +37,12 @@
   align-self: center;
 }
 .controls__closer {
+  background-color: #2057b7;
+}
+.task__submit:disabled {
+  background-color: grey;
+}
+.controls__closer {
   width: 50px;
   height: 50px;
 }

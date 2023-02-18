@@ -31,7 +31,7 @@
                                             (mouseenter)="hover = true"
                                             (mouseleft)="hover = false"
                                             (click)="createInfoBlock($event)">
-                                              <p class="overdue__title" [style.color]= task.color id="{{ task._id }}"> {{ task.title }} </p>
+                                              <p class="title" [style.color]= task.color id="{{ task._id }}"> {{ task.title }} </p>
                                               <div class="buttons__editdone" [ngStyle]="{'display': 'flex', 'justify-content': 'center',
                                               'align-items': 'center','width': '60%'}">
                                                 <button class="edit" (click)="createFormUp($event)">Меняй!</button>
@@ -59,7 +59,7 @@
                                         (mouseenter)="hover = true"
                                         (mouseleft)="hover = false"
                                         (click)="createInfoBlock($event)">
-                                          <p class="overdue__title" [style.color]= task.color id="{{ task._id }}"> {{ task.title }} </p>
+                                          <p class="title" [style.color]= task.color id="{{ task._id }}"> {{ task.title }} </p>
                                           <div class="buttons__editdone" [ngStyle]="{'display': 'flex', 'justify-content': 'center',
                                           'align-items': 'center','width': '60%'}">
                                             <button class="edit" (click)="createFormUp($event)">Меняй!</button>
