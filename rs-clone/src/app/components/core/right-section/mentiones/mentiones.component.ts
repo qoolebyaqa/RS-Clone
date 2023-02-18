@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./mentiones.component.scss']
 })
 export class MentionesComponent {
-
+  gameFirst: boolean = false;
 }

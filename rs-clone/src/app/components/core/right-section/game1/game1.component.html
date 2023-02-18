@@ -1,0 +1,12 @@
+<div class="mathgame">
+  <div class="mathquestion">
+    <p class="quest" [ngStyle]="{'text-align': 'center'}">Склько будет {{ exercise }}</p>
+    <p class="counter" *ngIf="count">ты набрал {{ count }}</p>
+  </div>
+  <div class="options__left">
+    <button (click)="answerCheker($event)" class="answer" *ngFor="let answer of answersArr"
+    [ngStyle]="{'text-align': 'center', 'transition': 'all 0.4s ease', 'width': '100%', 'border': 'none'}"
+    [disabled]="replied"> {{ answer }} </button>
+  </div>
+  <button class="next" (click)="ngOnInit()">Дальше!</button>
+</div>

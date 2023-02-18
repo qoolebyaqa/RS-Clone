@@ -10,7 +10,7 @@
     </div>
     <div class="mentions" (click)="mentions = !mentions; calendar = false; agenda = false">
       <mat-icon>track_changes</mat-icon>
-      <p class="mentions-text">Упоминания-<span class="mentions-counter">0</span></p>
+      <p class="mentions-text">Отвлекушки</p>
     </div>
   </div>
   <app-calendar (falser)="closeCalendar($event)" *ngIf="calendar"></app-calendar>

@@ -48,6 +48,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDialogModule } from '@angular/material/dialog';
 import { HeaderBlockComponent } from './components/core/notifications/drag-drop/header-block/header-block.component';
+import { Game1Component } from './components/core/right-section/game1/game1.component';
 
 @NgModule({
   declarations: [
@@ -79,6 +80,7 @@ import { HeaderBlockComponent } from './components/core/notifications/drag-drop/
     DialogComponent,
     DialogBodyComponent,
     HeaderBlockComponent,
+    Game1Component,
   ],
   imports: [
     BrowserModule,
