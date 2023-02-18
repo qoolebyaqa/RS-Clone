@@ -24,7 +24,7 @@ export class AgendaComponent implements OnInit {
       if (selectedDate) {
         if (selectedDate.getFullYear() === taskdate.getFullYear() &&
         selectedDate.getMonth() === taskdate.getMonth() &&
-        selectedDate.getDay() === taskdate.getDay()) {
+        selectedDate.getDate() === taskdate.getDate()) {
           this.scheduled?.push(value);
         }
       }
@@ -40,16 +40,16 @@ export class AgendaComponent implements OnInit {
   scheduledTasks(type: string, e: MatDatepickerInputEvent<Date>) {
     const selectedDate = e.value;
     this.scheduled = [];
-
     this.serv.tasks.forEach((value) => {
       const taskdate = (new Date(value.time));
       if (selectedDate) {
         if (selectedDate.getFullYear() === taskdate.getFullYear() &&
         selectedDate.getMonth() === taskdate.getMonth() &&
-        selectedDate.getDay() === taskdate.getDay()) {
+        selectedDate.getDate() === taskdate.getDate()) {
           this.scheduled?.push(value);
         }
       }
     })
+
   }
 }

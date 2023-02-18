@@ -66,3 +66,44 @@ a {
   cursor: pointer;
   color: lightblue;
 }
+.work__block {
+  display: flex;
+  justify-content: space-between;
+  transition: all 0.4s ease;
+}
+.work__block:hover {
+  display: flex;
+  justify-content: space-between;
+  transition: all 0.4s ease;
+  background-color: lightblue;
+  cursor: pointer;
+}
+.buttons__editdone {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.edit,
+.done {
+  background-color: #2057b7;
+  width: 25%;
+  margin: 0 20px;
+  font-size: 12px;
+  color: white;
+  transition: all 0.4s ease-in;
+}
+.edit:hover,
+.done:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.overdue__title {
+  margin: 0;
+  padding: 0;
+}
+.searchersult {
+  max-height: 500px;
+  overflow-y: scroll;
+}

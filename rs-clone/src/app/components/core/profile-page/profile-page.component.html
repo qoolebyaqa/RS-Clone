@@ -11,7 +11,7 @@
                 <div *ngIf="isAvatarModal" class="avatars-modal">
                     <div *ngFor="let avatar of avatars">
                         <a (click)="changeAvatar(avatar)">
-                            <img class="avatar-img" src="{{avatar}}" alt="avatar-icon">
+                            <img class="avatar-img" [src]="avatar" alt="avatar-icon">
                         </a>
                     </div>
                 </div>
@@ -20,10 +20,15 @@
                 <h2>Имя: {{ serv.username }}</h2>
                 <a class="edit-button"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="edit"></mat-icon></a>
             </div>
-            <p class="profile-info-status">Ваш статус: Лентяй</p>
+            <p class="profile-info-status">
+                <span *ngIf="results < 5">Ваш статус: Лентяй</span>
+                <span [ngStyle]="{'color': 'yellow'}" *ngIf="results < 10 && results > 5" >Ваш статус: Молодец</span>
+                <span [ngStyle]="{'color': 'blue'}" *ngIf="results < 15 && results > 10">Ваш статус: Герой</span>
+                <span [ngStyle]="{'color': 'green'}" *ngIf="results < 25 && results > 15">Ваш статус: Прележа</span>
+            </p>
             <div class="profile-progress">
-                <p>Прогресс выполненных задач: </p>
-                <mat-progress-bar mode="determinate" color="primary" value="40"></mat-progress-bar>
+                <p>Прогресс выполненных задач: {{ progress }}%</p>
+                <mat-progress-bar mode="determinate" color="primary" [value]="progress"></mat-progress-bar>
             </div>
         </div>
     </div>

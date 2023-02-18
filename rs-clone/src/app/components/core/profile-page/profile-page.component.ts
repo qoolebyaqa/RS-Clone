@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NewserviceService } from 'src/app/newservice.service';
 
 const avatars = [
@@ -14,7 +14,9 @@ const avatars = [
   templateUrl: './profile-page.component.html',
   styleUrls: ['./profile-page.component.scss']
 })
-export class ProfilePageComponent {
+export class ProfilePageComponent implements OnInit{
+  results: number =  0
+  progress: number = 0
   @Input() avatars = avatars;
   @Input() isAvatarModal = false;
   @Input() changeAvatar(avatar: string) {
@@ -27,4 +29,10 @@ export class ProfilePageComponent {
   constructor(public serv: NewserviceService) {
 
   }
+  ngOnInit(): void {
+    this.results = this.serv.tasks.filter((value) => value.isDone).length;
+    this.progress = (this.results*100) / this.serv.tasks.length;
+  }
+
+
 }
