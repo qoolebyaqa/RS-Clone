@@ -9,7 +9,7 @@ import { HomeComponent } from './components/core/home/home.component';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  constructor (private serv: NewserviceService) {}
+  constructor (public serv: NewserviceService) {}
   title = 'rs-clone';
   tasks: ITask[] = [];
 

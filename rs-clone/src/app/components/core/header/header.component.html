@@ -1,18 +1,38 @@
-<header>
-  <div class="header-container">
-      <h1 class="logo">тут Лого</h1>
-      <h2 class="header__user">Хеллоу, {{ serv.username }}<img *ngIf="getAvatar() !== ''" src="{{ getAvatar() }}" [ngStyle]="{'width': '30px', 'height': '30px', 'margin-left': '5px', 'border-radius': '16px', 'border': '1px solid white'}"></h2>
-      <input class="search-input" type="text" placeholder="Наврятли что-то найдешь">
-      <div class="header__tools">
-          <!-- <a class="header__settings">
-              <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="settings"></mat-icon>
-          </a>
-          <a class="header__news">
-              <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="campaign"></mat-icon>
-          </a> -->
-          <a class="user__avatar" routerLink="profile-page">{{ serv.username.slice(0, 2).toUpperCase() }}</a>
-          <a type="button" (click)="logOut()" class="login-button" routerLink="login">Выйти</a>
+<div class="wrapper"
+(mouseenter)="searched = true"
+(mouseleave)="searched=false">
+  <header>
+    <div class="header-container">
+        <h1 class="logo">тут Лого</h1>
+        <h2 class="header__user">Хеллоу, {{ serv.username }}<img *ngIf="getAvatar() !== ''" [src]="getAvatar()" [ngStyle]="{'width': '30px', 'height': '30px', 'margin-left': '5px', 'border-radius': '16px', 'border': '1px solid white'}"></h2>
+        <input class="search-input" type="text" placeholder="Навряд ли что-то найдешь" autocomplete="on"
+        (input)="searcher($event)">
+        <div class="header__tools">
+            <a class="user__avatar" routerLink="profile-page">{{ serv.username.slice(0, 2).toUpperCase() }}</a>
+            <a type="button" (click)="logOut()" class="login-button" routerLink="login">Выйти</a>
+        </div>
+    </div>
+  </header>
+  <div class="searchersult" *ngIf="result.length > 0">
+    <div classs="work__block" *ngFor="let task of result" [ngStyle]="{'display': 'flex', 'justify-content': 'flex-end',
+    'transition': 'all 0.4s ease-in-out', 'width': '100%'}"
+    [class.work__block] = "hover"
+    [class.work__block:hover] = "!hover"
+    (mouseenter)="hover = true"
+    (mouseleft)="hover = false"
+    (click)="createInfoBlock($event)">
+      <p class="title" style.color="{{ task.color }}" id="{{ task._id }}"> {{ task.title }} </p>
+      <div class="buttons__editdone" [ngStyle]="{'display': 'flex', 'justify-content': 'center',
+      'align-items': 'center','width': '60%'}">
+        <button class="edit" (click)="createFormUp($event)">Меняй!</button>
+        <button class="done" (click)="deleteTask($event)">Удаляй!</button>
+        <button class="done" (click)="doneTask($event)">Готово!</button>
       </div>
+    </div>
   </div>
-</header>
+  <div *ngIf="updVisibleForm">
+    <app-upd-form [UpdatingTask]="taskObj" (closer)="closeForm()" ></app-upd-form>
+  </div>
+  <app-info-block [UpdatingTask]="taskObj" (closerInfo)="closeInfo()" *ngIf="infVisible"></app-info-block>
+</div>
 
