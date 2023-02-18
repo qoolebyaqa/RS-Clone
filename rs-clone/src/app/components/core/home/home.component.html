@@ -52,7 +52,9 @@
                                         <p class="empty-overdue__block" *ngIf="hasOverdue">У вас есть следующие задачи с просроченными сроками
                                             <br><img src="../../../../assets/hurry.jpeg" alt="work-man" class="overdue__pic">
                                         </p>
-                                        <div classs="work__block" *ngFor="let task of overdueTasks" [class.work__block] = "hover"
+                                        <div classs="work__block" *ngFor="let task of overdueTasks" [ngStyle]="{'display': 'flex', 'justify-content': 'space-between',
+                                        'transition': 'all 0.4s ease-in-out'}"
+                                        [class.work__block] = "hover"
                                         [class.work__block:hover] = "!hover"
                                         (mouseenter)="hover = true"
                                         (mouseleft)="hover = false"
@@ -85,7 +87,9 @@
                                         <p class="empty-overdue__block" *ngIf="hasAnyTask">У вас есть следующие задачи:
                                             <br><img src="../../../../assets/Lazy-face.png" alt="work-man" class="overdue__pic">
                                         </p>
-                                        <div classs="work__block" *ngFor="let task of mineTasks" [class.work__block] = "hover"
+                                        <div classs="work__block" *ngFor="let task of mineTasks" [ngStyle]="{'display': 'flex', 'justify-content': 'space-between',
+                                        'transition': 'all 0.4s ease-in-out'}"
+                                        [class.work__block] = "hover"
                                         [class.work__block:hover] = "!hover"
                                         (mouseenter)="hover = true"
                                         (mouseleft)="hover = false"
