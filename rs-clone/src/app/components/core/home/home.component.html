@@ -117,7 +117,7 @@
                             <div class="mat-title" *ngIf="finishedTasks.length > 0">Завершенные</div>
                             <div class="finished__tasks" *ngFor="let item of finishedTasks">
                               <p class="finished__title">{{ item.title }}</p>
-                              <p class="finished__time"> {{ item.time }}</p>
+                              <p class="finished__time" [ngStyle]="{'border-bottom': '1px solid #2057b7'}"> {{ item.time }}</p>
                             </div>
                         </mat-tab>
                         <mat-tab label="Делегировать" class="title">
