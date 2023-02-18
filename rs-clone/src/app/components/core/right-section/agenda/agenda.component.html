@@ -13,7 +13,8 @@
         <div class="agenda__date-info-row">
           <div class="agenda__selected-date">
             <mat-form-field appearance="fill">
-              <input matInput [matDatepicker]="picker" value = {{now}} placeholder= {{now}}>
+              <input matInput [matDatepicker]="picker" value = {{now}} placeholder= {{now}}
+              (dateChange)="scheduledTasks('change', $event)">
               <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
@@ -29,7 +30,20 @@
         </div>
       </div>
     </div>
-    <div class="agenda__field"><p class="agenda__note">Задачи и напоминания, которые должны быть выполнены в выбранную дату, появятся здесь.</p></div>
+    <div class="agenda__field" *ngIf="scheduled.length > 0">
+      <div class="task__colleaction" *ngFor="let task of scheduled; let i = index" [ngStyle]="{'display': 'flex', 'justify-content': 'space-between',
+    'width': '90%', 'align-items': 'center', 'margin-bottom': '10px'}">
+        <div class="task__counter"> {{ i + 1 }} </div>
+        <div>
+          <div class="task__title" [style.color]= task.color>{{ task.title }} </div>
+          <div class="task__detail" [style.color]= task.color> {{ task.details }} </div>
+        </div>
+        <div class="task__status">{{ task.isDone ? 'Готово!': 'Надо делать!' }}</div>
+      </div>
+    </div>
+    <div class="agenda__field" *ngIf="scheduled.length === 0">
+      <p class="agenda__note">Выбери дату, чтобы узнать что тебя ждёт в тот день.</p>
+    </div>
   </div>
 </div>
 
