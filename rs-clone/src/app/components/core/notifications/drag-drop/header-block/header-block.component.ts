@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicesService } from '../services/services.service';
-
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
+  selector: 'app-header-block',
+  templateUrl: './header-block.component.html',
+  styleUrls: ['./header-block.component.scss'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderBlockComponent implements OnInit {
   constructor(public boardService: ServicesService) {}
 
   ngOnInit(): void {}

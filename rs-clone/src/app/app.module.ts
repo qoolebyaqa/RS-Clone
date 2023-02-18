@@ -47,6 +47,7 @@ import { CommonModule } from '@angular/common';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDialogModule } from '@angular/material/dialog';
+import { HeaderBlockComponent } from './components/core/notifications/drag-drop/header-block/header-block.component';
 
 @NgModule({
   declarations: [
@@ -76,6 +77,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     CommentItemComponent,
     DialogComponent,
     DialogBodyComponent,
+    HeaderBlockComponent,
   ],
   imports: [
     BrowserModule,

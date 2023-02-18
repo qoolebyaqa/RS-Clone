@@ -1,3 +1,7 @@
+.block {
+  width: 350px;
+}
+
 .icon {
   font-size: 18px;
 }
@@ -6,6 +10,7 @@
   flex-direction: row;
   text-align: center;
   align-items: center;
+  gap: 150px;
 }
 
 .button__cont {
@@ -46,4 +51,3 @@ mat-form-field.mat-form-field {
 .icon-confirm {
   font-size: 20px !important;
 }
-

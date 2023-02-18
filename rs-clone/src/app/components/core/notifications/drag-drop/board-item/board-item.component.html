@@ -1,4 +1,4 @@
-<div>
+<div class="block">
     <div class="text-item">
         <div>{{ item.text }}</div>
         <button mat-icon-button class="icon-delete" (click)="onCardDelete(item.id)">
@@ -21,11 +21,11 @@
     </div>
 
     <div *ngIf="open">
-        <mat-form-field>
-            <mat-label>Leave a comment</mat-label>
+        <mat-form-field class="comment">
+            <mat-label>Оставить коммент</mat-label>
             <textarea matInput [(ngModel)]="commentInput" (mousedown)="$event.stopPropagation()"></textarea>
             <button mat-button *ngIf="commentInput" matSuffix mat-icon-button color="primary" class="icon-confirm" (click)="onCommentTextEmit(item.id)">
-                <mat-icon>done</mat-icon>
+                <mat-icon>Сделано</mat-icon>
             </button>
         </mat-form-field>
 

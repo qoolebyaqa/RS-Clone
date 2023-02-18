@@ -9,17 +9,17 @@ export class ServicesService {
   private initBoard = [
     {
       id: 1,
-      title: 'To Do',
+      title: 'Сделать',
       color: '#009886',
       list: [
         {
           id: 1,
-          text: 'Example card item',
+          text: 'Пример',
           like: 1,
           comments: [
             {
               id: 1,
-              text: 'Some comment',
+              text: 'Комменты',
             },
           ],
         },

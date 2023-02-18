@@ -27,6 +27,7 @@ export class BoardItemComponent implements OnInit {
   onCommentTextEmit(id: number) {
     this.emitText.emit({ id, text: this.commentInput });
     this.commentInput = '';
+    //localStorage.setItem('id', JSON.stringify(id));
   }
 
   onCardItemEmit(card: any, increase: boolean) {
