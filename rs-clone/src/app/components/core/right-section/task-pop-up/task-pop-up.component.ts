@@ -12,6 +12,7 @@ import { NewserviceService } from 'src/app/newservice.service';
 export class TaskPopUpComponent implements OnInit {
   tasks: [] = [];
   title = 'addTask'
+  today = (new Date()).toLocaleString();
   @Output()
   falser = new EventEmitter();
 

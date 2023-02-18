@@ -34,6 +34,7 @@ import { TokenInt } from './classes/interfaces/token.inceptor';
 import { ProfilePageComponent } from './components/core/profile-page/profile-page.component';
 import { UpdFormComponent } from './components/core/upd-form/upd-form.component';
 import { DragDropComponent } from './components/core/notifications/drag-drop/drag-drop.component';
+import { InfoBlockComponent } from './components/core/info-block/info-block.component';
 
 
 
@@ -60,6 +61,7 @@ import { DragDropComponent } from './components/core/notifications/drag-drop/dra
     ProfilePageComponent,
     UpdFormComponent,
     DragDropComponent,
+    InfoBlockComponent,
   ],
   imports: [
     BrowserModule,
