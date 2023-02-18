@@ -87,6 +87,11 @@ export class NewserviceService {
     return this.http.get('api/user/users')
     .pipe(retryPls());
   }
+
+  public updateUser(id: string, user: {}): Observable<any> {
+    return this.http.patch<any>(`api/user/${id}`, user)
+    .pipe(retryPls());
+  }
   emitUsers(data: IUser[]) {
     this.users$.next(data);
     this.users$.complete();
