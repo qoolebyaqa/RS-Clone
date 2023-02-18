@@ -32,6 +32,7 @@ import { FooterComponent } from './components/core/footer/footer.component';
 import { LoginComponent } from './components/core/login/login.component';
 import { TokenInt } from './classes/interfaces/token.inceptor';
 import { ProfilePageComponent } from './components/core/profile-page/profile-page.component';
+import { UpdFormComponent } from './components/core/upd-form/upd-form.component';
 import { DragDropComponent } from './components/core/notifications/drag-drop/drag-drop.component';
 import { BoardItemComponent } from './components/core/notifications/drag-drop/board-item/board-item.component';
 import { ColorPanelComponent } from './components/core/notifications/drag-drop/color-panel/color-panel.component';
@@ -68,6 +69,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     FooterComponent,
     LoginComponent,
     ProfilePageComponent,
+    UpdFormComponent,
     DragDropComponent,
     BoardItemComponent,
     ColorPanelComponent,

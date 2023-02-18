@@ -1,0 +1,27 @@
+<div class="form__wrapper">
+  <form #updForm="ngForm" id="form__upd" (submit)="postTask(updForm.value)">
+    <div class="form__toplayer">
+      <h2 class="form__title">Что-то изменилось в задаче?</h2>
+      <button class="controls__closer"
+        (click)="hidder($event)"
+        ><mat-icon>close</mat-icon></button>
+    </div>
+    <div class="form__body">
+      <p class="form__task-title">Название задачи?<input ngModel type="text" name="title" class="form__text" [(ngModel)]="wtf.title" autocomplete="off"></p>
+      <textarea ngModel name="details" form="form__upd" cols="30" rows="10" [(ngModel)]="wtf.details"></textarea>
+      <p class="controls__color"> Передумал на счёт цвета? <input ngModel type="color" name="color" [(ngModel)]="wtf.color"></p>
+      <p class="controls__color"> Перенесём дедлайн? (в очередной раз...) <input ngModel type="datetime-local" name="time" [(ngModel)]="wtf.time"></p>
+    </div>
+    <div class="popup__settings">
+      <p class="settings__pre-text">Напрячь чела</p>
+      <div class="settings__members-list">
+        <p class="space__selector-container">
+          <select ngModel class="space__selector" size="1" name="assignto" [(ngModel)]="wtf.assignTo">
+            <option *ngFor="let item of serv.users">{{ item.name }}</option>
+          </select>
+        </p>
+      </div>
+    </div>
+    <button class="task__submit">Погнали!</button>
+  </form>
+</div>

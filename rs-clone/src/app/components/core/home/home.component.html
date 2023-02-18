@@ -1,7 +1,6 @@
 <div class="home__page">
     <div class="home__page-container">
         <div class="main__content">
-            <!-- {{serv.userObs$ | async}} -->
             <div class="tasks__content">
                 <div class="content__block">
                     <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
@@ -13,8 +12,8 @@
                                         <mat-expansion-panel-header>
                                             <mat-panel-title>
                                                 <p>Тудэй</p>
-                                                <button mat-button (click)="0" class="element--hover">+ Таск</button>
-                                                <button mat-button (click)="0" class="element--hover">+ Напомнить</button>
+                                                <button mat-button (click)="addTask($event)" class="element--hover">+ Таск</button>
+                                                <button mat-button (click)="addReminder($event)" class="element--hover">+ Напомнить</button>
                                             </mat-panel-title>
                                         </mat-expansion-panel-header>
                                         <div class="empty-comments__block" *ngIf="!hasTask">
@@ -28,8 +27,9 @@
                                             <div class="comments__text" *ngFor="let task of mineTodayTasks" [ngStyle]="{'display': 'flex', 'justify-content': 'space-between'}">
                                               <p class="overdue__title" [style.color]= task.color id="{{ task._id }}"> {{ task.title }} </p>
                                               <div class="buttons__editdone">
-                                                <button class="edit">Меняй!</button>
-                                                <button class="done">Наконец-то!</button>
+                                                <button class="edit" (click)="createFormUp($event)">Меняй!</button>
+                                                <button class="done" (click)="deleteTask($event)">Удаляй!</button>
+                                                <button class="done" (click)="doneTask($event)">Готово!</button>
                                               </div>
                                             </div>
                                         </div>
@@ -48,8 +48,9 @@
                                         <div classs="empty-overdue__block" *ngFor="let task of overdueTasks" [ngStyle]="{'display': 'flex', 'justify-content': 'space-between'}">
                                           <p class="overdue__title" [style.color]= task.color id="{{ task._id }}"> {{ task.title }} </p>
                                           <div class="buttons__editdone">
-                                            <button class="edit">Меняй!</button>
-                                            <button class="done">Наконец-то!</button>
+                                            <button class="edit" (click)="createFormUp($event)">Меняй!</button>
+                                            <button class="done" (click)="deleteTask($event)">Удаляй!</button>
+                                            <button class="done" (click)="doneTask($event)">Готово!</button>
                                           </div>
                                         </div>
                                     </mat-expansion-panel>
@@ -75,8 +76,9 @@
                                         <div classs="empty-overdue__block" *ngFor="let task of mineTasks" [ngStyle]="{'display': 'flex', 'justify-content': 'space-between'}">
                                           <p class="title" [style.color]= task.color id="{{ task._id }}"> {{ task.title }} </p>
                                           <div class="buttons__editdone">
-                                            <button class="edit">Меняй!</button>
-                                            <button class="done">Наконец-то!</button>
+                                            <button class="edit" (click)="createFormUp($event)">Меняй!</button>
+                                            <button class="done" (click)="deleteTask($event)">Удаляй!</button>
+                                            <button class="done" (click)="doneTask($event)">Готово!</button>
                                           </div>
                                         </div>
                                     </mat-expansion-panel>
@@ -91,7 +93,11 @@
                             </div>
                         </mat-tab>
                         <mat-tab label="Завершенные" class="title">
-                            <div class="mat-title">Завершенные</div>
+                            <div class="mat-title" *ngIf="finishedTasks.length > 0">Завершенные</div>
+                            <div class="finished__tasks" *ngFor="let item of finishedTasks">
+                              <p class="finished__title">{{ item.title }}</p>
+                              <p class="finished__time"> {{ item.time }}</p>
+                            </div>
                         </mat-tab>
                         <mat-tab label="Делегировать" class="title">
                             <div class="mat-text">Забыл/ла? Забудьте об этом! Делегируйте напоминание, чтобы убедиться, что все будет сделано.
@@ -105,4 +111,8 @@
 
         </div>
     </div>
+</div>
+<div *ngIf="updVisibleForm">
+
+<app-upd-form [UpdatingTask]="taskObj" (closer)="closeForm()" ></app-upd-form>
 </div>
