@@ -13,20 +13,12 @@
         <div class="agenda__date-info-row">
           <div class="agenda__selected-date">
             <mat-form-field appearance="fill">
-              <input matInput [matDatepicker]="picker" value = {{now}} placeholder= {{now}}
+              <input matInput [matDatepicker]="picker" [(ngModel)] = "now" placeholder= {{now}}
               (dateChange)="scheduledTasks('change', $event)">
               <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
           </div>
-          <button class="agenda__left-btn"
-          (click)="this.previousDay()"
-          ><</button>
-          <button class="agenda__left-btn"
-          (click)="this.nextDay()"
-          >></button>
-          <button class="agenda__gotoday">Сегодня</button>
-          <button class="agenda__task-settings">...</button>
         </div>
       </div>
     </div>

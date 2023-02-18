@@ -19,12 +19,10 @@ export class AppComponent implements OnInit {
       this.serv.getData().subscribe((data) => {
         this.serv.tasks = data;
         this.serv.emitTasks(data);
-        console.log(data);
       })
       this.serv.getUsers().subscribe((data) => {
         this.serv.users = data;
         this.serv.emitUsers(data);
-        console.log(data);
       })
 
       if (maybeToken !== null) {

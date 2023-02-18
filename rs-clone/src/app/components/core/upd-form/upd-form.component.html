@@ -7,7 +7,7 @@
         ><mat-icon>close</mat-icon></button>
     </div>
     <div class="form__body">
-      <p class="form__task-title">Название задачи?<input ngModel type="text" name="title" class="form__text" [(ngModel)]="wtf.title" autocomplete="off"></p>
+      <p class="form__task-title">Название задачи?<input ngModel #TTitle="ngModel" type="text" name="title" class="form__text" [(ngModel)]="wtf.title" autocomplete="off"  required></p>
       <textarea ngModel name="details" form="form__upd" cols="30" rows="10" [(ngModel)]="wtf.details"></textarea>
       <p class="controls__color"> Передумал на счёт цвета? <input ngModel type="color" name="color" [(ngModel)]="wtf.color"></p>
       <p class="controls__color"> Перенесём дедлайн? (в очередной раз...) <input ngModel type="datetime-local" name="time" [(ngModel)]="wtf.time"></p>
@@ -22,6 +22,6 @@
         </p>
       </div>
     </div>
-    <button class="task__submit">Погнали!</button>
+    <button class="task__submit" [disabled]="!TTitle.valid">Погнали!</button>
   </form>
 </div>

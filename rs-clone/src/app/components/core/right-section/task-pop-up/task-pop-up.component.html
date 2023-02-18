@@ -2,7 +2,7 @@
   <form #taskForm="ngForm" class="popup__form" id="task-form" (ngSubmit)="postTask(taskForm.value)">
     <div class="popup__controls">
       <div class="controls__status"></div>
-      <input ngModel type="text" name="title" class="controls__nametask" placeholder="Название задачи" autocomplete="off">
+      <input ngModel #name="ngModel" type="text" name="title" class="controls__nametask" placeholder="Название задачи" autocomplete="off" required>
       <button class="controls__minimizer"><mat-icon>archive</mat-icon></button>
       <button class="controls__closer"
       (click)="this.hidder($event)"
@@ -21,7 +21,7 @@
       </div>
     </div>
     <textarea ngModel name="details" form="task-form" cols="30" rows="10" placeholder="Сформулируй конкретно шо хочешь"></textarea>
-    <button class="task__submit">Погнали!</button>
+    <button class="task__submit" [disabled]="!name.valid">Погнали!</button>
   </form>
 </div>
 
