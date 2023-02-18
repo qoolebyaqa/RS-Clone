@@ -24,9 +24,16 @@
                                         <div class="empty-comments__block" *ngIf="hasTask">
                                             <img src="../../../../assets/work.jpg" alt="work-man">
                                             <p class="comments__title" *ngIf="mineTodayTasks.length > 0">Сделай уже наконец сегодня!</p>
-                                            <div class="comments__text" *ngFor="let task of mineTodayTasks" [ngStyle]="{'display': 'flex', 'justify-content': 'space-between'}">
+                                            <div class="work__block" *ngFor="let task of mineTodayTasks" [ngStyle]="{'display': 'flex', 'justify-content': 'space-between',
+                                            'transition': 'all 0.4s ease-in-out'}"
+                                            [class.work__block] = "hover"
+                                            [class.work__block:hover] = "!hover"
+                                            (mouseenter)="hover = true"
+                                            (mouseleft)="hover = false"
+                                            (click)="createInfoBlock($event)">
                                               <p class="overdue__title" [style.color]= task.color id="{{ task._id }}"> {{ task.title }} </p>
-                                              <div class="buttons__editdone">
+                                              <div class="buttons__editdone" [ngStyle]="{'display': 'flex', 'justify-content': 'center',
+                                              'align-items': 'center','width': '60%'}">
                                                 <button class="edit" (click)="createFormUp($event)">Меняй!</button>
                                                 <button class="done" (click)="deleteTask($event)">Удаляй!</button>
                                                 <button class="done" (click)="doneTask($event)">Готово!</button>
@@ -45,9 +52,16 @@
                                         <p class="empty-overdue__block" *ngIf="hasOverdue">У вас есть следующие задачи с просроченными сроками
                                             <br><img src="../../../../assets/hurry.jpeg" alt="work-man" class="overdue__pic">
                                         </p>
-                                        <div classs="empty-overdue__block" *ngFor="let task of overdueTasks" [ngStyle]="{'display': 'flex', 'justify-content': 'space-between'}">
+                                        <div classs="work__block" *ngFor="let task of overdueTasks" [ngStyle]="{'display': 'flex', 'justify-content': 'space-between',
+                                        'transition': 'all 0.4s ease-in-out'}"
+                                        [class.work__block] = "hover"
+                                        [class.work__block:hover] = "!hover"
+                                        (mouseenter)="hover = true"
+                                        (mouseleft)="hover = false"
+                                        (click)="createInfoBlock($event)">
                                           <p class="overdue__title" [style.color]= task.color id="{{ task._id }}"> {{ task.title }} </p>
-                                          <div class="buttons__editdone">
+                                          <div class="buttons__editdone" [ngStyle]="{'display': 'flex', 'justify-content': 'center',
+                                          'align-items': 'center','width': '60%'}">
                                             <button class="edit" (click)="createFormUp($event)">Меняй!</button>
                                             <button class="done" (click)="deleteTask($event)">Удаляй!</button>
                                             <button class="done" (click)="doneTask($event)">Готово!</button>
@@ -66,16 +80,23 @@
                                     (click)="AllTask()">
                                         <mat-expansion-panel-header>
                                             <mat-panel-title>
-                                                Делай когда хочешь :)
+                                                Все твои задачи :)
                                             </mat-panel-title>
                                         </mat-expansion-panel-header>
                                         <p class="empty-overdue__block" *ngIf="!hasAnyTask">Нет задач!</p>
                                         <p class="empty-overdue__block" *ngIf="hasAnyTask">У вас есть следующие задачи:
                                             <br><img src="../../../../assets/Lazy-face.png" alt="work-man" class="overdue__pic">
                                         </p>
-                                        <div classs="empty-overdue__block" *ngFor="let task of mineTasks" [ngStyle]="{'display': 'flex', 'justify-content': 'space-between'}">
+                                        <div classs="work__block" *ngFor="let task of mineTasks" [ngStyle]="{'display': 'flex', 'justify-content': 'space-between',
+                                        'transition': 'all 0.4s ease-in-out'}"
+                                        [class.work__block] = "hover"
+                                        [class.work__block:hover] = "!hover"
+                                        (mouseenter)="hover = true"
+                                        (mouseleft)="hover = false"
+                                        (click)="createInfoBlock($event)">
                                           <p class="title" [style.color]= task.color id="{{ task._id }}"> {{ task.title }} </p>
-                                          <div class="buttons__editdone">
+                                          <div class="buttons__editdone" [ngStyle]="{'display': 'flex', 'justify-content': 'center',
+                                          'align-items': 'center','width': '60%'}">
                                             <button class="edit" (click)="createFormUp($event)">Меняй!</button>
                                             <button class="done" (click)="deleteTask($event)">Удаляй!</button>
                                             <button class="done" (click)="doneTask($event)">Готово!</button>
@@ -116,3 +137,6 @@
 
 <app-upd-form [UpdatingTask]="taskObj" (closer)="closeForm()" ></app-upd-form>
 </div>
+
+<app-task-pop-up (falser)="closeTask()" *ngIf="addTodayTask"></app-task-pop-up>
+<app-info-block [UpdatingTask]="taskObj" (closerInfo)="closeInfo()" *ngIf="infVisible"></app-info-block>

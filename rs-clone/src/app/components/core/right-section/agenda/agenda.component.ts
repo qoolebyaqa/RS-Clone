@@ -1,4 +1,7 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
+import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+import { ITask } from 'src/app/classes/interfaces/interfaces';
+import { NewserviceService } from 'src/app/newservice.service';
 
 @Component({
   selector: 'app-agenda',
@@ -7,10 +10,12 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class AgendaComponent {
   title = 'agenda'
-  @Output()
-  falser = new EventEmitter();
+  @Output() falser = new EventEmitter();
+  scheduled: ITask[] = [];
 
   now = (new Date).toDateString();
+
+  constructor(public serv: NewserviceService) {}
 
   hidder(e: Event) {
     e.preventDefault();
@@ -43,5 +48,21 @@ export class AgendaComponent {
     let dateToPaste: Date = new Date();
     dateToPaste.setTime(dateInInput.getTime() - 86400000);
     dateInput.value = dateToPaste.toDateString();
+  }
+
+  scheduledTasks(type: string, e: MatDatepickerInputEvent<Date>) {
+    const selectedDate = e.value;;
+    this.scheduled = [];
+
+    this.serv.tasks.forEach((value) => {
+      const taskdate = (new Date(value.time));
+      if (selectedDate) {
+        if (selectedDate.getFullYear() === taskdate.getFullYear() &&
+        selectedDate.getMonth() === taskdate.getMonth() &&
+        selectedDate.getDay() === taskdate.getDay()) {
+          this.scheduled?.push(value);
+        }
+      }
+    })
   }
 }

@@ -71,3 +71,22 @@
 .finished__tasks {
   margin-left: 15px;
 }
+
+.work__block {
+  display: flex;
+  justify-content: space-between;
+  transition: all 0.4s ease;
+}
+.work__block:hover {
+  display: flex;
+  justify-content: space-between;
+  transition: all 0.4s ease;
+  background-color: lightblue;
+  cursor: pointer;
+}
+.buttons__editdone {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

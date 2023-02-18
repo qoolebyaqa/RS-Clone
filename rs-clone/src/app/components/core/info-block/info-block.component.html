@@ -1,0 +1,15 @@
+<div class="form__wrapper">
+  <div id="form__upd">
+    <div class="form__toplayer">
+      <h2 class="form__title">{{ wtf.title }}</h2>
+      <button class="controls__closer"
+        (click)="hidder($event)"
+        ><mat-icon>close</mat-icon></button>
+    </div>
+    <div class="form__body">
+      <div name="details"> {{ wtf.details }}</div>
+      <p class="controls__color"> Сделать до: {{ wtf.time }}</p>
+    </div>
+  </div>
+</div>
+

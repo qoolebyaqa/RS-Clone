@@ -9,16 +9,18 @@ import { ITask, taskPost } from 'src/app/classes/interfaces/interfaces';
 })
 export class HomeComponent implements OnInit{
   panelOpenState = false;
+  hover: boolean = false;
   hasTask = false;
   hasAnyTask = false;
   hasOverdue = false;
   mineTodayTasks: ITask[] = [];
   mineTasks: ITask[] = [];
-  theirTasks: ITask[] = [];
   overdueTasks: ITask[] = [];
   finishedTasks: ITask[] = [];
   updVisibleForm = false;
+  infVisible = false;
   taskObj?: ITask;
+  addTodayTask = false;
 
 
   constructor(public serv: NewserviceService) {  }
@@ -30,6 +32,8 @@ export class HomeComponent implements OnInit{
           if (value.isDone) this.finishedTasks.push(value);
           });
       })
+
+
    }
 
  todayTask () {
@@ -72,6 +76,23 @@ export class HomeComponent implements OnInit{
     })
     this.updVisibleForm = true;
   }
+
+  createInfoBlock (e: Event) {
+    e.stopPropagation();
+    const target = e.target as HTMLElement;
+    if (target.matches('.work__block')) {
+      console.log(target.children[0].id)
+      const id = target.children[0].id;
+      this.serv.tasks.map((value: ITask) => {
+        if (value._id === id as string) {
+          this.serv.taskUPD = value;
+          this.taskObj = value;
+        }
+      })
+      this.infVisible = true;
+    }
+  }
+
   async deleteTask (e: Event) {
     const target = e.target as HTMLButtonElement;
     const id = target.parentElement!.parentElement!.children[0].id;
@@ -98,14 +119,16 @@ export class HomeComponent implements OnInit{
 
   addTask(e: Event) {
     e.stopPropagation();
+    this.addTodayTask = true;
   }
 
   addReminder(e: Event) {
     e.stopPropagation();
   }
 
-  closeForm () {
-    this.updVisibleForm = false;
-  }
+  closeForm () {this.updVisibleForm = false;  }
+
+  closeTask() {this.addTodayTask = false;}
+  closeInfo() {this.infVisible = false;}
 
 }

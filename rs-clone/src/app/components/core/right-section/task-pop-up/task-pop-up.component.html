@@ -9,7 +9,7 @@
       ><mat-icon>close</mat-icon></button>
     </div>
     <p class="controls__color"> Цвет твоего настроения <input ngModel type="color" name="color"></p>
-    <input ngModel type="datetime-local" name="time">
+    <input ngModel type="datetime-local" name="time" [(ngModel)]="today">
     <div class="popup__settings">
       <p class="settings__pre-text">Напрячь чела</p>
       <div class="settings__members-list">
