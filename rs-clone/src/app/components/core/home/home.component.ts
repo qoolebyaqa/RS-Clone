@@ -78,10 +78,18 @@ export class HomeComponent implements OnInit{
   }
 
   createInfoBlock (e: Event) {
-    e.stopPropagation();
     const target = e.target as HTMLElement;
     if (target.matches('.work__block')) {
       const id = target.children[0].id;
+      this.serv.tasks.map((value: ITask) => {
+        if (value._id === id as string) {
+          this.serv.taskUPD = value;
+          this.taskObj = value;
+        }
+      })
+      this.infVisible = true;
+    } else if (target.matches('.title')) {
+      const id = target.id;
       this.serv.tasks.map((value: ITask) => {
         if (value._id === id as string) {
           this.serv.taskUPD = value;
