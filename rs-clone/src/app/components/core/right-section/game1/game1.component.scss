@@ -1,3 +1,4 @@
+
 .answer:hover {
   cursor: pointer;
   transform: scale(1.1);
@@ -22,4 +23,7 @@
   background-color: #2156b0;
   cursor: pointer;
   box-shadow: 0 0 25px rgb(38, 52, 100);
+}
+.counter {
+  border-bottom: 1px solid #2156b0;
 }
