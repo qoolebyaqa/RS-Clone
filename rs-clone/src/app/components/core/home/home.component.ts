@@ -118,6 +118,7 @@ export class HomeComponent implements OnInit{
     this.serv.updateData(id, updTask).subscribe((data) => {});
     this.serv.getData().subscribe((data) => {
       this.serv.tasks = data;
+      this.ngOnInit();
     })
     target.parentElement!.parentElement!.remove();
   }

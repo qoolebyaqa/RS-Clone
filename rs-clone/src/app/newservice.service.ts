@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { IlogUser, IregUser, ITask, IUser, UserPost } from './classes/interfaces/interfaces';
-import { BehaviorSubject, delay, filter, mergeMap, Observable, of, retryWhen, Subject, Subscription, throwError } from 'rxjs';
+import { IlogUser, IregUser, ITask, IUser } from './classes/interfaces/interfaces';
+import { BehaviorSubject, delay, mergeMap, Observable, of, retryWhen, throwError } from 'rxjs';
 
 function retryPls <T> (delayMS = 1000, tries = 5) {
   let retries = tries;

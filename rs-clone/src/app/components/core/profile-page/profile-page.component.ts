@@ -31,7 +31,7 @@ export class ProfilePageComponent implements OnInit{
   }
   ngOnInit(): void {
     this.results = this.serv.tasks.filter((value) => value.isDone).length;
-    this.progress = (this.results*100) / this.serv.tasks.length;
+    this.progress = Number(((this.results*100) / this.serv.tasks.length).toFixed(2));
   }
 
 
