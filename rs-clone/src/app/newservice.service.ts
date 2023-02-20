@@ -53,43 +53,43 @@ export class NewserviceService {
   }
 
   public logUser(user: IlogUser): Observable<{email: string, name: string, token: string}> {
-    return this.http.post<{email: string, name: string, token: string}>('api/user/login', user)
+    return this.http.post<{email: string, name: string, token: string}>('https://rs-clone-api-t2y5.onrender.com/api/user/login', user)
     .pipe(retryPls());
   }
 
   public regUser(user: IregUser): Observable<{email: string, name: string, token: string}> {
-      return this.http.post<{email: string, name: string, token: string}>('api/user/register', user)
+      return this.http.post<{email: string, name: string, token: string}>('https://rs-clone-api-t2y5.onrender.com/api/user/register', user)
       .pipe(retryPls());
     }
 
   public deleteData(id: string): Observable<any> {
-    return this.http.delete<any>(`api/workouts/${id}`)
+    return this.http.delete<any>(`https://rs-clone-api-t2y5.onrender.com/api/workouts/${id}`)
     .pipe(retryPls());
   }
 
   public updateData(id: string, task: {}): Observable<any> {
-    return this.http.patch<any>(`api/workouts/${id}`, task)
+    return this.http.patch<any>(`https://rs-clone-api-t2y5.onrender.com/api/workouts/${id}`, task)
     .pipe(retryPls());
   }
 
 
   public getData(): Observable<any> {
-    return this.http.get('api/workouts')
+    return this.http.get('https://rs-clone-api-t2y5.onrender.com/api/workouts')
     .pipe(retryPls());
   }
 
   public setData(task: ITask): Observable<any> {
-    return this.http.post('api/workouts', task)
+    return this.http.post('https://rs-clone-api-t2y5.onrender.com/api/workouts', task)
     .pipe(retryPls());
   }
 
   public getUsers(): Observable<any> {
-    return this.http.get('api/user/users')
+    return this.http.get('https://rs-clone-api-t2y5.onrender.com/api/user/users')
     .pipe(retryPls());
   }
 
   public updateUser(id: string, user: {}): Observable<any> {
-    return this.http.patch<any>(`api/user/${id}`, user)
+    return this.http.patch<any>(`https://rs-clone-api-t2y5.onrender.com/api/user/${id}`, user)
     .pipe(retryPls());
   }
   emitUsers(data: IUser[]) {
