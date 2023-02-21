@@ -29,6 +29,7 @@ export class Game1Component implements OnInit{
   ngOnInit(): void {
     const operatorsArr: string[] = ['+', '-', '*'];
     this.answersArr = [];
+    let i = 0;
     let a = Math.floor(Math.random()*100);
     let b = Math.floor(Math.random()*100);
     while (a < b) {
@@ -44,8 +45,16 @@ export class Game1Component implements OnInit{
       default: console.log('s');
     }
     while (this.answersArr.length < 4) {
-      if (!this.answersArr.includes((Number(this.resolution) + Math.floor(Math.random()*100)).toString())) {
-        this.answersArr.push((Number(this.resolution) + Math.floor(Math.random()*100)).toString());
+      if(i%2 === 0) {
+        if (!this.answersArr.includes((Number(this.resolution) + Math.floor(Math.random()*100)).toString())) {
+          i++;
+          this.answersArr.push((Number(this.resolution) + Math.floor(Math.random()*100)).toString());
+        }
+      } else {
+        if (!this.answersArr.includes((Number(this.resolution) - Math.floor(Math.random()*100)).toString())) {
+          i++;
+          this.answersArr.push((Number(this.resolution) - Math.floor(Math.random()*100)).toString());
+        }
       }
     }
     this.answersArr[Math.floor(Math.random()*4)] = this.resolution;
