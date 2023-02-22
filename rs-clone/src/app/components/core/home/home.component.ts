@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit{
   infVisible = false;
   taskObj?: ITask;
   addTodayTask = false;
+  segodnya = new Date().toISOString().replace(new Date().toISOString().slice(new Date().toISOString().lastIndexOf(':')), '');
 
 
   constructor(public serv: NewserviceService) {  }

@@ -16,12 +16,6 @@
   padding: 20px;
   height: 70vh;
 }
-.popup__adders,
-.popup__filehost {
-  display: flex;
-  justify-content: space-between;
-  padding-top: 10px;
-}
 .controls__nametask {
   width: 80%;
 }
@@ -29,12 +23,6 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 30px;
-}
-.popup__settings {
-  display: flex;
-  align-items: center;
-  margin-bottom: 30px;
-  margin-top: 20px;
 }
 input[type="datetime-local"] {
   background-color: #2564cf;
@@ -52,14 +40,6 @@ input[type="datetime-local"] {
   height: 80%;
   margin: 0 10px;
   padding: 0 10px;
-}
-.settings__members-list {
-  display: flex;
-  align-items: center;
-  border-radius: 25px;
-  width: 40px;
-  height: 40px;
-  margin-left: 10px;
 }
 .filehost__atachments {
   display: flex;
@@ -88,16 +68,9 @@ input[type="datetime-local"] {
   display: none;
 }
 
-.space__selector {
-  width: 100px;
-  height: 40px;
-  border-radius: 25px;
-  border: 1px solid grey;
-}
-
 .task__submit {
   background-color: #2057b7;
-  margin-top: 5px;
+  margin: 30px auto;
   padding: 10px;
   cursor: pointer;
   font-size: 20px;
@@ -106,4 +79,7 @@ input[type="datetime-local"] {
 
 .task__submit:disabled{
   background-color: grey;
+}
+.date__input {
+  margin: 30px auto;
 }

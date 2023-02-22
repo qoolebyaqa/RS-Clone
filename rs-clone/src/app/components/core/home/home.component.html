@@ -138,5 +138,5 @@
 <app-upd-form [UpdatingTask]="taskObj" (closer)="closeForm()" ></app-upd-form>
 </div>
 
-<app-task-pop-up (falser)="closeTask()" *ngIf="addTodayTask"></app-task-pop-up>
+<app-task-pop-up (falser)="closeTask()" [CurrentDate]="segodnya" *ngIf="addTodayTask"></app-task-pop-up>
 <app-info-block [UpdatingTask]="taskObj" (closerInfo)="closeInfo()" *ngIf="infVisible"></app-info-block>
