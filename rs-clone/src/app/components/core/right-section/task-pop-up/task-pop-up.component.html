@@ -9,7 +9,7 @@
       ><mat-icon>close</mat-icon></button>
     </div>
     <p class="controls__color"> Цвет твоего настроения <input ngModel type="color" name="color"></p>
-    <input ngModel type="datetime-local" name="time" [(ngModel)]="CurrentDate" value="CurrentDate" class="date__input">
+    <input ngModel type="datetime-local" name="time" [(ngModel)]="CurrentDate" value="CurrentDate" class="date__input" [readonly]="CurrentDate">
     <textarea ngModel name="details" form="task-form" cols="30" rows="10" placeholder="Сформулируй конкретно шо хочешь"></textarea>
     <button class="task__submit" [disabled]="!name.valid">Погнали!</button>
   </form>

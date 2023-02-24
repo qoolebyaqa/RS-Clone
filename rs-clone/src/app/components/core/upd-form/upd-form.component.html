@@ -12,16 +12,6 @@
       <p class="controls__color"> Передумал на счёт цвета? <input ngModel type="color" name="color" [(ngModel)]="wtf.color"></p>
       <p class="controls__color"> Перенесём дедлайн? (в очередной раз...) <input ngModel type="datetime-local" name="time" [(ngModel)]="wtf.time"></p>
     </div>
-    <div class="popup__settings">
-      <p class="settings__pre-text">Напрячь чела</p>
-      <div class="settings__members-list">
-        <p class="space__selector-container">
-          <select ngModel class="space__selector" size="1" name="assignto" [(ngModel)]="wtf.assignTo">
-            <option *ngFor="let item of serv.users">{{ item.name }}</option>
-          </select>
-        </p>
-      </div>
-    </div>
     <button class="task__submit" [disabled]="!TTitle.valid">Погнали!</button>
   </form>
 </div>

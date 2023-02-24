@@ -37,6 +37,13 @@ export class HomeComponent implements OnInit{
 
    }
 
+   dateCalculator () {
+    let startTime = new Date();
+    startTime = new Date(startTime.getTime() + 60000);
+    console.log(startTime.toISOString())
+    console.log(startTime);
+   }
+
  todayTask () {
     this.mineTodayTasks = [];
     this.serv.tasks?.forEach((value) => {
