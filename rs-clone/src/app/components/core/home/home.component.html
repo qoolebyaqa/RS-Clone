@@ -12,17 +12,17 @@
                                         <mat-expansion-panel-header>
                                             <mat-panel-title>
                                                 <p>Тудэй</p>
-                                                <button mat-button (click)="addTask($event)" class="element--hover">+ Таск</button>
+                                                <button mat-button (click)="addTask($event)" class="element--hover" (click)="dateCalculator()">+ Таск</button>
                                                 <button mat-button (click)="addReminder($event)" class="element--hover">+ Напомнить</button>
                                             </mat-panel-title>
                                         </mat-expansion-panel-header>
                                         <div class="empty-comments__block" *ngIf="!hasTask">
-                                            <img src="assets/sanbath_chill.c222e99cb795da04825a964e52e5648b.png" alt="chill-man">
+                                            <img src="assets/sanbath_chill.c222e99cb795da04825a964e52e5648b.png" alt="chill-man" class="overdue__pic">
                                             <p class="comments__title">Офигеть ты красавчик/ица все успел/ла</p>
                                             <div class="comments__text">не особо важная часть. Но, таски и напоминания хранятся тут.</div>
                                         </div>
                                         <div class="empty-comments__block" *ngIf="hasTask">
-                                            <img src="assets/work.jpg" alt="work-man">
+                                            <img src="assets/work.png" alt="work-man" class="overdue__pic__tired">
                                             <p class="comments__title" *ngIf="mineTodayTasks.length > 0">Сделай уже наконец сегодня!</p>
                                             <div class="work__block" *ngFor="let task of mineTodayTasks" [ngStyle]="{'display': 'flex', 'justify-content': 'space-between',
                                             'transition': 'all 0.4s ease-in-out'}"
@@ -50,7 +50,7 @@
                                         </mat-expansion-panel-header>
                                         <p class="empty-overdue__block" *ngIf="!hasOverdue">Нет запланированных просроченных задач или напоминаний.</p>
                                         <p class="empty-overdue__block" *ngIf="hasOverdue">У вас есть следующие задачи с просроченными сроками
-                                            <br><img src="assets/hurry.jpeg" alt="work-man" class="overdue__pic">
+                                            <br><img src="assets/hurry.png" alt="work-man" class="overdue__pic">
                                         </p>
                                         <div classs="work__block" *ngFor="let task of overdueTasks" [ngStyle]="{'display': 'flex', 'justify-content': 'space-between',
                                         'transition': 'all 0.4s ease-in-out'}"
@@ -120,11 +120,6 @@
                               <p class="finished__time" [ngStyle]="{'border-bottom': '1px solid #2057b7'}"> {{ item.time }}</p>
                             </div>
                         </mat-tab>
-                        <mat-tab label="Делегировать" class="title">
-                            <div class="mat-text">Забыл/ла? Забудьте об этом! Делегируйте напоминание, чтобы убедиться, что все будет сделано.
-                                Назначьте напоминание кому-либо и следите за ним здесь. Вы также можете видеть делегированные вами напоминания в профиле любого человека.</div>
-                            <button class="mat-button"><a href="https://help.clickup.com/hc/en-us/articles/6325931822359-Delegate-reminders">Жми если не понял/ла</a></button>
-                        </mat-tab>
                     </mat-tab-group>
                 </div>
                 <app-right-section></app-right-section>
@@ -138,5 +133,5 @@
 <app-upd-form [UpdatingTask]="taskObj" (closer)="closeForm()" ></app-upd-form>
 </div>
 
-<app-task-pop-up (falser)="closeTask()" *ngIf="addTodayTask"></app-task-pop-up>
+<app-task-pop-up (falser)="closeTask()" [CurrentDate]="segodnya" *ngIf="addTodayTask"></app-task-pop-up>
 <app-info-block [UpdatingTask]="taskObj" (closerInfo)="closeInfo()" *ngIf="infVisible"></app-info-block>

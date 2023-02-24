@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit{
   infVisible = false;
   taskObj?: ITask;
   addTodayTask = false;
+  segodnya = new Date().toISOString().replace(new Date().toISOString().slice(new Date().toISOString().lastIndexOf(':')), '');
 
 
   constructor(public serv: NewserviceService) {  }
@@ -34,6 +35,13 @@ export class HomeComponent implements OnInit{
       })
 
 
+   }
+
+   dateCalculator () {
+    let startTime = new Date();
+    startTime = new Date(startTime.getTime() + 60000);
+    console.log(startTime.toISOString())
+    console.log(startTime);
    }
 
  todayTask () {

@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ITask} from 'src/app/classes/interfaces/interfaces';
 import { taskPost } from 'src/app/classes/interfaces/interfaces';
@@ -13,6 +13,7 @@ export class TaskPopUpComponent implements OnInit {
   tasks: [] = [];
   title = 'addTask'
   today = (new Date()).toLocaleString();
+  @Input() CurrentDate?: string;
   @Output()
   falser = new EventEmitter();
 

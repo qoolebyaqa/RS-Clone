@@ -9,17 +9,7 @@
       ><mat-icon>close</mat-icon></button>
     </div>
     <p class="controls__color"> Цвет твоего настроения <input ngModel type="color" name="color"></p>
-    <input ngModel type="datetime-local" name="time" [(ngModel)]="today">
-    <div class="popup__settings">
-      <p class="settings__pre-text">Напрячь чела</p>
-      <div class="settings__members-list">
-        <p class="space__selector-container">
-          <select ngModel class="space__selector" size="1" name="assignto">
-            <option *ngFor="let item of serv.users">{{ item.name }}</option>
-          </select>
-        </p>
-      </div>
-    </div>
+    <input ngModel type="datetime-local" name="time" [(ngModel)]="CurrentDate" value="CurrentDate" class="date__input" [readonly]="CurrentDate">
     <textarea ngModel name="details" form="task-form" cols="30" rows="10" placeholder="Сформулируй конкретно шо хочешь"></textarea>
     <button class="task__submit" [disabled]="!name.valid">Погнали!</button>
   </form>

@@ -9,10 +9,6 @@
   justify-content: space-between;
 }
 
-.overdue__pic {
-  width: 20%;
-}
-
 .element--hover {
   cursor: pointer;
   transition: box-shadow 600ms cubic-bezier(.33, .11, .02, .99),
@@ -89,4 +85,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.overdue__pic {
+  width: 55%;
+}
+.overdue__pic__tired {
+  width: 68%;
 }

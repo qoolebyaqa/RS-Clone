@@ -1,8 +1,0 @@
-{
-  "/api/*": {
-    "target": "https://rs-clone-api-t2y5.onrender.com",
-    "secure": false,
-    "logLevel": "debug",
-    "changeOrigin": true
-  }
-}
