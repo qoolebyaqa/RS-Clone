@@ -46,6 +46,16 @@ export class logUser {
   "password": string;
 }
 
+export interface INote {
+  "text": string,
+  "time": string,
+}
+
+export class NoteClass {
+  "text": string;
+  "time": string;
+}
+
 
 
 /* export interface ITask  {

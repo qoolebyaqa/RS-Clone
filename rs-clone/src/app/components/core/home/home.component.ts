@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NewserviceService } from 'src/app/newservice.service';
-import { ITask, taskPost } from 'src/app/classes/interfaces/interfaces';
+import { INote, ITask, taskPost } from 'src/app/classes/interfaces/interfaces';
 
 @Component({
   selector: 'app-home',
@@ -22,6 +22,8 @@ export class HomeComponent implements OnInit{
   taskObj?: ITask;
   addTodayTask = false;
   segodnya: string = '';
+  reminderVisible: boolean = false;
+  homeNotes: INote[] = [];
 
 
   constructor(public serv: NewserviceService) {  }
@@ -138,15 +140,20 @@ export class HomeComponent implements OnInit{
   addTask(e: Event) {
     e.stopPropagation();
     this.addTodayTask = true;
+    this.dateCalculator()
   }
 
   addReminder(e: Event) {
     e.stopPropagation();
+    this.reminderVisible = true;
   }
 
   closeForm () {this.updVisibleForm = false;}
 
   closeTask() {this.addTodayTask = false;}
   closeInfo() {this.infVisible = false;}
+  closeReminder() {this.reminderVisible = false;}
+
+
 
 }

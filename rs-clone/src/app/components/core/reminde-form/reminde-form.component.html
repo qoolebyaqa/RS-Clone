@@ -1,0 +1,21 @@
+<div class="reminder__wrapper">
+  <div class="reminder__body">
+    <div class="reminder__content">
+      <div class="form__wrapper">
+        <form #reminderForm="ngForm" id="reminder" (ngSubmit)="postNote(reminderForm.value)">
+          <div class="form__toplayer">
+            <h2 class="form__title">Ты забудешь, давай помогу</h2>
+            <button class="controls__closer"
+            (click)="hidder($event)"
+              ><mat-icon>close</mat-icon></button>
+          </div>
+          <div class="form__body">
+            <p class="form__task-title">Что тебе сказать?<input ngModel #TTitle="ngModel" type="text" name="text" class="form__text" autocomplete="off"  required></p>
+            <p class="controls__input">В какое время?<input ngModel type="time" name="time" required></p>
+          </div>
+          <button class="task__submit" [disabled]="!TTitle.valid">Погнали!</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
