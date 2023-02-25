@@ -3,6 +3,7 @@
         <div class="main__content">
             <div class="tasks__content">
                 <div class="content__block">
+                  <app-reminde-form *ngIf="reminderVisible" (closer)="closeReminder()"></app-reminde-form>
                     <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
                         <mat-tab label="То Ду" class="title">
                             <div class="today">
@@ -12,7 +13,7 @@
                                         <mat-expansion-panel-header>
                                             <mat-panel-title>
                                                 <p>Тудэй</p>
-                                                <button mat-button (click)="addTask($event)" class="element--hover" (click)="dateCalculator()">+ Таск</button>
+                                                <button mat-button (click)="addTask($event)" class="element--hover">+ Таск</button>
                                                 <button mat-button (click)="addReminder($event)" class="element--hover">+ Напомнить</button>
                                             </mat-panel-title>
                                         </mat-expansion-panel-header>
@@ -68,14 +69,6 @@
                                           </div>
                                         </div>
                                     </mat-expansion-panel>
-                                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-                                        <mat-expansion-panel-header>
-                                            <mat-panel-title class="title-task">
-                                                Некст
-                                            </mat-panel-title>
-                                        </mat-expansion-panel-header>
-                                        <p>Нет запланированных предстоящих задач или напоминаний.</p>
-                                    </mat-expansion-panel>
                                     <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
                                     (click)="AllTask()">
                                         <mat-expansion-panel-header>
@@ -106,12 +99,24 @@
                                 </mat-accordion>
                             </div>
                         </mat-tab>
-                        <mat-tab label="Комменты" class="title">
-                            <div class="empty-comments__block">
+                        <mat-tab label="Напоминания" class="title">
+                            <div *ngIf="this.serv.notes!.length < 1" class="empty-comments__block">
                                 <img src="assets/sanbath_chill.c222e99cb795da04825a964e52e5648b.png" alt="chill-man">
-                                <p class="comments__title">Офигеть, ты сделал все!</p>
-                                <div class="comments__text">У вас нет комментариев</div>
+                                <p class="comments__title">Ты молодец, ты справляешься сам</p>
+                                <div class="comments__text">У вас нет напоминаний</div>
                             </div>
+                            <div *ngIf="this.serv.notes!.length >= 1" class="empty-comments__block">
+                              <img src="assets/note.png" alt="note-char">
+                              <div class="comments__text">
+                                <p class="comments__title">Напоминалки:</p>
+                                <div class="comments_note" *ngFor="let note of this.serv.notes" [ngStyle]="{'display': 'flex', 'justify-content': 'space-between',
+                              'border': '1px solid #2057b7', 'padding': '2px'}">
+                                  <div class="comment__time">{{ note.time }}</div>
+                                  <div class="comment__text">{{ note.text }}</div>
+                                  <button class="comment__delete">Убрать напоминалку</button>
+                                </div>
+                              </div>
+                          </div>
                         </mat-tab>
                         <mat-tab label="Завершенные" class="title">
                             <div class="mat-title" *ngIf="finishedTasks.length > 0">Завершенные</div>

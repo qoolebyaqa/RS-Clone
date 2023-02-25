@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { IlogUser, IregUser, ITask, IUser } from './classes/interfaces/interfaces';
+import { IlogUser, INote, IregUser, ITask, IUser } from './classes/interfaces/interfaces';
 import { BehaviorSubject, delay, mergeMap, Observable, of, retryWhen, throwError } from 'rxjs';
 
 function retryPls <T> (delayMS = 1000, tries = 5) {
@@ -24,6 +24,7 @@ export class NewserviceService {
   tasks: ITask[] = [];
   users: IUser[] = [];
   taskUPD?: ITask;
+  notes: INote[] = [];
 
   private tasks$: BehaviorSubject<any> = new BehaviorSubject([]);
   tasksObs$: Observable<ITask[]> = this.tasks$.asObservable();

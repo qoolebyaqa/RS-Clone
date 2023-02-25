@@ -36,5 +36,31 @@ export class AppComponent implements OnInit {
         this.serv.setToken(maybeToken);
         this.serv.username = userActive as string;
       }
+
+
+
+        setInterval(() => {
+          if (JSON.parse(localStorage["notes"]).length > 0) {
+            const moment = new Date().toTimeString().slice(0, 5);
+            this.serv.notes = JSON.parse(localStorage["notes"]);
+            this.serv.notes = this.serv.notes?.filter((value) => {
+              if (Number(value.time.slice(0, 2)) >= Number(moment.slice(0, 2)) && Number(value.time.slice(3)) >= Number(moment.slice(3))) {
+                return true;
+              } return false;
+            })
+            localStorage.setItem("notes", JSON.stringify(this.serv.notes));
+          this.serv.notes.forEach((value, index) => {
+            if (value.time.slice(0, 2) === moment.slice(0, 2) && value.time.slice(3) === moment.slice(3)) {
+              this.serv.notes?.splice(index, 1);
+              localStorage.setItem("notes", JSON.stringify(this.serv.notes));
+              alert(`Настало время сделать ${value.text}`);
+            }
+          })
+        }
+      }, 20000)
+
+
+
+
   }
 }

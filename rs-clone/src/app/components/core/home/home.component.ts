@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NewserviceService } from 'src/app/newservice.service';
-import { ITask, taskPost } from 'src/app/classes/interfaces/interfaces';
+import { INote, ITask, taskPost } from 'src/app/classes/interfaces/interfaces';
 
 @Component({
   selector: 'app-home',
@@ -21,7 +21,9 @@ export class HomeComponent implements OnInit{
   infVisible = false;
   taskObj?: ITask;
   addTodayTask = false;
-  segodnya = new Date().toISOString().replace(new Date().toISOString().slice(new Date().toISOString().lastIndexOf(':')), '');
+  segodnya: string = '';
+  reminderVisible: boolean = false;
+  homeNotes: INote[] = [];
 
 
   constructor(public serv: NewserviceService) {  }
@@ -38,10 +40,14 @@ export class HomeComponent implements OnInit{
    }
 
    dateCalculator () {
-    let startTime = new Date();
-    startTime = new Date(startTime.getTime() + 60000);
-    console.log(startTime.toISOString())
-    console.log(startTime);
+    const IsoTime = new Date().toISOString();
+    const differTime = new Date().getTimezoneOffset();
+    let dateToTask = new Date();
+    differTime < 0 ?
+    dateToTask = new Date((new Date(IsoTime).getTime() - differTime * 60000)):
+    dateToTask = new Date((new Date(IsoTime).getTime() + differTime * 60000));
+    this.segodnya = dateToTask.toISOString().replace(new Date().toISOString().slice(new Date().toISOString().lastIndexOf(':')), '');
+    return dateToTask.toISOString().replace(new Date().toISOString().slice(new Date().toISOString().lastIndexOf(':')), '')
    }
 
  todayTask () {
@@ -134,15 +140,20 @@ export class HomeComponent implements OnInit{
   addTask(e: Event) {
     e.stopPropagation();
     this.addTodayTask = true;
+    this.dateCalculator()
   }
 
   addReminder(e: Event) {
     e.stopPropagation();
+    this.reminderVisible = true;
   }
 
   closeForm () {this.updVisibleForm = false;}
 
   closeTask() {this.addTodayTask = false;}
   closeInfo() {this.infVisible = false;}
+  closeReminder() {this.reminderVisible = false;}
+
+
 
 }

@@ -24,9 +24,9 @@
       <p class="title" style.color="{{ task.color }}" id="{{ task._id }}"> {{ task.title }} </p>
       <div class="buttons__editdone" [ngStyle]="{'display': 'flex', 'justify-content': 'center',
       'align-items': 'center','width': '60%'}">
-        <button class="edit" (click)="createFormUp($event)">Меняй!</button>
+        <button *ngIf="!task.isDone" class="edit" (click)="createFormUp($event)">Меняй!</button>
         <button class="done" (click)="deleteTask($event)">Удаляй!</button>
-        <button class="done" (click)="doneTask($event)">Готово!</button>
+        <button *ngIf="!task.isDone" class="done" (click)="doneTask($event)">Готово!</button>
       </div>
     </div>
   </div>
