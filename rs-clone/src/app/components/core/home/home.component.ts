@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit{
   infVisible = false;
   taskObj?: ITask;
   addTodayTask = false;
-  segodnya = new Date().toISOString().replace(new Date().toISOString().slice(new Date().toISOString().lastIndexOf(':')), '');
+  segodnya: string = '';
 
 
   constructor(public serv: NewserviceService) {  }
@@ -38,10 +38,14 @@ export class HomeComponent implements OnInit{
    }
 
    dateCalculator () {
-    let startTime = new Date();
-    startTime = new Date(startTime.getTime() + 60000);
-    console.log(startTime.toISOString())
-    console.log(startTime);
+    const IsoTime = new Date().toISOString();
+    const differTime = new Date().getTimezoneOffset();
+    let dateToTask = new Date();
+    differTime < 0 ?
+    dateToTask = new Date((new Date(IsoTime).getTime() - differTime * 60000)):
+    dateToTask = new Date((new Date(IsoTime).getTime() + differTime * 60000));
+    this.segodnya = dateToTask.toISOString().replace(new Date().toISOString().slice(new Date().toISOString().lastIndexOf(':')), '');
+    return dateToTask.toISOString().replace(new Date().toISOString().slice(new Date().toISOString().lastIndexOf(':')), '')
    }
 
  todayTask () {
