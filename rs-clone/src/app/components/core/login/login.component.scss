@@ -315,3 +315,9 @@ left: 10px;
 position: absolute;
 width: 180px;
 }
+
+.invalid-mail, .invalid-name {
+  color: red;
+  font-size: 18px;
+  text-align: start;
+}
