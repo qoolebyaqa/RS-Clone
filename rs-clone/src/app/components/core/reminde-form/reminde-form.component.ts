@@ -25,12 +25,13 @@ export class RemindeFormComponent {
     newPost.text = obj.text;
     newPost.time = obj.time;
     let notesArr: INote[] = [];
-    if (JSON.parse(localStorage["notes"]).length > 0) {
-      notesArr = JSON.parse(localStorage["notes"])
+    if (localStorage["notes"]) {
+      notesArr = JSON.parse(localStorage["notes"]);
+      this.serv.notes = JSON.parse(localStorage["notes"]);
     }
     notesArr.push(newPost);
     this.serv.notes.push(newPost);
-    localStorage.setItem("notes", JSON.stringify(notesArr));
+    localStorage.setItem("notes", JSON.stringify(this.serv.notes));
     this.hidder();
   }
 }

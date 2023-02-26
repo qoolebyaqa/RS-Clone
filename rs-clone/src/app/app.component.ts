@@ -37,10 +37,8 @@ export class AppComponent implements OnInit {
         this.serv.username = userActive as string;
       }
 
-
-
         setInterval(() => {
-          if (JSON.parse(localStorage["notes"]).length > 0) {
+          if (localStorage["notes"]) {
             const moment = new Date().toTimeString().slice(0, 5);
             this.serv.notes = JSON.parse(localStorage["notes"]);
             this.serv.notes = this.serv.notes?.filter((value) => {
