@@ -110,7 +110,7 @@
                               <div class="comments__text">
                                 <p class="comments__title">Напоминалки:</p>
                                 <div class="comments_note" *ngFor="let note of this.serv.notes" [ngStyle]="{'display': 'flex', 'justify-content': 'space-between',
-                              'border': '1px solid #2057b7', 'padding': '2px'}">
+                              'border': '1px solid #2057b7', 'padding': '2px', 'margin-bottom': '3px'}">
                                   <div class="comment__time">{{ note.time }}</div>
                                   <div class="comment__text">{{ note.text }}</div>
                                   <button class="comment__delete">Убрать напоминалку</button>
@@ -122,7 +122,7 @@
                             <div class="mat-title" *ngIf="finishedTasks.length > 0">Завершенные</div>
                             <div class="finished__tasks" *ngFor="let item of finishedTasks">
                               <p class="finished__title">{{ item.title }}</p>
-                              <p class="finished__time" [ngStyle]="{'border-bottom': '1px solid #2057b7'}"> {{ item.time }}</p>
+                              <p class="finished__time" [ngStyle]="{'border-bottom': '1px solid #2057b7'}">Завершено: {{ item.time }}</p>
                             </div>
                         </mat-tab>
                     </mat-tab-group>

@@ -50,6 +50,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { HeaderBlockComponent } from './components/core/notifications/drag-drop/header-block/header-block.component';
 import { Game1Component } from './components/core/right-section/game1/game1.component';
 import { RemindeFormComponent } from './components/core/reminde-form/reminde-form.component';
+import { NotificationComponent } from './components/core/notification/notification.component';
 
 @NgModule({
   declarations: [
@@ -83,6 +84,7 @@ import { RemindeFormComponent } from './components/core/reminde-form/reminde-for
     HeaderBlockComponent,
     Game1Component,
     RemindeFormComponent,
+    NotificationComponent,
   ],
   imports: [
     BrowserModule,

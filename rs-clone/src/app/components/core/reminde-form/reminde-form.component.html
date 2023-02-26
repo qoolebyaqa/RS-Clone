@@ -10,7 +10,7 @@
               ><mat-icon>close</mat-icon></button>
           </div>
           <div class="form__body">
-            <p class="form__task-title">Что тебе сказать?<input ngModel #TTitle="ngModel" type="text" name="text" class="form__text" autocomplete="off" required></p>
+            <p class="form__task-title">Что тебе сказать?<input ngModel #TTitle="ngModel" type="text" name="text" class="form__text" autocomplete="off" required ></p>
             <p class="controls__input">В какое время?<input ngModel #TTime="ngModel" type="time" name="time" min="16:00" required></p>
           </div>
           <button class="task__submit" [disabled]="!TTitle.valid || !TTime.valid">Погнали!</button>

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { INote, NoteClass } from 'src/app/classes/interfaces/interfaces';
 import { NewserviceService } from 'src/app/newservice.service';
 
@@ -10,6 +10,7 @@ import { NewserviceService } from 'src/app/newservice.service';
 export class RemindeFormComponent {
   @Output()
   closer = new EventEmitter();
+  @Input() CurrentTime?: string;
 
   constructor(public serv: NewserviceService) {
 
