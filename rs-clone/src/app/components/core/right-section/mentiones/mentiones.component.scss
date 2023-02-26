@@ -1,5 +1,8 @@
-.filler {
-  width: 100%;
+.mentiones__hide-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .mentiones__entertain {
   display: flex;
@@ -22,6 +25,6 @@
   text-align: center;
 }
 .filler {
-  max-width: 300px;
-  max-height: 400px;
+  max-width: 200px;
+  max-height: 300px;
 }

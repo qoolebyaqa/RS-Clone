@@ -22,10 +22,11 @@
         </div>
       </div>
     </div>
+    <app-task-pop-up *ngIf="reminderVisible" (falser)="closeReminder()" [CurrentDate]="SelectedTime"></app-task-pop-up>
     <div class="calendar__field">
       <p class="calendar__timeArr" *ngFor="let item of visiblehours">{{item}}
-        <button class="halfday">1-я половина</button>
-        <button class="halfday">2-я половина</button>
+        <button class="halfday" (click)="timeCalculator1st($event)">1-я половина</button>
+        <button class="halfday" (click)="timeCalculator2nd($event)">2-я половина</button>
       </p>
     </div>
   </div>

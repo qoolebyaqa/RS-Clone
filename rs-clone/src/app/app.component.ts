@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { NewserviceService } from './newservice.service';
 import { ITask } from './classes/interfaces/interfaces'
 import { HomeComponent } from './components/core/home/home.component';
@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+  @Output() notified = new EventEmitter();
+
   constructor (public serv: NewserviceService, private rout: Router) {
     let path = localStorage.getItem('path');
     if(path) {
@@ -23,6 +25,8 @@ export class AppComponent implements OnInit {
   ngOnInit(){
       const maybeToken = localStorage.getItem('auth-tok');
       const userActive = localStorage.getItem('name');
+      const voice = document.createElement('audio');
+      voice.src = "assets/notification.mp3";
       this.serv.getData().subscribe((data) => {
         this.serv.tasks = data;
         this.serv.emitTasks(data);
@@ -37,10 +41,8 @@ export class AppComponent implements OnInit {
         this.serv.username = userActive as string;
       }
 
-
-
         setInterval(() => {
-          if (JSON.parse(localStorage["notes"]).length > 0) {
+          if (localStorage["notes"]) {
             const moment = new Date().toTimeString().slice(0, 5);
             this.serv.notes = JSON.parse(localStorage["notes"]);
             this.serv.notes = this.serv.notes?.filter((value) => {
@@ -53,7 +55,12 @@ export class AppComponent implements OnInit {
             if (value.time.slice(0, 2) === moment.slice(0, 2) && value.time.slice(3) === moment.slice(3)) {
               this.serv.notes?.splice(index, 1);
               localStorage.setItem("notes", JSON.stringify(this.serv.notes));
-              alert(`Настало время сделать ${value.text}`);
+              const alertWindow = (document.querySelector('.notification__wrapper') as HTMLElement)
+              alertWindow.style.visibility = "visible";
+              alertWindow.children[0].children[0].innerHTML = '';
+              alertWindow.children[0].children[0].innerHTML = `${value.text}`;
+              voice.play()
+
             }
           })
         }
