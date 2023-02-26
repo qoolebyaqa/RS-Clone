@@ -1,0 +1,17 @@
+<div class="janken__game">
+  <div class="your__janken">
+    <img src="assets/paper.png" alt="paper" id="paper" (click)="janken($event)" class="choice">
+    <img src="assets/scissors.png" alt="scissors" id="scissors" (click)="janken($event)" class="choice">
+    <img src="assets/rock.png" alt="rock" id="rock" (click)="janken($event)" class="choice">
+  </div>
+  <div class="separator">
+    Выбирай!
+  </div>
+  <div class="his__janken">
+    <img src="assets/paper.png" alt="paper" id="paper">
+    <img src="assets/scissors.png" alt="scissors" id="scissors">
+    <img src="assets/rock.png" alt="rock" id="rock">
+  </div>
+  <p class="counter">0</p>
+  <button class="janken__restart" (click)="restart($event)">Заново!</button>
+</div>

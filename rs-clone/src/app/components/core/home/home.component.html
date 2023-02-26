@@ -106,7 +106,7 @@
                                 <div class="comments__text">У вас нет напоминаний</div>
                             </div>
                             <div *ngIf="this.serv.notes!.length >= 1" class="empty-comments__block">
-                              <img src="assets/note.png" alt="note-char">
+                              <img src="assets/note.png" alt="note-char" class="note__img">
                               <div class="comments__text">
                                 <p class="comments__title">Напоминалки:</p>
                                 <div class="comments_note" *ngFor="let note of this.serv.notes" [ngStyle]="{'display': 'flex', 'justify-content': 'space-between',

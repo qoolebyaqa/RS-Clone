@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class MentionesComponent {
   gameFirst: boolean = false;
+  gameSecond: boolean = false;
 }

@@ -51,6 +51,7 @@ import { HeaderBlockComponent } from './components/core/notifications/drag-drop/
 import { Game1Component } from './components/core/right-section/game1/game1.component';
 import { RemindeFormComponent } from './components/core/reminde-form/reminde-form.component';
 import { NotificationComponent } from './components/core/notification/notification.component';
+import { Game2Component } from './components/core/right-section/game2/game2.component';
 
 @NgModule({
   declarations: [
@@ -85,6 +86,7 @@ import { NotificationComponent } from './components/core/notification/notificati
     Game1Component,
     RemindeFormComponent,
     NotificationComponent,
+    Game2Component,
   ],
   imports: [
     BrowserModule,
