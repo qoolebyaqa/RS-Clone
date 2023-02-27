@@ -1,0 +1,4 @@
+:root[theme=dark] {
+    --theme-background: #838080;
+    --theme-color: rgba(255, 255, 255, .75);
+}

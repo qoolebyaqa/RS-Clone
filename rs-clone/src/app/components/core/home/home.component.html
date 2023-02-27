@@ -1,15 +1,14 @@
-<div class="home__page" >
+<div class="home__page">
     <div class="home__page-container">
         <div class="main__content">
             <div class="tasks__content">
                 <div class="content__block">
-                  <app-reminde-form *ngIf="reminderVisible" (closer)="closeReminder()"></app-reminde-form>
+                    <app-reminde-form *ngIf="reminderVisible" (closer)="closeReminder()"></app-reminde-form>
                     <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
                         <mat-tab label="То Ду" class="title">
                             <div class="today">
                                 <mat-accordion>
-                                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
-                                    (click)="todayTask()">
+                                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" (click)="todayTask()">
                                         <mat-expansion-panel-header>
                                             <mat-panel-title>
                                                 <p>Тудэй</p>
@@ -26,24 +25,18 @@
                                             <img src="assets/work.png" alt="work-man" class="overdue__pic__tired">
                                             <p class="comments__title" *ngIf="mineTodayTasks.length > 0">Сделай уже наконец сегодня!</p>
                                             <div class="work__block" *ngFor="let task of mineTodayTasks" [ngStyle]="{'display': 'flex', 'justify-content': 'space-between',
-                                            'transition': 'all 0.4s ease-in-out'}"
-                                            [class.work__block] = "hover"
-                                            [class.work__block:hover] = "!hover"
-                                            (mouseenter)="hover = true"
-                                            (mouseleft)="hover = false"
-                                            (click)="createInfoBlock($event)">
-                                              <p class="title" [style.color]= task.color id="{{ task._id }}"> {{ task.title }} </p>
-                                              <div class="buttons__editdone" [ngStyle]="{'display': 'flex', 'justify-content': 'center',
+                                            'transition': 'all 0.4s ease-in-out'}" [class.work__block]="hover" [class.work__block:hover]="!hover" (mouseenter)="hover = true" (mouseleft)="hover = false" (click)="createInfoBlock($event)">
+                                                <p class="title" [style.color]=task.color id="{{ task._id }}"> {{ task.title }} </p>
+                                                <div class="buttons__editdone" [ngStyle]="{'display': 'flex', 'justify-content': 'center',
                                               'align-items': 'center','width': '60%'}">
-                                                <button class="edit" (click)="createFormUp($event)">Меняй!</button>
-                                                <button class="done" (click)="deleteTask($event)">Удаляй!</button>
-                                                <button class="done" (click)="doneTask($event)">Готово!</button>
-                                              </div>
+                                                    <button class="edit" (click)="createFormUp($event)">Меняй!</button>
+                                                    <button class="done" (click)="deleteTask($event)">Удаляй!</button>
+                                                    <button class="done" (click)="doneTask($event)">Готово!</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </mat-expansion-panel>
-                                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
-                                    (click)="overdueCheck()">
+                                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" (click)="overdueCheck()">
                                         <mat-expansion-panel-header>
                                             <mat-panel-title class="title-task">
                                                 Просроченные
@@ -54,23 +47,17 @@
                                             <br><img src="assets/hurry.png" alt="work-man" class="overdue__pic">
                                         </p>
                                         <div classs="work__block" *ngFor="let task of overdueTasks" [ngStyle]="{'display': 'flex', 'justify-content': 'space-between',
-                                        'transition': 'all 0.4s ease-in-out'}"
-                                        [class.work__block] = "hover"
-                                        [class.work__block:hover] = "!hover"
-                                        (mouseenter)="hover = true"
-                                        (mouseleft)="hover = false"
-                                        (click)="createInfoBlock($event)">
-                                          <p class="title" [style.color]= task.color id="{{ task._id }}"> {{ task.title }} </p>
-                                          <div class="buttons__editdone" [ngStyle]="{'display': 'flex', 'justify-content': 'center',
+                                        'transition': 'all 0.4s ease-in-out'}" [class.work__block]="hover" [class.work__block:hover]="!hover" (mouseenter)="hover = true" (mouseleft)="hover = false" (click)="createInfoBlock($event)">
+                                            <p class="title" [style.color]=task.color id="{{ task._id }}"> {{ task.title }} </p>
+                                            <div class="buttons__editdone" [ngStyle]="{'display': 'flex', 'justify-content': 'center',
                                           'align-items': 'center','width': '60%'}">
-                                            <button class="edit" (click)="createFormUp($event)">Меняй!</button>
-                                            <button class="done" (click)="deleteTask($event)">Удаляй!</button>
-                                            <button class="done" (click)="doneTask($event)">Готово!</button>
-                                          </div>
+                                                <button class="edit" (click)="createFormUp($event)">Меняй!</button>
+                                                <button class="done" (click)="deleteTask($event)">Удаляй!</button>
+                                                <button class="done" (click)="doneTask($event)">Готово!</button>
+                                            </div>
                                         </div>
                                     </mat-expansion-panel>
-                                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
-                                    (click)="AllTask()">
+                                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" (click)="AllTask()">
                                         <mat-expansion-panel-header>
                                             <mat-panel-title>
                                                 Все твои задачи :)
@@ -81,19 +68,14 @@
                                             <br><img src="assets/Lazy-face.png" alt="work-man" class="overdue__pic">
                                         </p>
                                         <div classs="work__block" *ngFor="let task of mineTasks" [ngStyle]="{'display': 'flex', 'justify-content': 'space-between',
-                                        'transition': 'all 0.4s ease-in-out'}"
-                                        [class.work__block] = "hover"
-                                        [class.work__block:hover] = "!hover"
-                                        (mouseenter)="hover = true"
-                                        (mouseleft)="hover = false"
-                                        (click)="createInfoBlock($event)">
-                                          <p class="title" [style.color]= task.color id="{{ task._id }}"> {{ task.title }} </p>
-                                          <div class="buttons__editdone" [ngStyle]="{'display': 'flex', 'justify-content': 'center',
+                                        'transition': 'all 0.4s ease-in-out'}" [class.work__block]="hover" [class.work__block:hover]="!hover" (mouseenter)="hover = true" (mouseleft)="hover = false" (click)="createInfoBlock($event)">
+                                            <p class="title" [style.color]=task.color id="{{ task._id }}"> {{ task.title }} </p>
+                                            <div class="buttons__editdone" [ngStyle]="{'display': 'flex', 'justify-content': 'center',
                                           'align-items': 'center','width': '60%'}">
-                                            <button class="edit" (click)="createFormUp($event)">Меняй!</button>
-                                            <button class="done" (click)="deleteTask($event)">Удаляй!</button>
-                                            <button class="done" (click)="doneTask($event)">Готово!</button>
-                                          </div>
+                                                <button class="edit" (click)="createFormUp($event)">Меняй!</button>
+                                                <button class="done" (click)="deleteTask($event)">Удаляй!</button>
+                                                <button class="done" (click)="doneTask($event)">Готово!</button>
+                                            </div>
                                         </div>
                                     </mat-expansion-panel>
                                 </mat-accordion>
@@ -135,7 +117,7 @@
 </div>
 <div *ngIf="updVisibleForm">
 
-<app-upd-form [UpdatingTask]="taskObj" (closer)="closeForm()" ></app-upd-form>
+    <app-upd-form [UpdatingTask]="taskObj" (closer)="closeForm()"></app-upd-form>
 </div>
 
 <app-task-pop-up (falser)="closeTask()" [CurrentDate]="segodnya" *ngIf="addTodayTask"></app-task-pop-up>

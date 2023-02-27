@@ -35,6 +35,7 @@
     8px 16px 16px rgba(0, 0, 0, .15),
     8px 32px 32px rgba(0, 0, 0, .15);
 }
+
 .edit,
 .done {
   background-color: #2057b7;
@@ -44,6 +45,7 @@
   color: white;
   transition: all 0.4s ease-in;
 }
+
 .edit:hover,
 .done:hover {
   cursor: pointer;
@@ -67,6 +69,7 @@
   border-radius: 10px;
   margin-left: 40%;
 }
+
 .finished__tasks {
   margin-left: 15px;
 }
@@ -76,6 +79,7 @@
   justify-content: space-between;
   transition: all 0.4s ease;
 }
+
 .work__block:hover {
   display: flex;
   justify-content: space-between;
@@ -83,18 +87,22 @@
   background-color: lightblue;
   cursor: pointer;
 }
+
 .buttons__editdone {
   width: 60%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .overdue__pic {
   width: 55%;
 }
+
 .overdue__pic__tired {
   width: 68%;
 }
+
 .comment__delete {
   background-color: #2057b7;
   cursor: pointer;
@@ -102,6 +110,15 @@
   border: none;
   transition: all 0.4s ease;
 }
+
 .comment__delete:hover {
   transform: scale(0.9);
+}
+
+.mat-panel-block {
+  background: transparent;
+}
+
+.mat-expansion-panel {
+  background-color: transparent;
 }

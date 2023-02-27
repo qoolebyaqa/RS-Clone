@@ -82,4 +82,6 @@ a {
 .rs-img {
     width: 150px;
     height: 45px;
+    background: transparent;
+    border-radius: 5px;
 }
