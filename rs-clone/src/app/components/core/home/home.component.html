@@ -93,9 +93,11 @@
                                 <p class="comments__title">Напоминалки:</p>
                                 <div class="comments_note" *ngFor="let note of this.serv.notes" [ngStyle]="{'display': 'flex', 'justify-content': 'space-between',
                               'border': '1px solid #2057b7', 'padding': '2px', 'margin-bottom': '3px'}">
-                                  <div class="comment__time">{{ note.time }}</div>
-                                  <div class="comment__text">{{ note.text }}</div>
-                                  <button class="comment__delete">Убрать напоминалку</button>
+                                  <div class="comment__container">
+                                    <div class="comment__time">{{ note.time }}</div>
+                                    <div class="comment__text">{{ note.text }}</div>
+                                    <button class="comment__delete" (click)="removeNote($event)">Убрать напоминалку</button>
+                                  </div>
                                 </div>
                               </div>
                           </div>

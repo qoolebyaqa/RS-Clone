@@ -23,10 +23,11 @@ export class AppComponent implements OnInit {
   tasks: ITask[] = [];
 
   ngOnInit(){
+    const voice = document.createElement('audio');
+    voice.src = "assets/notification.mp3";
+    if (localStorage["auth-tok"]) {
       const maybeToken = localStorage.getItem('auth-tok');
       const userActive = localStorage.getItem('name');
-      const voice = document.createElement('audio');
-      voice.src = "assets/notification.mp3";
       this.serv.getData().subscribe((data) => {
         this.serv.tasks = data;
         this.serv.emitTasks(data);
@@ -40,6 +41,8 @@ export class AppComponent implements OnInit {
         this.serv.setToken(maybeToken);
         this.serv.username = userActive as string;
       }
+
+    }
 
         setInterval(() => {
           if (localStorage["notes"]) {
@@ -64,7 +67,7 @@ export class AppComponent implements OnInit {
             }
           })
         }
-      }, 20000)
+      }, 2000)
 
 
 
