@@ -122,3 +122,8 @@
 .mat-expansion-panel {
   background-color: transparent;
 }
+.comment__container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}

@@ -21,7 +21,6 @@ export class DragDropComponent {
   constructor(public boardService: ServicesService) {}
 
   ngOnInit(): void {
-    console.log('BOARD - INIT');
   }
 
   onColorChange(color: string, columnId: number) {

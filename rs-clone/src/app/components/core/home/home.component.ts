@@ -154,6 +154,17 @@ export class HomeComponent implements OnInit{
   closeInfo() {this.infVisible = false;}
   closeReminder() {this.reminderVisible = false;}
 
-
+  removeNote(e: Event) {
+    const btn = e.target as HTMLButtonElement;
+    const textIdentifier = (btn.previousSibling as HTMLElement).innerHTML;
+    let notes = JSON.parse(localStorage["notes"]);
+    notes = notes.filter((value: INote) => {
+      if (value.text !== textIdentifier) {
+        return true;
+      } return false;
+    });
+    localStorage.setItem("notes", JSON.stringify(notes));
+    btn.parentElement!.parentElement!.remove();
+  }
 
 }
