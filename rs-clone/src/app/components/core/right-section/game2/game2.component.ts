@@ -12,7 +12,8 @@ export class Game2Component {
   janken(e: Event) {
     const options = ['paper', 'scissors', 'rock'];
     const hisChoice = Math.floor(Math.random() * 3);
-    const yourChoice = e.target as HTMLElement;
+    const yourChoice = e.target as HTMLButtonElement;
+    yourChoice.disabled = true;
 
     if (yourChoice.id === 'rock' && options[hisChoice] === 'rock') {
       (yourChoice.parentElement!.children[0] as HTMLElement).classList.add("hidden");
@@ -112,6 +113,11 @@ export class Game2Component {
     (btn.parentElement!.children[0].children[0] as HTMLElement).classList.remove("hidden");
     (btn.parentElement!.children[0].children[1] as HTMLElement).classList.remove("hidden");
     (btn.parentElement!.children[0].children[2] as HTMLElement).classList.remove("hidden");
+
+    (btn.parentElement!.children[0].children[0] as HTMLButtonElement).disabled = false;
+    (btn.parentElement!.children[0].children[1] as HTMLButtonElement).disabled = false;
+    (btn.parentElement!.children[0].children[2] as HTMLButtonElement).disabled = false;
+
     (btn.parentElement!.children[2].children[0] as HTMLElement).classList.remove("hidden");
     (btn.parentElement!.children[2].children[1] as HTMLElement).classList.remove("hidden");
     (btn.parentElement!.children[2].children[2] as HTMLElement).classList.remove("hidden");
