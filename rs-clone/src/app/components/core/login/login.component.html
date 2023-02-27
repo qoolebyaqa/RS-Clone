@@ -4,6 +4,7 @@
   <div class="login-container">
       <p class="form__question">Do not have an account? <a class="form__reg" (click)="loginVisible = !loginVisible; regVisible = true">Register</a></p>
     <div class="enter__form">
+      <p *ngIf="isEmailValid" class="invalid-mail">Invalid Email</p>
       <input ngModel type="text" placeholder="email" class="login" name="email">
       <input ngModel type="password" placeholder="password" class="pass" name="password">
       <button mat-button color="primary" class="login__submit">Login</button>
@@ -26,8 +27,11 @@
   <div class="login-container">
     <p class="form__question">Do you have an account? <a class="form__reg" (click)="loginVisible = !loginVisible; regVisible = false">Login</a></p>
   <div class="enter__form">
+    <p *ngIf="isEmailValid" class="invalid-mail">Invalid Email</p>
     <input ngModel type="text" placeholder="email" class="login" name="email">
+    <p *ngIf="isNameValid" class="invalid-name">Please, enter your name</p>
     <input ngModel type="text" placeholder="login" class="login" name="name">
+    <p *ngIf="isPassValid" class="invalid-name">Password must be strong...</p>
     <input ngModel type="password" placeholder="password" class="pass" name="password">
     <button mat-button color="primary" class="login__submit">Register</button>
   </div>
