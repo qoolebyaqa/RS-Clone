@@ -31,3 +31,6 @@
   color: white;
   align-self: center;
 }
+.task__submit:disabled {
+  background-color: grey;
+}

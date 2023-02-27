@@ -3,19 +3,18 @@
     <div class="mentiones__outlayer">
       <h2 class="mentiones__title">Когда все надоело</h2>
       <div class="mentiones__hide-container">
-        <img src="assets/games.png" alt="lazy" class="filler">
+        <div class="mentiones__img-wrap"><img src="assets/games.png" alt="lazy" class="filler"></div>
         <h2 class="mentiones__advise">Пора почилить</h2>
         <h3 class="mentiones__advise">Можно и поиграть</h3>
         <div class="mentiones__entertain">
           <button class="entertain__game"
-          (click)="gameFirst = !gameFirst">Гений?</button>
+          (click)="gameFirst = !gameFirst; gameSecond = false">Гений?</button>
           <button class="entertain__game"
-          (click)="gameFirst = false">Lazy 2</button>
-          <button class="entertain__game"
-          (click)="gameFirst = false">Lazy 3</button>
+          (click)="gameFirst = false; gameSecond = !gameSecond">Счастливчик?</button>
         </div>
       </div>
     </div>
   </div>
 </div>
 <app-game1 *ngIf="gameFirst"></app-game1>
+<app-game2 *ngIf="gameSecond"></app-game2>

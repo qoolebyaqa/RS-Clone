@@ -1,5 +1,5 @@
 
-import { Component, EventEmitter, OnInit, Output, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 
 
@@ -17,6 +17,8 @@ export class CalendarComponent implements OnInit {
   '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00', '24:00', ]
   now = new Date();
   visiblehours:string[] = [];
+  SelectedTime: string = '';
+  reminderVisible: boolean = false;
 
   hidder(e: Event) {
     e.preventDefault();
@@ -41,5 +43,27 @@ export class CalendarComponent implements OnInit {
     const curHour = curDate.getHours();
     this.visiblehours = this.hours.filter((value: string) => Number(value[0] + value[1]) > curHour);
   }
+
+
+
+  timeCalculator1st (e: Event) {
+    const btn = e.target as HTMLButtonElement;
+    const calen = document.querySelector('.mat-datepicker-input') as HTMLInputElement;
+    const calArr = calen.value.split('/');
+    calArr[1].length < 2 ? calArr[1] = '0' + calArr[1]: calArr[1];
+    calArr[0].length < 2 ? calArr[0] = '0' + calArr[0]: calArr[0];
+    this.SelectedTime = calArr[2] + '-' + calArr[0] + '-' + calArr[1] + 'T' + btn.parentElement!.textContent!.slice(0, 3) + '00';
+    this.reminderVisible = true;
+   }
+   timeCalculator2nd (e: Event) {
+    const btn = e.target as HTMLButtonElement;
+    const calen = document.querySelector('.mat-datepicker-input') as HTMLInputElement;
+    const calArr = calen.value.split('/');
+    calArr[1].length < 2 ? calArr[1] = '0' + calArr[1]: calArr[1];
+    calArr[0].length < 2 ? calArr[0] = '0' + calArr[0]: calArr[0];
+    this.SelectedTime = calArr[2] + '-' + calArr[0] + '-' + calArr[1] + 'T' + btn.parentElement!.textContent!.slice(0, 3) + '30';
+    this.reminderVisible = true;
+   }
+   closeReminder() {this.reminderVisible = false;}
 
 }

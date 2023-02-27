@@ -14,6 +14,7 @@ export class TaskPopUpComponent implements OnInit {
   title = 'addTask'
   today = (new Date()).toLocaleString();
   @Input() CurrentDate?: string;
+  @Input() CurrentTime?: string;
   @Output()
   falser = new EventEmitter();
 
