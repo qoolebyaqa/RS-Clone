@@ -1,0 +1,126 @@
+<div class="home__page">
+    <div class="home__page-container">
+        <div class="main__content">
+            <div class="tasks__content">
+                <div class="content__block">
+                    <app-reminde-form *ngIf="reminderVisible" (closer)="closeReminder()"></app-reminde-form>
+                    <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
+                        <mat-tab label="То Ду" class="title">
+                            <div class="today">
+                                <mat-accordion>
+                                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" (click)="todayTask()">
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>
+                                                <p>Тудэй</p>
+                                                <button mat-button (click)="addTask($event)" class="element--hover">+ Таск</button>
+                                                <button mat-button (click)="addReminder($event)" class="element--hover">+ Напомнить</button>
+                                            </mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <div class="empty-comments__block" *ngIf="!hasTask">
+                                            <img src="assets/sanbath_chill.c222e99cb795da04825a964e52e5648b.png" alt="chill-man" class="overdue__pic">
+                                            <p class="comments__title">Офигеть ты красавчик/ица все успел/ла</p>
+                                            <div class="comments__text">не особо важная часть. Но, таски и напоминания хранятся тут.</div>
+                                        </div>
+                                        <div class="empty-comments__block" *ngIf="hasTask">
+                                            <img src="assets/work.png" alt="work-man" class="overdue__pic__tired">
+                                            <p class="comments__title" *ngIf="mineTodayTasks.length > 0">Сделай уже наконец сегодня!</p>
+                                            <div class="work__block" *ngFor="let task of mineTodayTasks" [ngStyle]="{'display': 'flex', 'justify-content': 'space-between',
+                                            'transition': 'all 0.4s ease-in-out'}" [class.work__block]="hover" [class.work__block:hover]="!hover" (mouseenter)="hover = true" (mouseleft)="hover = false" (click)="createInfoBlock($event)">
+                                                <p class="title" [style.color]=task.color id="{{ task._id }}"> {{ task.title }} </p>
+                                                <div class="buttons__editdone" [ngStyle]="{'display': 'flex', 'justify-content': 'center',
+                                              'align-items': 'center','width': '60%'}">
+                                                    <button class="edit" (click)="createFormUp($event)">Меняй!</button>
+                                                    <button class="done" (click)="deleteTask($event)">Удаляй!</button>
+                                                    <button class="done" (click)="doneTask($event)">Готово!</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </mat-expansion-panel>
+                                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" (click)="overdueCheck()">
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title class="title-task">
+                                                Просроченные
+                                            </mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <p class="empty-overdue__block" *ngIf="!hasOverdue">Нет запланированных просроченных задач или напоминаний.</p>
+                                        <p class="empty-overdue__block" *ngIf="hasOverdue">У вас есть следующие задачи с просроченными сроками
+                                            <br><img src="assets/hurry.png" alt="work-man" class="overdue__pic">
+                                        </p>
+                                        <div classs="work__block" *ngFor="let task of overdueTasks" [ngStyle]="{'display': 'flex', 'justify-content': 'space-between',
+                                        'transition': 'all 0.4s ease-in-out'}" [class.work__block]="hover" [class.work__block:hover]="!hover" (mouseenter)="hover = true" (mouseleft)="hover = false" (click)="createInfoBlock($event)">
+                                            <p class="title" [style.color]=task.color id="{{ task._id }}"> {{ task.title }} </p>
+                                            <div class="buttons__editdone" [ngStyle]="{'display': 'flex', 'justify-content': 'center',
+                                          'align-items': 'center','width': '60%'}">
+                                                <button class="edit" (click)="createFormUp($event)">Меняй!</button>
+                                                <button class="done" (click)="deleteTask($event)">Удаляй!</button>
+                                                <button class="done" (click)="doneTask($event)">Готово!</button>
+                                            </div>
+                                        </div>
+                                    </mat-expansion-panel>
+                                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" (click)="AllTask()">
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>
+                                                Все твои задачи :)
+                                            </mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <p class="empty-overdue__block" *ngIf="!hasAnyTask">Нет задач!</p>
+                                        <p class="empty-overdue__block" *ngIf="hasAnyTask">У вас есть следующие задачи:
+                                            <br><img src="assets/Lazy-face.png" alt="work-man" class="overdue__pic">
+                                        </p>
+                                        <div classs="work__block" *ngFor="let task of mineTasks" [ngStyle]="{'display': 'flex', 'justify-content': 'space-between',
+                                        'transition': 'all 0.4s ease-in-out'}" [class.work__block]="hover" [class.work__block:hover]="!hover" (mouseenter)="hover = true" (mouseleft)="hover = false" (click)="createInfoBlock($event)">
+                                            <p class="title" [style.color]=task.color id="{{ task._id }}"> {{ task.title }} </p>
+                                            <div class="buttons__editdone" [ngStyle]="{'display': 'flex', 'justify-content': 'center',
+                                          'align-items': 'center','width': '60%'}">
+                                                <button class="edit" (click)="createFormUp($event)">Меняй!</button>
+                                                <button class="done" (click)="deleteTask($event)">Удаляй!</button>
+                                                <button class="done" (click)="doneTask($event)">Готово!</button>
+                                            </div>
+                                        </div>
+                                    </mat-expansion-panel>
+                                </mat-accordion>
+                            </div>
+                        </mat-tab>
+                        <mat-tab label="Напоминания" class="title">
+                            <div *ngIf="this.serv.notes!.length < 1" class="empty-comments__block">
+                                <img src="assets/sanbath_chill.c222e99cb795da04825a964e52e5648b.png" alt="chill-man">
+                                <p class="comments__title">Ты молодец, ты справляешься сам</p>
+                                <div class="comments__text">У вас нет напоминаний</div>
+                            </div>
+                            <div *ngIf="this.serv.notes!.length >= 1" class="empty-comments__block">
+                              <img src="assets/note.png" alt="note-char" class="note__img">
+                              <div class="comments__text">
+                                <p class="comments__title">Напоминалки:</p>
+                                <div class="comments_note" *ngFor="let note of this.serv.notes" [ngStyle]="{'display': 'flex', 'justify-content': 'space-between',
+                              'border': '1px solid #2057b7', 'padding': '2px', 'margin-bottom': '3px'}">
+                                  <div class="comment__container">
+                                    <div class="comment__time">{{ note.time }}</div>
+                                    <div class="comment__text">{{ note.text }}</div>
+                                    <button class="comment__delete" (click)="removeNote($event)">Убрать напоминалку</button>
+                                  </div>
+                                </div>
+                              </div>
+                          </div>
+                        </mat-tab>
+                        <mat-tab label="Завершенные" class="title">
+                            <div class="mat-title" *ngIf="finishedTasks.length > 0">Завершенные</div>
+                            <div class="finished__tasks" *ngFor="let item of finishedTasks">
+                              <p class="finished__title">{{ item.title }}</p>
+                              <p class="finished__time" [ngStyle]="{'border-bottom': '1px solid #2057b7'}">Завершено: {{ item.time }}</p>
+                            </div>
+                        </mat-tab>
+                    </mat-tab-group>
+                </div>
+                <app-right-section></app-right-section>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div *ngIf="updVisibleForm">
+
+    <app-upd-form [UpdatingTask]="taskObj" (closer)="closeForm()"></app-upd-form>
+</div>
+
+<app-task-pop-up (falser)="closeTask()" [CurrentDate]="segodnya" *ngIf="addTodayTask"></app-task-pop-up>
+<app-info-block [UpdatingTask]="taskObj" (closerInfo)="closeInfo()" *ngIf="infVisible"></app-info-block>

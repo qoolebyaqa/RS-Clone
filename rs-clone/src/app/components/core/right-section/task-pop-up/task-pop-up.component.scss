@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC&family=Caveat:wght@600&display=swap");
+
+.popup__wrapper {
+  position: absolute;
+  z-index: 1;
+  background-color: lightblue;
+  right: 20px;
+  bottom: 20px;
+  width: 30%;
+  border: 1px solid rgb(18, 15, 240);
+  border-radius: 10px;
+}
+.popup__form {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  height: 70vh;
+}
+.controls__nametask {
+  width: 80%;
+}
+.popup__controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+input[type="datetime-local"] {
+  background-color: #2564cf;
+  padding: 3px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+::-webkit-calendar-picker-indicator {
+  background-color: #2057b7;
+  padding: 5px;
+}
+.settings__search {
+  border-radius: 25px;
+  height: 80%;
+  margin: 0 10px;
+  padding: 0 10px;
+}
+.filehost__atachments {
+  display: flex;
+  margin-top: 100px;
+  .filehost__pretext {
+    margin-right: 10px;
+  }
+  mat-form-field {
+    width: 160px;
+    height: 60px;
+  }
+}
+.controls__minimizer,
+.controls__closer,
+.controls__nametask {
+  border: none;
+}
+.controls__minimizer:hover,
+.controls__closer:hover,
+.controls__nametask:hover {
+  cursor: pointer;
+  background-color: rgb(252, 252, 248);
+}
+
+.close {
+  display: none;
+}
+
+.task__submit {
+  background-color: #2057b7;
+  margin: 30px auto;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  color: white;
+}
+
+.task__submit:disabled{
+  background-color: grey;
+}
+.date__input {
+  margin: 30px auto;
+}

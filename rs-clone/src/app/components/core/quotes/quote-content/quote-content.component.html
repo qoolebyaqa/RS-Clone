@@ -1,0 +1,14 @@
+<div id="quote-box">
+    <h1 id="text"><i class="fa fa-quote-left"></i> {{ quote }}</h1>
+    <p id="author">- {{ author }}</p>
+    <div class="quotes__buttons">
+        <button class="btn btn-primary" id="new-quote" (click)="getNewQuote()">
+            New quote
+        </button>
+    </div>
+    <div class="btn-row">
+        <a id="tweet-quote" href="{{ tweetURL }}" target="_top" class=" btn-secondary">
+            <i class="fa fa-twitter"></i> Tweet
+        </a>
+    </div>
+</div>

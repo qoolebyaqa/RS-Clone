@@ -1,0 +1,51 @@
+
+<form *ngIf="loginVisible" #loginForm="ngForm" class="login__form" (submit)="onLogSubmit(loginForm.value)">
+  <!-- <img src="../assets/registration.png " alt="teddy" class="img"> -->
+  <div class="login-container">
+      <p class="form__question">Do not have an account? <a class="form__reg" (click)="loginVisible = !loginVisible; regVisible = true">Register</a></p>
+    <div class="enter__form">
+      <p *ngIf="isEmailValid" class="invalid-mail">Invalid Email</p>
+      <input ngModel type="text" placeholder="email" class="login" name="email">
+      <input ngModel type="password" placeholder="password" class="pass" name="password">
+      <button mat-button color="primary" class="login__submit">Login</button>
+    </div>
+  </div>
+  <div id="background-wrap">
+    <div class="bubble x1"></div>
+    <div class="bubble x2"></div>
+    <div class="bubble x3"></div>
+    <div class="bubble x4"></div>
+    <div class="bubble x5"></div>
+    <div class="bubble x6"></div>
+    <div class="bubble x7"></div>
+    <div class="bubble x8"></div>
+    <div class="bubble x9"></div>
+    <div class="bubble x10"></div>
+  </div>
+</form>
+<form *ngIf="regVisible" #regForm="ngForm" class="login__form" (submit)="onRegSubmit(regForm.value)">
+  <div class="login-container">
+    <p class="form__question">Do you have an account? <a class="form__reg" (click)="loginVisible = !loginVisible; regVisible = false">Login</a></p>
+  <div class="enter__form">
+    <p *ngIf="isEmailValid" class="invalid-mail">Invalid Email</p>
+    <input ngModel type="text" placeholder="email" class="login" name="email">
+    <p *ngIf="isNameValid" class="invalid-name">Please, enter your name</p>
+    <input ngModel type="text" placeholder="login" class="login" name="name">
+    <p *ngIf="isPassValid" class="invalid-name">Password must be strong...</p>
+    <input ngModel type="password" placeholder="password" class="pass" name="password">
+    <button mat-button color="primary" class="login__submit">Register</button>
+  </div>
+  </div>
+  <div id="background-wrap">
+    <div class="bubble x1"></div>
+    <div class="bubble x2"></div>
+    <div class="bubble x3"></div>
+    <div class="bubble x4"></div>
+    <div class="bubble x5"></div>
+    <div class="bubble x6"></div>
+    <div class="bubble x7"></div>
+    <div class="bubble x8"></div>
+    <div class="bubble x9"></div>
+    <div class="bubble x10"></div>
+  </div>
+</form>

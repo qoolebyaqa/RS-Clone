@@ -1,0 +1,12 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Меню</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page" class="link">Хом</a>
+      <a mat-list-item routerLink="/notifications" routerLinkActive="active" ariaCurrentWhenActive="page" class="link">Для души</a>
+      <a mat-list-item routerLink="/space" routerLinkActive="active" ariaCurrentWhenActive="page" class="link">О нас</a>
+    </mat-nav-list>
+    <img src="assets/3.png" alt="rustam" class="rustam">
+  </mat-sidenav>
+
+</mat-sidenav-container>

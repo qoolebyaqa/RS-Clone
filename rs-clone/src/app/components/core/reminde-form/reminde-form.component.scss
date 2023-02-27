@@ -1,0 +1,36 @@
+.form__toplayer {
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+}
+.form__wrapper {
+  border: 1px solid #2057b7;
+  margin: 8px;
+  padding: 3px;
+}
+.form__title {
+  padding-top: 0;
+  margin-top: 0;
+}
+.form__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#reminder {
+  display: flex;
+  flex-direction: column;
+}
+.task__submit {
+  background-color: #2057b7;
+  margin: 5px auto;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  color: white;
+  align-self: center;
+}
+.task__submit:disabled {
+  background-color: grey;
+}

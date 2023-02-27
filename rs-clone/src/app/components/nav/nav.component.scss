@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC&family=Caveat:wght@600&display=swap");
+@import url(../../../themes/dark.css);
+@import url(../../../themes/default.css);
+.sidenav-container {
+  height: 100%;
+  font-family: "Amatic SC", cursive;
+}
+.mat-drawer {
+  background: var(--theme-background);
+  color: var(--theme-color);
+  transition: all ease-in-out 400ms;
+}
+.sidenav {
+  width: 200px;
+  overflow-x: hidden;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.rustam {
+  position: absolute;
+  width: 320px;
+  height: 400px;
+  left: -60px;
+  bottom: 0;
+}

@@ -1,0 +1,18 @@
+<div class="popup__wrapper">
+  <form #taskForm="ngForm" class="popup__form" id="task-form" (ngSubmit)="postTask(taskForm.value)">
+    <div class="popup__controls">
+      <div class="controls__status"></div>
+      <input ngModel #name="ngModel" type="text" name="title" class="controls__nametask" placeholder="Название задачи" autocomplete="off" required>
+      <button class="controls__minimizer"><mat-icon>archive</mat-icon></button>
+      <button class="controls__closer"
+      (click)="this.hidder($event)"
+      ><mat-icon>close</mat-icon></button>
+    </div>
+    <p class="controls__color"> Цвет твоего настроения <input ngModel type="color" name="color"></p>
+    <input ngModel type="datetime-local" name="time" [(ngModel)]="CurrentDate" value="CurrentDate" class="date__input" [readonly]="CurrentDate">
+    <textarea ngModel name="details" form="task-form" cols="30" rows="10" placeholder="Сформулируй конкретно шо хочешь"></textarea>
+    <button class="task__submit" [disabled]="!name.valid">Погнали!</button>
+  </form>
+</div>
+
+

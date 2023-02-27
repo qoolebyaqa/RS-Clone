@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC&family=Caveat:wght@600&display=swap");
+
+.content__block {
+  padding-top: 15px;
+}
+
+.tasks__content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.element--hover {
+  cursor: pointer;
+  transition: box-shadow 600ms cubic-bezier(.33, .11, .02, .99),
+    transform 600ms cubic-bezier(.33, .11, .02, .99);
+  margin-left: 15px;
+}
+
+.element--hover:hover {
+  box-shadow: 0 4px 4px rgba(0, 0, 0, .1),
+    0 1px 6px rgba(0, 0, 0, .05),
+    0 8px 8px rgba(0, 0, 0, .1),
+    0 16px 16px rgba(0, 0, 0, .1),
+    8px 32px 32px rgba(0, 0, 0, .15),
+    8px 64px 64px rgba(0, 0, 0, .15);
+
+  transform: scale(1.05) translateY(-0.5rem);
+}
+
+.element--hover:active {
+  box-shadow: 0 4px 4px rgba(0, 0, 0, .1),
+    0 1px 6px rgba(0, 0, 0, .05),
+    0 8px 8px rgba(0, 0, 0, .1),
+    0 16px 16px rgba(0, 0, 0, .1),
+    8px 16px 16px rgba(0, 0, 0, .15),
+    8px 32px 32px rgba(0, 0, 0, .15);
+}
+
+.edit,
+.done {
+  background-color: #2057b7;
+  width: 29%;
+  margin: 3px;
+  font-size: 12px;
+  color: white;
+  transition: all 0.4s ease-in;
+}
+
+.edit:hover,
+.done:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.overdue__title {
+  margin: 0;
+  padding: 0;
+}
+.note__img {
+  max-height: 350px;
+}
+
+.mat-button {
+  background-color: lightblue;
+  border-color: blue;
+  padding: 10px;
+  font-family: "Amatic SC", cursive;
+  font-size: 20px;
+  border-radius: 10px;
+  margin-left: 40%;
+}
+
+.finished__tasks {
+  margin-left: 15px;
+}
+
+.work__block {
+  display: flex;
+  justify-content: space-between;
+  transition: all 0.4s ease;
+}
+
+.work__block:hover {
+  display: flex;
+  justify-content: space-between;
+  transition: all 0.4s ease;
+  background-color: lightblue;
+  cursor: pointer;
+}
+
+.buttons__editdone {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overdue__pic {
+  width: 55%;
+}
+
+.overdue__pic__tired {
+  width: 68%;
+}
+
+.comment__delete {
+  background-color: #2057b7;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  transition: all 0.4s ease;
+}
+
+.comment__delete:hover {
+  transform: scale(0.9);
+}
+
+.mat-panel-block {
+  background: transparent;
+}
+
+.mat-expansion-panel {
+  background-color: transparent;
+}
+.comment__container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}

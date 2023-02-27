@@ -1,0 +1,44 @@
+<div class="profile-container">
+    <div class="profile">
+        <div class="profile-info">
+            <div class="profile-settings">
+                <div class="profile-settings__avatar">
+                    <img *ngIf="avatarURL" src="{{avatarURL}}" alt="user" class="user-avatar">
+                </div>
+                <div class="profile-settings__controller">
+                    <button (click)="isAvatarModal = true" mat-raised-button>Выбрать другую аватарку</button>
+                </div>
+                <div *ngIf="isAvatarModal" class="avatars-modal">
+                    <div *ngFor="let avatar of avatars">
+                        <a (click)="changeAvatar(avatar)">
+                            <img class="avatar-img" [src]="avatar" alt="avatar-icon">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="profile-info-name">
+                <h2>Имя: {{ serv.username }}</h2>
+                <a class="edit-button"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="edit"></mat-icon></a>
+            </div>
+            <p class="profile-info-status">
+                <span *ngIf="progress < 5">Ваш статус: Лентяй</span>
+                <span [ngStyle]="{'color': 'yellow'}" *ngIf="progress < 15 && progress > 5" >Ваш статус: Бездельник</span>
+                <span [ngStyle]="{'color': 'blue'}" *ngIf="progress < 45 && progress > 15">Ваш статус: Напильник</span>
+                <span [ngStyle]="{'color': 'green'}" *ngIf="progress < 70 && progress > 45">Ваш статус: Прележа</span>
+                <span [ngStyle]="{'color': 'red'}" *ngIf="progress < 95 && progress > 70">Ваш статус: Герой</span>
+                <span [ngStyle]="{'color': 'red'}" *ngIf="progress < 100 && progress > 95">Ваш статус: Безумец</span>
+            </p>
+            <div class="profile-progress">
+                <p>Прогресс выполненных задач: {{ progress }}%</p>
+                <mat-progress-bar mode="determinate" color="primary" [value]="progress"></mat-progress-bar>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="profile-dashboard">
+        <mat-tab-group>
+            <mat-tab label="Важные"> Content 1 </mat-tab>
+            <mat-tab label="Можно оставить"> Content 2 </mat-tab>
+            <mat-tab label="Сделано"> Content 3 </mat-tab>
+          </mat-tab-group>
+    </div> -->
+</div>

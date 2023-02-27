@@ -1,0 +1,17 @@
+<div class="janken__game">
+  <div class="your__janken">
+    <button id="paper" (click)="janken($event)" class="choice"></button>
+    <button id="scissors" (click)="janken($event)" class="choice"></button>
+    <button id="rock" (click)="janken($event)" class="choice"></button>
+  </div>
+  <div class="separator">
+    Выбирай!
+  </div>
+  <div class="his__janken">
+    <button id="paper" disabled></button>
+    <button id="scissors" disabled></button>
+    <button id="rock" disabled></button>
+  </div>
+  <p class="counter">0</p>
+  <button class="janken__restart" (click)="restart($event)">Заново!</button>
+</div>

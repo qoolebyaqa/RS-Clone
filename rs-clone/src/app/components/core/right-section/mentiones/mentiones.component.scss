@@ -1,0 +1,30 @@
+.mentiones__hide-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.mentiones__entertain {
+  display: flex;
+  justify-content: space-around;
+  button {
+    width: 30%;
+    border: none;
+    border-radius: 50%;
+    height: 30px;
+    transition: all 0.4s ease;
+    background-color: white;
+  }
+  .entertain__game:hover {
+    cursor: pointer;
+    background-color: rgb(243, 243, 243);
+    transform: scale(1.1);
+  }
+}
+.mentiones__advise {
+  text-align: center;
+}
+.filler {
+  max-width: 200px;
+  max-height: 300px;
+}

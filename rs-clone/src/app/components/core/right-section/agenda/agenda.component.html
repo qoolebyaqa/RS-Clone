@@ -1,0 +1,41 @@
+<div class="agenda">
+  <div class="agenda__wrapper">
+    <div class="agenda__outlayer">
+      <h2 class="agenda__title">Напоминалка</h2>
+      <div class="agenda__hide-container" (click)="this.hidder($event)">
+        <svg class="agenda__close" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20px">
+          <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
+        </svg>
+      </div>
+    </div>
+    <div class="agenda__body">
+      <div class="agenda__date-container">
+        <div class="agenda__date-info-row">
+          <div class="agenda__selected-date">
+            <mat-form-field appearance="fill">
+              <input matInput [matDatepicker]="picker" [(ngModel)] = "now" placeholder= {{now}}
+              (dateChange)="scheduledTasks('change', $event)">
+              <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="agenda__field" *ngIf="scheduled.length > 0">
+      <div class="task__colleaction" *ngFor="let task of scheduled; let i = index" [ngStyle]="{'display': 'flex', 'justify-content': 'space-between',
+    'width': '90%', 'align-items': 'center', 'margin-bottom': '10px'}">
+        <div class="task__counter"> {{ i + 1 }} </div>
+        <div>
+          <div class="task__title" [style.color]= task.color>{{ task.title }} </div>
+          <div class="task__detail" [style.color]= task.color> {{ task.details }} </div>
+        </div>
+        <div class="task__status">{{ task.isDone ? 'Готово!': 'Надо делать!' }}</div>
+      </div>
+    </div>
+    <div class="agenda__field" *ngIf="scheduled.length === 0">
+      <p class="agenda__note">Выбери дату, чтобы узнать что тебя ждёт в тот день.</p>
+    </div>
+  </div>
+</div>
+
