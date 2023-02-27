@@ -2,7 +2,6 @@
   <header>
     <div class="header-container">
       <h1 class="logo">тут Лого</h1>
-      <app-dark></app-dark>
       <h2 class="header__user">Хеллоу, {{ serv.username }}<img *ngIf="getAvatar() !== ''" [src]="getAvatar()" [ngStyle]="{'width': '30px', 'height': '30px', 'margin-left': '5px', 'border-radius': '16px', 'border': '1px solid white'}"></h2>
       <input class="search-input" type="text" placeholder="Навряд ли что-то найдешь" autocomplete="on" (input)="searcher($event)">
       <div class="header__tools">

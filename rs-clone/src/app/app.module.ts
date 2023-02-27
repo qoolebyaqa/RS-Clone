@@ -52,9 +52,7 @@ import { Game1Component } from './components/core/right-section/game1/game1.comp
 import { RemindeFormComponent } from './components/core/reminde-form/reminde-form.component';
 import { NotificationComponent } from './components/core/notification/notification.component';
 import { Game2Component } from './components/core/right-section/game2/game2.component';
-import { DarkComponent } from './components/core/header/dark/dark.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { ThemeService } from './components/core/header/dark/theme.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -89,7 +87,6 @@ import { ThemeService } from './components/core/header/dark/theme.service';
     RemindeFormComponent,
     NotificationComponent,
     Game2Component,
-    DarkComponent,
   ],
   imports: [
     BrowserModule,
@@ -116,7 +113,6 @@ import { ThemeService } from './components/core/header/dark/theme.service';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
     NewserviceService,
-    ThemeService,
     {
       provide: HTTP_INTERCEPTORS,
       multi: true,
