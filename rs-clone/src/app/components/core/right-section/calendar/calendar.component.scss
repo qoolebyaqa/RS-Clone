@@ -26,7 +26,7 @@
   }
 }
 .calendar__field {
-  background-color: rgb(243, 243, 243);
+  background-color: transparent;
 }
 .calendar__timeArr {
   display: flex;
@@ -41,5 +41,5 @@
 }
 .halfday:hover {
   cursor: pointer;
-  background-color: #2057b7;;
+  background-color: #2057b7;
 }

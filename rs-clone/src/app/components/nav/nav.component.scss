@@ -1,9 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Amatic+SC&family=Caveat:wght@600&display=swap");
+@import url(../../../themes/dark.css);
+@import url(../../../themes/default.css);
 .sidenav-container {
   height: 100%;
   font-family: "Amatic SC", cursive;
 }
-
+.mat-drawer {
+  background: var(--theme-background);
+  color: var(--theme-color);
+  transition: all ease-in-out 400ms;
+}
 .sidenav {
   width: 200px;
   overflow-x: hidden;

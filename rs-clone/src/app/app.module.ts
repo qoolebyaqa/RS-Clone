@@ -50,6 +50,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { HeaderBlockComponent } from './components/core/notifications/drag-drop/header-block/header-block.component';
 import { Game1Component } from './components/core/right-section/game1/game1.component';
 import { RemindeFormComponent } from './components/core/reminde-form/reminde-form.component';
+import { DarkComponent } from './components/core/header/dark/dark.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { ThemeService } from './components/core/header/dark/theme.service';
 
 @NgModule({
   declarations: [
@@ -83,6 +86,7 @@ import { RemindeFormComponent } from './components/core/reminde-form/reminde-for
     HeaderBlockComponent,
     Game1Component,
     RemindeFormComponent,
+    DarkComponent,
   ],
   imports: [
     BrowserModule,
@@ -104,10 +108,12 @@ import { RemindeFormComponent } from './components/core/reminde-form/reminde-for
     DragDropModule,
     MatExpansionModule,
     MatDialogModule,
+    MatSlideToggleModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
     NewserviceService,
+    ThemeService,
     {
       provide: HTTP_INTERCEPTORS,
       multi: true,
